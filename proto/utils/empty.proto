@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package utils;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/utilspb";
+
+// Similar to:  https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/empty.proto
+// But avoids having to request external files.
+message Empty {}

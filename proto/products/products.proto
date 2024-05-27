@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package products;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/productspb";
+
+import "proto/money/money.proto";
+import "proto/utils/timestamp.proto";
+
+// ActiveLineItem represents line item for a product in an active purchase.
+message ActiveLineItem {
+  utils.Timestamp registered_time = 1;
+  utils.Timestamp payment_time = 2;
+  utils.Timestamp started_time = 3;
+  utils.Timestamp completed_time = 4;
+  products.Product product = 5;
+  uint32 quantity = 6;
+}
+
+// HistoricLineItem represents line item for a product in a historical purchase.
+message HistoricalLineItem {
+  utils.Timestamp registered_time = 1;
+  utils.Timestamp payment_time = 2;
+  utils.Timestamp started_time = 3;
+  utils.Timestamp completed_time = 4;
+  products.Product product = 5;
+  uint32 quantity = 6;
+  string rating_url = 7;
+  int32 rating = 8;
+  bool rating_available = 9;
+}
+
+// Product contains information about a product.
+message Product {
+  // id is the unique identifier of a product.
+  string id = 1;
+  // price is the price of the product. A Salon is required to be able to deduct the price.
+  money.Price price = 2;
+  // name is a short description of the product. It may be localized.
+  string name = 3;
+  // description is a longer description of the product. It may be localized.
+  string description = 4;
+  // imageUrl is a url to a image of the product. It may be localized.
+  string image_url = 5;
+  // capacity is a description of the volume/quantity/mass of a product, such as "300 ml" or "1 liter" or "75 grams".  It may be localized.
+  string capacity = 6;
+  // description_url points to the product's webpage. Should be localized.
+  string description_url = 7;
+}
+
+// ProductRequest describes the requesting of a product.
+message ProductRequest {
+  // The ID of the requested product.
+  string id = 1;
+  // How many of the same product to request.
+  uint32 quantity = 2;
+}
+
+// Service contains information about a service.
+message Service {
+  // id is the unique identifier of a service.
+  string id = 1;
+  // price is the price of the service. A Salon is required to be able to deduct the price.
+  money.Price price = 2;
+  // name is a short description of the service. It may be localized.
+  string name = 3;
+  // description is a longer description of the service. It may be localized.
+  string description = 4;
+  // imageUrl is a url to a image of the service. It may be localized.
+  string image_url = 5;
+}
+
+// ServiceRequest describes the requesting of a service.
+message ServiceRequest {
+  // The ID of the requested service.
+  string id = 1;
+  // How many of the same service to request.
+  uint32 quantity = 2;
+}

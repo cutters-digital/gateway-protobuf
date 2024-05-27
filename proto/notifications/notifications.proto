@@ -1,0 +1,125 @@
+syntax = "proto3";
+
+package notifications;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/notificationspb";
+
+// Notification contains eveything to be able to send a notification to a user.
+message Notification {
+  // Token is a FCM Registration-token.
+  string token = 1;
+}
+
+// NotificationCategory contains all the known notification-categories that exist.
+enum NotificationCategory {
+  // Default value if not serializable.
+  NOTIFICATION_CATEGORY_INVALID = 0;
+  // Used for advertisements.
+  NOTIFICATION_CATEGORY_ADVERTISEMENT = 1;
+  // Used for updates about your upcoming haircut.
+  NOTIFICATION_CATEGORY_CURRENT_HAIRCUT = 2;
+  // Used for notifications about feedback on your completed haircut.
+  NOTIFICATION_CATEGORY_FEEDBACK = 3;
+}
+
+// AppNotification describes what fields are available for push-messages from the gateway.
+message AppNotification {
+  // If this ID is reused, the previous notification should be replaced or removed.
+  uint32 id = 1;
+  Alert alert = 2;
+  Dialog dialog = 3;
+  Snackbar snackbar = 4;
+  // If should_dismiss is true, the notification with the given ID should be dismissed.
+  bool should_dismiss = 5;
+  // If alert_plus_in_app is true, AND the app is in the background, AND Alert is set, AND dialog/snackbar is set, AND the app goes to foreground (either by tapping notification or opening the app manually), the dialog/snackbar should be shown. Will only be used for VERY important messages.
+  bool alert_plus_in_app = 6;
+  // Priority for the payload. Should be used wherever applicable (Notifcation/Queue).
+  NotificationPriority priority = 8;
+  // If this is set, the app should attempt to refresh the data/info (salons on map, current haircuts, profile, etc) that is currently displayed.
+  bool should_refresh_info = 9;
+}
+
+// Alert describes the fields available for showing a local notification/alert.
+message Alert {
+  string title = 1;
+  string message = 2;
+  // Category is used for grouping certain kinds of notifications together.
+  Category category = 3;
+  // Default-action is the action that is run when the notification is tapped. If not set, it defaults to open the app.
+  NotificationAction default_action = 4;
+  // Actions is a list of buttons that are available from the notification-drawer, and is optional.
+  repeated NotificationAction actions = 5;
+}
+
+// Category defines a category of notification. It is also known as "Channel" on Android.
+message Category {
+  // ID is a non-localizable identifier of the category, e.g. "status_updates".
+  string id = 1;
+  // Name is a localized human-readable name of the category, e.g. "Status updates" or "Statusoppdateringer".
+  string name = 2;
+  string description = 3;
+}
+
+// Dialog defines the fields available for showing a local dialog.
+message Dialog {
+  string title = 1;
+  string message = 2;
+  // Actions is an optional list of dialog-actions. If empty, a default dismiss-button should be used. If not empty, the list should be used.
+  repeated DialogAction actions = 3;
+}
+
+// Snackbar defines the fields available for showing a local snackbar.
+message Snackbar {
+  string message = 1;
+  // Action is optional. Default is to use system-default dismiss timer or dismiss on tap.
+  SnackbarAction action = 2;
+}
+
+// NotificationAction defines the fields that an action on a Notification can have.
+message NotificationAction {
+  string title = 1;
+  // URL is optional. Default is to open the app.
+  string url = 2;
+}
+
+// DialogAction defines the fields that an action on a Dialog can have.
+message DialogAction {
+  string title = 1;
+  // URL is optional. Default is to dismiss dialog.
+  string url = 2;
+  // Button-type is used in accordance to Material Design.
+  DialogButtonType button_type = 3;
+}
+
+// SnackbarAction defines the fields that an action on a Snackbar can have.
+message SnackbarAction {
+  string title = 1;
+  // URL is optional. Default is to dismiss snackbar.
+  string url = 2;
+}
+
+// NotificationPriority contains all the known notification-priorities that exist.
+enum NotificationPriority {
+  // Default value if not serializable. Should use default-value if it occurs.
+  NOTIFICATION_PRIORITY_INVALID = 0;
+  // Used for default/low priority notifications.
+  NOTIFICATION_PRIORITY_DEFAULT = 1;
+  // Used for high-priority notifications, such as important queue-changes, or messages from hairdressers.
+  NOTIFICATION_PRIORITY_HIGH = 2;
+}
+
+// DialogButtonType declares a material-design style for a button.
+enum DialogButtonType {
+  DIALOG_BUTTON_TYPE_INVALID = 0;
+  DIALOG_BUTTON_TYPE_NEGATIVE = 1;
+  DIALOG_BUTTON_TYPE_NEUTRAL = 2;
+  DIALOG_BUTTON_TYPE_POSITIVE = 3;
+}
+
+// InAppDisplayType declares the different in-app display-types for messages.
+enum InAppDisplayType {
+  IN_APP_DISPLAY_TYPE_INVALID = 0;
+  IN_APP_DISPLAY_TYPE_NONE = 1;
+  IN_APP_DISPLAY_TYPE_DIALOG = 2;
+  IN_APP_DISPLAY_TYPE_SNACKBAR = 3;
+}

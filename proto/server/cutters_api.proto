@@ -1,0 +1,521 @@
+syntax = "proto3";
+
+package server;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/serverpb";
+
+import "proto/auth/auth.proto";
+import "proto/money/money.proto";
+import "proto/payments/payments.proto";
+import "proto/products/products.proto";
+import "proto/utils/empty.proto";
+import "proto/utils/timestamp.proto";
+
+// API for getting status about salons, or making bookings.
+service CuttersAPI {
+  // Returns all the salons with estimated waiting times.
+  rpc GetWaitingTimes(GetWaitingTimesRequest) returns (stream GetWaitingTimesResponse);
+  // Returns a salon with updated waiting-times.
+  rpc GetSalon(GetSalonRequest) returns (GetSalonResponse);
+  // Book a haircut.
+  rpc Book(BookRequest) returns (BookResponse) {
+    option deprecated = true;
+  }
+  // Purchase a certain number of haircuts and/or products.
+  rpc Purchase(PurchaseRequest) returns (PurchaseResponse);
+  // Get the payment-providers that are available to the app for the given user.
+  rpc GetAvailablePaymentProviders(GetAvailablePaymentProvidersRequest) returns (GetAvailablePaymentProvidersResponse);
+  // Get the total price for the requested items.
+  rpc GetPrice(GetPriceRequest) returns (GetPriceResponse);
+  // Get all active campaigns/sales.
+  rpc GetCampaigns(GetCampaignsRequest) returns (GetCampaignsResponse);
+  // Get all the services available for a salon. The best-matching locale will be used.
+  rpc GetServices(GetServicesRequest) returns (stream GetServicesResponse);
+  // Get all the products available for a salon. The best-matching locale will be used.
+  rpc GetProducts(GetProductsRequest) returns (stream GetProductsResponse);
+  // Get the current waiting-status.
+  rpc GetWaitingStatus(GetWaitingStatusRequest) returns (GetWaitingStatusResponse);
+  // List all current and historic purchases. Replaced by ListActiveTransactions and ListHistoricalTransactions.
+  rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse) {
+    option deprecated = true;
+  }
+  // Checks if a voucher can be redeemed.
+  rpc CanRedeemVoucher(CanRedeemVoucherRequest) returns (CanRedeemVoucherResponse);
+  // Create a sharable voucher.
+  rpc CreateVoucher(CreateVoucherRequest) returns (CreateVoucherResponse);
+  // Get Voucher referral-status.
+  rpc GetReferralStatus(GetReferralStatusRequest) returns (GetReferralStatusResponse);
+  // Cancel a upcoming service.
+  rpc CancelService(CancelServiceRequest) returns (CancelServiceResponse);
+  // Log a remote event.
+  rpc RemoteLog(RemoteLogRequest) returns (RemoteLogResponse);
+  // Force a timeout.
+  rpc Timeout(TimeoutRequest) returns (TimeoutResponse);
+  // List active transactions (booked haircuts and products to pickup).
+  rpc ListActiveTransactions(ListActiveTransactionsRequest) returns (ListActiveTransactionsResponse);
+  // List historical transactions (performed haircuts and picked up products).
+  rpc ListHistoricalTransactions(ListHistoricalTransactionsRequest) returns (ListHistoricalTransactionsResponse);
+  // Get all punched-in hairdressers for a given salon.
+  rpc GetAvailableHairdressers(AvailableHairdressersRequest) returns (AvailableHairdressersResponse);
+}
+
+message AvailableHairdressersRequest {
+  auth.Authentication auth = 1;
+  string salon_id = 2;
+}
+
+message AvailableHairdressersResponse {
+  int32 anonymous_hairdressers = 1;
+  repeated Hairdresser hairdressers = 2;
+}
+
+// Hairdresser describes a non-anonymous, punched-in worker.
+message Hairdresser {
+  string display_name = 1;
+  string initials = 2;
+}
+
+message GetWaitingTimesRequest {
+  oneof mode {
+    utils.Empty empty = 1;
+    Location location = 2;
+  }
+  repeated string locales = 3;
+}
+
+message GetWaitingTimesResponse {
+  Salon salon = 1;
+}
+
+message GetSalonRequest {
+  string salon_id = 1;
+  repeated string locales = 2;
+}
+
+message GetSalonResponse {
+  Salon salon = 1;
+}
+
+message BookRequest {
+  auth.Authentication auth = 1;
+  string salon_id = 2;
+  repeated products.Product products = 3;
+  payments.PaymentRequest payment = 4;
+  // Setting allow_async to true will cause the `Book` rpc to be a lot quicker, but will rather contain a `transaction_id` in the `BookingDetails` instead of a `url`. This will be deprecated, aka default `true`, in a later version.
+  bool allow_async = 17;
+}
+
+message BookResponse {
+  payments.PaymentResponse payment = 1;
+  BookingDetails booking = 2;
+}
+
+message PurchaseRequest {
+  auth.Authentication auth = 1;
+  string salon_id = 2;
+  repeated products.ServiceRequest services = 3;
+  repeated products.ProductRequest products = 4;
+  payments.PaymentRequest payment = 5;
+  // If aware_of_campaigns is set, then the gateway will apply campaigns when calculating the price.
+  bool aware_of_campaigns = 6;
+}
+
+message PurchaseResponse {
+  payments.PaymentResponse payment = 1;
+  repeated BookingDetails bookings = 2;
+}
+
+message GetAvailablePaymentProvidersRequest {
+  auth.Authentication auth = 1;
+}
+
+message GetAvailablePaymentProvidersResponse {
+  // The currently available payment solutions for this user.
+  AvailablePaymentProviders providers = 1;
+}
+
+message GetPriceRequest {
+  auth.Authentication auth = 1;
+  string salon_id = 2;
+  repeated products.ServiceRequest services = 3;
+  repeated products.ProductRequest products = 4;
+  payments.VoucherRequest voucher = 5;
+  repeated payments.VoucherRequest vouchers = 6;
+  repeated payments.CouponCode coupons = 7;
+}
+
+message GetPriceResponse {
+  money.Price price = 1;
+  repeated payments.CouponCode coupons = 2;
+  repeated payments.VoucherCode vouchers = 3;
+}
+
+message GetCampaignsRequest {
+  auth.Authentication auth = 1;
+  string salon_id = 2;
+}
+
+message GetCampaignsResponse {
+  // active_campaign will be true if there is an active campaign matching the request.
+  bool active_campaign = 1;
+  string campaign_text = 2;
+  // The dialog title/message should be shown if they are both non-empty.
+  string campaign_dialog_title = 3;
+  string campaign_dialog_message = 4;
+}
+
+message GetServicesRequest {
+  string salon_id = 1;
+  repeated string locales = 2;
+}
+
+message GetServicesResponse {
+  products.Service service = 1;
+  // available_count will reflect how many of this specific service can be purchased.
+  uint32 available_count = 2;
+}
+
+message GetProductsRequest {
+  string salon_id = 1;
+  repeated string locales = 2;
+  auth.Authentication auth = 3;
+}
+
+message GetProductsResponse {
+  products.Product product = 1;
+  uint32 stock_count = 2;
+}
+
+message GetWaitingStatusRequest {
+  auth.Authentication auth = 1;
+  // transaction_id should be a Transaction connected to a Service, not a Product.
+  string transaction_id = 2;
+}
+
+message GetWaitingStatusResponse {
+  BookingDetails booking = 1;
+}
+
+message ListTransactionsRequest {
+  auth.Authentication auth = 1;
+  bool include_active = 2;
+  bool include_historic = 3;
+}
+
+message ListTransactionsResponse {
+  repeated ServiceTransaction active_services = 1;
+  repeated ProductTransaction active_products = 2;
+  repeated ServiceTransaction historic_services = 3;
+  repeated ProductTransaction historic_products = 4;
+}
+
+message CanRedeemVoucherRequest {
+  auth.Authentication auth = 1;
+  payments.VoucherRequest voucher = 2;
+  string salon_id = 3;
+}
+
+message CanRedeemVoucherResponse {
+  bool can_redeem = 1;
+  // If the voucher could not be redeemed, the localized reason will be set.
+  string reason = 2;
+}
+
+message CreateVoucherRequest {
+  auth.Authentication auth = 1;
+}
+
+message CreateVoucherResponse {
+  payments.VoucherResponse voucher = 1;
+}
+
+message GetReferralStatusRequest {
+  auth.Authentication auth = 1;
+}
+
+message GetReferralStatusResponse {
+  uint32 current_referral_count = 1;
+  uint32 target_referral_count = 2;
+  repeated payments.VoucherResponse voucher = 3;
+}
+
+message CancelServiceRequest {
+  auth.Authentication auth = 1;
+  // transaction_id should be a Transaction connected to a Service, not a Product.
+  string transaction_id = 2;
+}
+
+message CancelServiceResponse {}
+
+message RemoteLogRequest {
+  auth.Authentication auth = 2;
+  string event = 1;
+}
+
+message RemoteLogResponse {}
+
+message TimeoutRequest {
+  uint32 seconds = 1;
+}
+
+message TimeoutResponse {}
+
+message ListActiveTransactionsRequest {
+  auth.Authentication auth = 1;
+}
+
+message ListActiveTransactionsResponse {
+  repeated ActiveServiceTransaction service_transactions = 1;
+  repeated ActiveProductTransaction product_transactions = 2;
+}
+
+message ListHistoricalTransactionsRequest {
+  auth.Authentication auth = 1;
+  utils.Timestamp since = 2;
+}
+
+message ListHistoricalTransactionsResponse {
+  repeated HistoricalServiceTransaction service_transactions = 1;
+  repeated HistoricalProductTransaction product_transactions = 2;
+  int32 days_since_last_haircut = 3;
+  string days_since_last_haircut_picture_url = 4;
+  string days_since_last_haircut_text = 5;
+}
+
+// BookingDetails contains information about the status of the booking.
+message BookingDetails {
+  string url = 1 [deprecated = true];
+  // Estimated waiting-time, given in milliseconds.
+  int32 waiting_time = 2;
+  string transaction_id = 3;
+  BookingStatus status = 4 [deprecated = true];
+  int32 position_in_queue = 5;
+  string queue_url = 6;
+  ServiceStatus service_status = 7;
+  ReadableWaitingTime estimated_wait = 8;
+}
+
+// OpeningTime describes opening-hours.
+message OpeningTime {
+  // A boolean indicating whether the salon is open or not.
+  bool open = 1;
+  // Opening-time, given as milliseconds after midnight.
+  uint32 from = 2;
+  // Closing-time, given as milliseconds after midnight.
+  uint32 to = 3;
+}
+
+// Timetable describes the opening-times for a week.
+message Timetable {
+  OpeningTime mon = 1;
+  OpeningTime tue = 2;
+  OpeningTime wed = 3;
+  OpeningTime thu = 4;
+  OpeningTime fri = 5;
+  OpeningTime sat = 6;
+  OpeningTime sun = 7;
+}
+
+// Salon describes the information about a salon.
+message Salon {
+  string id = 1;
+  // Estimated waiting-time, given in milliseconds.
+  int32 waiting_time = 2;
+  uint32 in_queue = 3;
+  string name = 4;
+  string city = 5;
+  string country = 6;
+  string address = 7;
+  string post_number = 8;
+  string post = 9;
+  string phone = 10;
+  string email = 11;
+  Timetable times = 12;
+  bool open = 13;
+  Location location = 14;
+  money.Price haircut_price = 15;
+  // Relative location is a short snippet about where the salon is located, e.g. under the escalator in the 2nd floor.
+  string relative_location = 16;
+  // The currency the salon uses.
+  money.Currency currency = 17;
+  // The phone-prefix to use when registering users, such as "+47" or "+46".
+  string default_phone_prefix = 18;
+  ReadableWaitingTime estimated_wait = 19;
+  // Precision of the waiting-time.
+  WaitingTimePrecision precision = 20;
+  // The currently available payment solutions for this salon.
+  AvailablePaymentProviders providers = 21;
+  // Is referring enabled for this salon
+  bool is_referring_enabled = 22;
+  AvailableHairdressersResponse available_hairdressers = 23;
+}
+
+// Location describes a geo-location on earth, given in Decimal degrees: https://en.wikipedia.org/wiki/Decimal_degrees
+message Location {
+  double lat = 1;
+  double lng = 2;
+}
+
+// ServiceTransaction describes a purchased service.
+message ServiceTransaction {
+  // The Service Transaction-ID: Used to get Waiting-status.
+  string id = 1;
+  utils.Timestamp registered_time = 2;
+  utils.Timestamp payment_time = 3;
+  utils.Timestamp started_time = 4;
+  utils.Timestamp completed_time = 5;
+  // The service that was purchased.
+  products.Service service = 6;
+  // Which salon the purchase was at.
+  string salon_id = 7;
+  // The name of the customer. Might be "Name 1" or "Name 2" if the customer purchased multiple haircuts at the same time.
+  string customer_name = 8;
+  string queue_url = 9;
+}
+
+// ProductTransaction describes a purchased product.
+message ProductTransaction {
+  // The Product Transaction-ID: Used when registering a product as picked up.
+  string id = 1;
+  utils.Timestamp registered_time = 2;
+  utils.Timestamp payment_time = 3;
+  utils.Timestamp started_time = 4;
+  utils.Timestamp completed_time = 5;
+  // The service that was purchased.
+  products.Product product = 6;
+  // Which salon the purchase was at.
+  string salon_id = 7;
+  // How many of the same product is tied to the same product-purchase-id.
+  uint32 quantity = 8;
+}
+
+// ServiceTransaction describes a purchased service.
+message ActiveServiceTransaction {
+  // The Service Transaction-ID: Used to get Waiting-status.
+  string id = 1;
+  string batch_id = 2;
+  utils.Timestamp registered_time = 3;
+  utils.Timestamp payment_time = 4;
+  utils.Timestamp started_time = 5;
+  utils.Timestamp completed_time = 6;
+  // The service that was purchased.
+  products.Service service = 7;
+  // Which salon the purchase was at.
+  SalonInfo salon_info = 8;
+  payments.PaymentMethod payment_method = 9;
+  // The name of the customer. Might be "Name 1" or "Name 2" if the customer purchased multiple haircuts at the same time.
+  string customer_name = 10;
+  string queue_url = 11;
+}
+
+// ProductTransaction describes a purchased product.
+message ActiveProductTransaction {
+  string batch_id = 1;
+  // Which salon the purchase was at.
+  SalonInfo salon_info = 2;
+  payments.PaymentMethod payment_method = 3;
+  repeated products.ActiveLineItem line_items = 4;
+}
+
+// ServiceTransaction describes a purchased service.
+message HistoricalServiceTransaction {
+  // The Service Transaction-ID: Used to get Waiting-status.
+  string id = 1;
+  string batch_id = 2;
+  utils.Timestamp registered_time = 3;
+  utils.Timestamp payment_time = 4;
+  utils.Timestamp started_time = 5;
+  utils.Timestamp completed_time = 6;
+  // The service that was purchased.
+  products.Service service = 7;
+  // Which salon the purchase was at.
+  SalonInfo salon_info = 8;
+  // The name of the customer. Might be "Name 1" or "Name 2" if the customer purchased multiple haircuts at the same time.
+  string customer_name = 9;
+  string queue_url = 10;
+  payments.PaymentMethod payment_method = 11;
+  string rating_url = 12;
+  int32 rating = 13;
+  bool rating_available = 14;
+  HistoricalTransactionState state = 15;
+  bool is_refunded = 16;
+  string receipt_url = 17;
+}
+
+// HistoricalTransactionState contains valid states for historical service transactions.
+enum HistoricalTransactionState {
+  HISTORICAL_TRANSACTION_STATE_INVALID = 0;
+  HISTORICAL_TRANSACTION_STATE_COMPLETED = 1;
+  HISTORICAL_TRANSACTION_STATE_CANCELLED = 2;
+  HISTORICAL_TRANSACTION_STATE_NOSHOW = 3;
+  HISTORICAL_TRANSACTION_STATE_ERROR = 4;
+}
+
+// ProductTransaction describes a purchased product.
+message HistoricalProductTransaction {
+  string batch_id = 1;
+  // Which salon the purchase was at.
+  SalonInfo salon_info = 2;
+  payments.PaymentMethod payment_method = 3;
+  string receipt_url = 4;
+  repeated products.HistoricalLineItem line_items = 5;
+}
+
+// SalonInfo represents essential info about a salon.
+message SalonInfo {
+  string id = 1;
+  string name = 2;
+  Location location = 3;
+}
+
+// BookingStatus contains all the known statuses a booking can be in.
+enum BookingStatus {
+  BOOKING_STATUS_INVALID = 0;
+  BOOKING_STATUS_UNKNOWN = 1;
+  BOOKING_STATUS_REGISTERED = 2;
+  BOOKING_STATUS_STARTED = 3;
+  BOOKING_STATUS_STOPPED = 4;
+  BOOKING_STATUS_SERVING = 5;
+  BOOKING_STATUS_NOSHOW = 6;
+}
+
+// ServiceStatus contains all the known statuses a service-purchase can be in.
+enum ServiceStatus {
+  SERVICE_STATUS_INVALID = 0;
+  // Order complete = We have received payment, and are putting the customer in queue.
+  SERVICE_STATUS_ORDER_COMPLETE = 2;
+  // Waiting = You are currently in queue, but it is a while until your cut.
+  SERVICE_STATUS_WAITING = 3;
+  // Almost ready = You are in queue, and it's about to be your turn. Time to get to the salon.
+  SERVICE_STATUS_ALMOST_READY = 4;
+  // Your turn = You are in queue, and it's your turn to be served.
+  SERVICE_STATUS_YOUR_TURN = 5;
+  // Completed = Your cut is completed, or was canceled.
+  SERVICE_STATUS_COMPLETED = 6;
+}
+
+// ReadableWaitingTime describes a waiting-time in a readable format.
+message ReadableWaitingTime {
+  // Short format, e.g. "<5m".
+  string short_format = 1;
+  // Long format, e.g. "Less than 5 min".
+  string long_format = 2;
+}
+
+// WaitingTimePrecision contains all the known precisions of a salon's waiting-time.
+enum WaitingTimePrecision {
+  WAITING_TIME_PRECISION_INVALID = 0;
+  // We don't know the waiting-time.
+  WAITING_TIME_PRECISION_UNKNOWN = 1;
+  // We know approximately what the waiting-time is.
+  WAITING_TIME_PRECISION_APPROXIMATE = 2;
+  // There is little to no waiting-time.
+  WAITING_TIME_PRECISION_NONE = 3;
+}
+
+// AvailablePaymentProviders contains all available payment solutions for any given salon.
+message AvailablePaymentProviders {
+  bool voucher = 1;
+  bool stripe = 2;
+  bool vipps = 3;
+}

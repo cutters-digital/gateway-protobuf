@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package rest;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/restpb";
+
+import "proto/auth/auth.proto";
+import "proto/notifications/notifications.proto";
+
+// API for calls that go through a REST-proxy for REST-specific authentication, such as HMAC.
+service RestAPI {
+  // Send a notification to a specific user.
+  rpc Notification(NotificationRequest) returns (NotificationResponse);
+  // Send customer-notification and update a service.
+  rpc UpdateService(UpdateServiceRequest) returns (UpdateServiceResponse);
+  // Send a voucher-notification to a specific user.
+  rpc VoucherNotification(VoucherNotificationRequest) returns (VoucherNotificationResponse);
+}
+
+message NotificationRequest {
+  // Required server-authentication.
+  auth.Authentication auth = 1;
+  // The recipient of the notification.
+  string customer_id = 2;
+  // The notification payload.
+  notifications.AppNotification app_notification = 3;
+}
+
+message NotificationResponse {
+  string message = 1;
+}
+
+message UpdateServiceRequest {
+  // Required server-authentication.
+  auth.Authentication auth = 1;
+  // The service to check for updates on.
+  ServiceUpdate service = 2;
+}
+
+message UpdateServiceResponse {
+  string message = 1;
+}
+
+message VoucherNotificationRequest {
+  // Required server-authentication.
+  auth.Authentication auth = 1;
+  // An ID for idempotency.
+  string event_id = 2;
+  // The country-code and phone-number for the recipient, prefixed with "+", e.g.: "+4712345678".
+  string phone_number = 3;
+  // The type of notification to send out.
+  VoucherNotificationType voucher_notification_type = 4;
+}
+
+message VoucherNotificationResponse {
+  string message = 1;
+}
+
+// NotificationType contains all the possible notification-types that can be sent.
+enum NotificationType {
+  NOTIFICATION_TYPE_INVALID = 0;
+  NOTIFICATION_TYPE_WAITWHILE_SUCCESS = 1;
+}
+
+// VoucherNotificationType contains all the possible notification-types that can be sent.
+enum VoucherNotificationType {
+  VOUCHER_NOTIFICATION_TYPE_INVALID = 0;
+  VOUCHER_NOTIFICATION_TYPE_REFERRED_FRIENDS = 1;
+}
+
+// ServiceUpdate defines the required fields to keep a customer updated on his service-purchase.
+message ServiceUpdate {
+  // Required transaction-id.
+  string transaction_id = 1;
+  // Required customer-id.
+  string customer_id = 2;
+}

@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package payments;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/paymentspb";
+
+import "proto/auth/auth.proto";
+import "proto/money/money.proto";
+import "proto/payments/stripe.proto";
+import "proto/payments/vipps.proto";
+import "proto/utils/empty.proto";
+
+// PaymentRequest contains information about how a payment should be done.
+message PaymentRequest {
+  oneof provider {
+    utils.Empty empty = 1;
+    StripePaymentRequest stripe = 2;
+    VippsPaymentRequest vipps = 5;
+  }
+  VoucherRequest voucher = 3;
+  repeated VoucherRequest vouchers = 6;
+  repeated CouponCode coupons = 7;
+  // The expected price for the payment, after discounts/vouchers. The server will not go through with payment if the expected price is different than this amount.
+  money.Price expected_price = 4;
+}
+
+// CouponCode holds information needed by both requests and responses for working with cutters coupons.
+message CouponCode {
+  string name = 1;
+  bool valid = 2;
+  string description = 3;
+}
+
+// VoucherCode holds information for the app regarding the voucher information in the request.
+message VoucherCode {
+  string name = 1;
+  bool valid = 2;
+}
+
+// PaymentResponse contains information about the status of a payment.
+message PaymentResponse {
+  PaymentStatus status = 1;
+  oneof provider {
+    utils.Empty empty = 2;
+    StripePaymentResponse stripe = 3;
+    VippsPaymentResponse vipps = 4;
+  }
+}
+
+// VoucherRequest contains information about required fields for redeeming a voucher code.
+message VoucherRequest {
+  // Code is a 6-character alphanumerical (by en-US locale) code.
+  string code = 1;
+}
+
+// VoucherResponse contains information about a voucher.
+message VoucherResponse {
+  // Code is a 6-character alphanumerical (by en-US locale) code.
+  string code = 1;
+  // The voucher code might be valid only for a specific country.
+  string country = 2;
+  // The voucher code might be valid only for a specific salon.
+  string salon_id = 3;
+  // The voucher expires at a given date+time, given in milliseconds after Unix Epoch: https://en.wikipedia.org/wiki/Unix_time
+  int64 expiry_date = 4;
+}
+
+// PaymentStatus contains all the possible statuses a payment can be in.
+enum PaymentStatus {
+  PAYMENT_STATUS_INVALID = 0;
+  PAYMENT_STATUS_UNKNOWN = 1;
+  PAYMENT_STATUS_SUCCESS = 2;
+  PAYMENT_STATUS_ERROR = 3;
+  PAYMENT_STATUS_REQUIRE_ACTION = 4;
+}
+
+// CardRequest contains information about how a card setup should be done.
+message CardRequest {
+  auth.Authentication auth = 1;
+  Card card = 2;
+  oneof provider {
+    utils.Empty empty = 3;
+    StripeCardRequest stripe = 4;
+  }
+  // Setting error_on_not_found to true will cause the `ListCards` rpc to throw a NotFound error if no cards exists. This will be deprecated, aka default `true`, in a later version.
+  bool error_on_not_found = 17;
+}
+
+// CardResponse contains information about the status of a card.
+message CardResponse {
+  Card card = 1;
+  CardStatus status = 2;
+  oneof provider {
+    utils.Empty empty = 3;
+    StripeCardResponse stripe = 4;
+  }
+}
+
+// Card contains information about the card.
+message Card {
+  string last_four_digits = 1;
+  uint32 expiry_year = 2;
+  uint32 expiry_month = 3;
+  string brand = 4;
+}
+
+// CardStatus contains all the possible statuses a card can be in.
+enum CardStatus {
+  CARD_STATUS_INVALID = 0;
+  CARD_STATUS_UNKNOWN = 1;
+  CARD_STATUS_SUCCESS = 2;
+  CARD_STATUS_ERROR = 3;
+  CARD_STATUS_REQUIRE_ACTION = 4;
+}
+
+// PaymentMethod represents how customer paid for a service/product.
+enum PaymentMethod {
+  PAYMENT_METHOD_INVALID = 0;
+  PAYMENT_METHOD_UNKNOWN = 1;
+  PAYMENT_METHOD_VOUCHER = 2;
+  PAYMENT_METHOD_STRIPE = 3;
+  PAYMENT_METHOD_VIPPS = 4;
+  PAYMENT_METHOD_WALLMOB = 5;
+}

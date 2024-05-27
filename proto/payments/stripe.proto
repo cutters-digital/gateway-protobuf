@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package payments;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/paymentspb";
+
+// StripePaymentRequest contains request-information about Stripe-payments.
+message StripePaymentRequest {
+  string payment_method_id = 1;
+  string payment_intent_id = 2;
+}
+
+// StripePaymentResponse contains response-information about Stripe-payments.
+message StripePaymentResponse {
+  string client_secret = 1;
+  string stripe_account = 2;
+}
+
+// StripeCardRequest contains request-information about Stripe-cards.
+message StripeCardRequest {
+  string payment_method_id = 1;
+  string setup_intent_id = 2;
+}
+
+// StripeCardResponse contains response-information about Stripe-cards.
+message StripeCardResponse {
+  string client_secret = 1;
+  string payment_method_id = 2;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package payments;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/paymentspb";
+
+import "proto/payments/payments.proto";
+
+// API for CRUD-operations on payment-cards.
+service CardAPI {
+  // Create a card on the current user.
+  rpc CreateCard(CardRequest) returns (CardResponse);
+  // Update information on a card.
+  rpc UpdateCard(CardRequest) returns (CardResponse);
+  // Delete a card. Note: This will not remove any payments done.
+  rpc DeleteCard(CardRequest) returns (CardResponse);
+  // List all cards connected to a user.
+  rpc ListCards(CardRequest) returns (stream CardResponse);
+}

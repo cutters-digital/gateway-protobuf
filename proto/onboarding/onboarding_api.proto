@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package onboarding;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/onboardingpb";
+
+// API for getting information about onboarding.
+service OnboardingAPI {
+  // List all app-messages.
+  rpc ListMessages(ListMessagesRequest) returns (ListMessagesResponse);
+}
+
+message ListMessagesRequest {}
+
+message ListMessagesResponse {
+  repeated AppMessage messages = 1;
+}
+
+// AppMessage contains information about general important extra onboarding-like-messages to the user.
+message AppMessage {
+  // The id for the app-message. The id and version should be stored locally on the app.
+  string id = 1;
+  // The version of this app-message. If greater than what has been shown previously, the content should be displayed to the user.
+  uint32 version = 2;
+  AppMessageContent content = 3;
+}
+
+// AppMessageContent contains information about general important extra onboarding-like-messages to the user.
+message AppMessageContent {
+  string title = 1;
+  repeated BulletContent bullet_content = 2;
+  // Future: Buttons?
+
+}
+
+// BulletContent contains the information about one bullet-point for app-messages.
+message BulletContent {
+  // imageUrl is a url to a image of the product. It may be localized.
+  string image_url = 1;
+  string title = 2;
+  string description = 3;
+}

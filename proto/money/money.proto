@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package money;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/moneypb";
+
+// Currency contains information about a currency.
+message Currency {
+  // Code is a 3-character currency-code, according to ISO 4217, like "nok" and "eur".
+  string code = 1;
+  // MinorUnits is the number of minor units (like cents) required to create one full currency-unit. If a currency requires 100 cents to create a full Euro/Dollar, the minorUnits will be 2.
+  uint32 minor_units = 2;
+}
+
+// Price contains information about a certain sum of money.
+// E.g. (Currency=("NOK", 2) + Amount=100) -> 1 NOK = 100 Norwegian cents
+// E.g. (Currency=("ISK", 0) + Amount=100) -> 100 ISK = 100 Icelandic króna (Iceland does not have cents)
+message Price {
+  // Currency is the currency the money is given in.
+  Currency currency = 1;
+  // Amount, given in minor units of the currency.
+  uint64 amount = 2;
+  uint64 base_amount = 3;
+}

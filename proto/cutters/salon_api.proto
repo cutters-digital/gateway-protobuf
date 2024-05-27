@@ -1,0 +1,126 @@
+syntax = "proto3";
+
+package cutters;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/cutterspb";
+
+import "proto/cutters/cutters_error.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+service SalonAPI {
+  rpc GetSalon(GetSalonRequest) returns (GetSalonResponse);
+  rpc ListSalons(ListSalonsRequest) returns (stream ListSalonsResponse);
+}
+
+message GetSalonRequest {
+  int32 id = 1;
+}
+
+message GetSalonResponse {
+  Error error = 1;
+  Salon salon = 2;
+}
+
+message ListSalonsRequest {
+  google.protobuf.Empty empty = 1;
+}
+
+message ListSalonsResponse {
+  Error error = 1;
+  Salon salon = 2;
+}
+
+message Salon {
+  Identity identity = 1;
+  Locality locality = 2;
+  Shop shop = 3;
+  Schedule schedule = 4;
+  Hairdressers hairdressers = 5;
+  Queue queue = 6;
+}
+
+message Identity {
+  int32 id = 1;
+  string name = 2;
+}
+
+message Locality {
+  string country = 1;
+  string region = 2;
+  string city = 3;
+  string address = 4;
+  string relative_location = 5;
+  Coordinates coordinates = 6;
+}
+
+message Coordinates {
+  string latitude = 1;
+  string longitude = 2;
+}
+
+message Shop {
+  bool open = 1;
+  bool bookable = 2;
+  PaymentProviders payment_providers = 3;
+  Currency currency = 4;
+}
+
+message PaymentProviders {
+  bool voucher = 1;
+  bool stripe = 2;
+  bool vipps = 3;
+}
+
+enum Currency {
+  CURRENCY_INVALID = 0;
+  CURRENCY_NOK = 1;
+  CURRENCY_SEK = 2;
+  CURRENCY_EUR = 3;
+}
+
+message Schedule {
+  Regular regular = 1;
+  repeated Exception exceptions = 2;
+}
+
+message Regular {
+  Day mon = 1;
+  Day tue = 2;
+  Day wed = 3;
+  Day thu = 4;
+  Day fri = 5;
+  Day sat = 6;
+  Day sun = 7;
+}
+
+message Day {
+  bool open = 1;
+  Instant from = 2;
+  Instant to = 3;
+}
+
+message Instant {
+  int32 hours = 1;
+  int32 minutes = 2;
+}
+
+message Exception {
+  google.protobuf.Timestamp date_time = 1;
+  Day day = 2;
+}
+
+message Hairdressers {
+  repeated Hairdresser available = 1;
+  int32 anonymous = 2;
+}
+
+message Hairdresser {
+  string name = 1;
+  string initials = 2;
+}
+
+message Queue {
+  int32 waiting_time = 1;
+  int32 waiting = 2;
+}

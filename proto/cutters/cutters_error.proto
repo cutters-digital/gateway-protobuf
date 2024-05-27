@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package cutters;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/cutterspb";
+
+message Error {
+  string code = 1;
+  string message = 2;
+}

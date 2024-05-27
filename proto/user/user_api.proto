@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/cutters-digital/gateway-protobuf/golang/userpb";
+
+import "proto/auth/auth.proto";
+import "proto/notifications/notifications.proto";
+import "proto/utils/timestamp.proto";
+
+// API for CRUD-operations on users.
+service UserAPI {
+  // Create a user.
+  rpc CreateUser(UserRequest) returns (UserResponse);
+  // Get the current user.
+  rpc GetUser(UserRequest) returns (UserResponse);
+  // Update information on the current user.
+  rpc UpdateUser(UserRequest) returns (UserResponse);
+  // Delete the current.
+  rpc DeleteUser(UserRequest) returns (UserResponse);
+  // Update notification token on the current user.
+  rpc UpdateUserNotification(UpdateUserNotificationRequest) returns (UpdateUserNotificationResponse);
+}
+
+message UserRequest {
+  auth.Authentication auth = 1;
+  User user = 2;
+  // Setting error_on_not_found to true will cause the `GetUser` rpc to throw a NotFound error if the customer does not exist. This will be deprecated, aka default `true`, in a later version.
+  bool error_on_not_found = 17 [deprecated = true];
+}
+
+message UserResponse {
+  User user = 1;
+}
+
+message UpdateUserNotificationRequest {
+  auth.Authentication auth = 1;
+  notifications.Notification notification = 2;
+}
+
+message UpdateUserNotificationResponse {}
+
+// User contains all the personal details we know about the user.
+message User {
+  // Name = First-name. Required. Will be displayed on the monitors in the salon when purchasing a cut.
+  string name = 1;
+  // Email. Required. Receipts will be sent to this email.
+  string email = 2;
+  string locale_preference = 3;
+  // Phone number contains the country-code and phone-number, prefixed with "+", e.g.: "+4712345678". Will be ignored if supplied in a UserRequest.
+  string phone_number = 4;
+  // Notification contains information about the Firebase Cloud Messaging token to send notifications to a user.
+  notifications.Notification notification = 5;
+  // The birthday is given in seconds after Unix Epoch: https://en.wikipedia.org/wiki/Unix_time
+  utils.Timestamp birthday = 6;
+  Gender gender = 7;
+  string address = 8;
+  string postal_code = 9;
+  string postal_place = 10;
+  bool allow_marketing = 11;
+  // Last name is optional.
+  string last_name = 12;
+  // Should be exclusive with birthday, with the full date taking priority: if birthdate set, birth_year should be ignored.
+  int32 birth_year = 13;
+}
+
+// Gender contains all genders, while allowing "OTHER" as a catch-all for those that don't fit into a non-binary gender-world.
+enum Gender {
+  GENDER_INVALID = 0;
+  GENDER_OTHER = 1;
+  GENDER_MALE = 2;
+  GENDER_FEMALE = 3;
+}
