@@ -16,7 +16,7 @@ compile_all:
 	docker cp temp:/opus/golang/ .
 	docker rm -f temp
 	go mod tidy
-	@echo "Compilation complete."
+	@echo "Compilation completed."
 
 .PHONY: all
 .SILENT: all
