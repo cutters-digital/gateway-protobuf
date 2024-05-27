@@ -8,7 +8,7 @@ RUN unzip protoc-25.1-linux-x86_64.zip -d /usr
 RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
 RUN go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 
-WORKDIR /opus
+WORKDIR /output
 # Remember to set build context to project root.
 COPY ./proto/ ./proto/
 COPY scripts/generate_golang.sh .
