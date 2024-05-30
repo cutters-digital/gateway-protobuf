@@ -23,7 +23,7 @@ compile_swift:
 compile_android:
 	@echo "compile_android: Not yet implemented."
 
-compile_all:
+compile_all: compile_go compile_swift
 	@echo "---{END: compile_all}---"
 
 .PHONY: all
