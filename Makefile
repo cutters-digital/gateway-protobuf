@@ -1,6 +1,6 @@
 compile_go:
 	@echo "---{START: compile_go}---"
-	@docker build -f golang.Dockerfile -t protoc-golang .
+	@docker build --platform linux/arm64 -f golang.Dockerfile -t protoc-golang .
 	@rm -rf golang # Clean up orphaned files.
 	@-docker rm -f temp-go # Safeguard against leftover tagged image.
 	@docker create --name temp-go protoc-golang
@@ -12,7 +12,7 @@ compile_go:
 
 compile_swift:
 	@echo "---{START: compile_swift}---"
-	@docker build -f swift.Dockerfile -t protoc-swift .
+	@docker build --platform linux/arm64 -f swift.Dockerfile -t protoc-swift .
 	@rm -rf swift # Clean up orphaned files.
 	@-docker rm -f temp-swift # Safeguard against leftover tagged image.
 	@docker create --name temp-swift protoc-swift
@@ -21,9 +21,9 @@ compile_swift:
 	@echo "---{END: compile_swift}---"
 
 compile_android:
-	@echo "compile_android: Not yet implemented."
+	@echo "---{START: compile_android}---"
 
-compile_all:
+compile_all: compile_go compile_swift
 	@echo "---{END: compile_all}---"
 
 .PHONY: all
