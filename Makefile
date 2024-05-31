@@ -5,6 +5,7 @@ compile_go:
 	@-docker rm -f temp-go # Safeguard against leftover tagged image.
 	@docker create --name temp-go protoc-golang
 	@docker cp temp-go:/output/golang/ .
+	@docker cp temp-go:/output/go.sum .
 	@docker cp temp-go:/output/descriptor/ .
 	@docker rm -f temp-go
 	@go mod tidy
