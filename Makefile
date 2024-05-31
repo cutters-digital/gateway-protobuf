@@ -20,10 +20,17 @@ compile_swift:
 	@docker rm -f temp-swift
 	@echo "---{END: compile_swift}---"
 
-compile_android:
-	@echo "---{START: compile_android}---"
+compile_java:
+	@echo "---{START: compile_java}---"
+	@docker build -f java.Dockerfile -t protoc-java .
+	@rm -rf java # Clean up orphaned files.
+	@-docker rm -f temp-java # Safeguard against leftover tagged image.
+	@docker create --name temp-java protoc-java
+	@docker cp temp-java:/output/java .
+	@docker rm -f temp-java
+	@echo "---{END: compile_java}---"
 
-compile_all: compile_go compile_swift
+compile_all: compile_go compile_swift compile_java
 	@echo "---{END: compile_all}---"
 
 .PHONY: all
