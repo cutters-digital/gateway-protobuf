@@ -23,13 +23,12 @@ This repository is the 'Single Source of Truth' for the gRPC / Protocol Buffers 
 ### Importing:
 How to import the compiled files to your project.
 - #### Golang:
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue massa vel justo dapibus viverra. 
-        Cras ut turpis mauris. Vestibulum condimentum enim et eros finibus rutrum.
+  > Run `go get github.com/cutters-digital/gateway-protobuf@v1.0.0`
+  > 
+  > Replace 'v1.0.0' with the version you need.
 
 - #### iOS:
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue massa vel justo dapibus viverra. 
-        Cras ut turpis mauris. Vestibulum condimentum enim et eros finibus rutrum.
-
+  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue massa vel justo dapibus viverra.
+  
 - #### Android:
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue massa vel justo dapibus viverra. 
-        Cras ut turpis mauris. Vestibulum condimentum enim et eros finibus rutrum.
+  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla congue massa vel justo dapibus viverra.
