@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 swift
+FROM --platform=linux/amd64 swift:5.10
 
 WORKDIR /
 COPY scripts/swift/prepare_swift.sh .

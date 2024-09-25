@@ -118,11 +118,13 @@ message PurchaseRequest {
   payments.PaymentRequest payment = 5;
   // If aware_of_campaigns is set, then the gateway will apply campaigns when calculating the price.
   bool aware_of_campaigns = 6;
+  string IdempotencyKey = 7;
 }
 
 message PurchaseResponse {
   payments.PaymentResponse payment = 1;
   repeated BookingDetails bookings = 2;
+  string IdempotencyKey = 3;
 }
 
 message GetAvailablePaymentProvidersRequest {
