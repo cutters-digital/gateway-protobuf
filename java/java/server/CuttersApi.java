@@ -8455,12 +8455,12 @@ public final class CuttersApi {
     boolean getAwareOfCampaigns();
 
     /**
-     * <code>string IdempotencyKey = 7;</code>
+     * <code>string idempotency_key = 7;</code>
      * @return The idempotencyKey.
      */
     java.lang.String getIdempotencyKey();
     /**
-     * <code>string IdempotencyKey = 7;</code>
+     * <code>string idempotency_key = 7;</code>
      * @return The bytes for idempotencyKey.
      */
     com.google.protobuf.ByteString
@@ -8694,11 +8694,11 @@ public final class CuttersApi {
       return awareOfCampaigns_;
     }
 
-    public static final int IDEMPOTENCYKEY_FIELD_NUMBER = 7;
+    public static final int IDEMPOTENCY_KEY_FIELD_NUMBER = 7;
     @SuppressWarnings("serial")
     private volatile java.lang.Object idempotencyKey_ = "";
     /**
-     * <code>string IdempotencyKey = 7;</code>
+     * <code>string idempotency_key = 7;</code>
      * @return The idempotencyKey.
      */
     @java.lang.Override
@@ -8715,7 +8715,7 @@ public final class CuttersApi {
       }
     }
     /**
-     * <code>string IdempotencyKey = 7;</code>
+     * <code>string idempotency_key = 7;</code>
      * @return The bytes for idempotencyKey.
      */
     @java.lang.Override
@@ -8870,7 +8870,7 @@ public final class CuttersApi {
       hash = (37 * hash) + AWARE_OF_CAMPAIGNS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAwareOfCampaigns());
-      hash = (37 * hash) + IDEMPOTENCYKEY_FIELD_NUMBER;
+      hash = (37 * hash) + IDEMPOTENCY_KEY_FIELD_NUMBER;
       hash = (53 * hash) + getIdempotencyKey().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -10172,7 +10172,7 @@ public final class CuttersApi {
 
       private java.lang.Object idempotencyKey_ = "";
       /**
-       * <code>string IdempotencyKey = 7;</code>
+       * <code>string idempotency_key = 7;</code>
        * @return The idempotencyKey.
        */
       public java.lang.String getIdempotencyKey() {
@@ -10188,7 +10188,7 @@ public final class CuttersApi {
         }
       }
       /**
-       * <code>string IdempotencyKey = 7;</code>
+       * <code>string idempotency_key = 7;</code>
        * @return The bytes for idempotencyKey.
        */
       public com.google.protobuf.ByteString
@@ -10205,7 +10205,7 @@ public final class CuttersApi {
         }
       }
       /**
-       * <code>string IdempotencyKey = 7;</code>
+       * <code>string idempotency_key = 7;</code>
        * @param value The idempotencyKey to set.
        * @return This builder for chaining.
        */
@@ -10218,7 +10218,7 @@ public final class CuttersApi {
         return this;
       }
       /**
-       * <code>string IdempotencyKey = 7;</code>
+       * <code>string idempotency_key = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearIdempotencyKey() {
@@ -10228,7 +10228,7 @@ public final class CuttersApi {
         return this;
       }
       /**
-       * <code>string IdempotencyKey = 7;</code>
+       * <code>string idempotency_key = 7;</code>
        * @param value The bytes for idempotencyKey to set.
        * @return This builder for chaining.
        */
@@ -10349,12 +10349,12 @@ public final class CuttersApi {
         int index);
 
     /**
-     * <code>string IdempotencyKey = 3;</code>
+     * <code>string idempotency_key = 3;</code>
      * @return The idempotencyKey.
      */
     java.lang.String getIdempotencyKey();
     /**
-     * <code>string IdempotencyKey = 3;</code>
+     * <code>string idempotency_key = 3;</code>
      * @return The bytes for idempotencyKey.
      */
     com.google.protobuf.ByteString
@@ -10465,11 +10465,11 @@ public final class CuttersApi {
       return bookings_.get(index);
     }
 
-    public static final int IDEMPOTENCYKEY_FIELD_NUMBER = 3;
+    public static final int IDEMPOTENCY_KEY_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
     private volatile java.lang.Object idempotencyKey_ = "";
     /**
-     * <code>string IdempotencyKey = 3;</code>
+     * <code>string idempotency_key = 3;</code>
      * @return The idempotencyKey.
      */
     @java.lang.Override
@@ -10486,7 +10486,7 @@ public final class CuttersApi {
       }
     }
     /**
-     * <code>string IdempotencyKey = 3;</code>
+     * <code>string idempotency_key = 3;</code>
      * @return The bytes for idempotencyKey.
      */
     @java.lang.Override
@@ -10590,7 +10590,7 @@ public final class CuttersApi {
         hash = (37 * hash) + BOOKINGS_FIELD_NUMBER;
         hash = (53 * hash) + getBookingsList().hashCode();
       }
-      hash = (37 * hash) + IDEMPOTENCYKEY_FIELD_NUMBER;
+      hash = (37 * hash) + IDEMPOTENCY_KEY_FIELD_NUMBER;
       hash = (53 * hash) + getIdempotencyKey().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -11311,7 +11311,7 @@ public final class CuttersApi {
 
       private java.lang.Object idempotencyKey_ = "";
       /**
-       * <code>string IdempotencyKey = 3;</code>
+       * <code>string idempotency_key = 3;</code>
        * @return The idempotencyKey.
        */
       public java.lang.String getIdempotencyKey() {
@@ -11327,7 +11327,7 @@ public final class CuttersApi {
         }
       }
       /**
-       * <code>string IdempotencyKey = 3;</code>
+       * <code>string idempotency_key = 3;</code>
        * @return The bytes for idempotencyKey.
        */
       public com.google.protobuf.ByteString
@@ -11344,7 +11344,7 @@ public final class CuttersApi {
         }
       }
       /**
-       * <code>string IdempotencyKey = 3;</code>
+       * <code>string idempotency_key = 3;</code>
        * @param value The idempotencyKey to set.
        * @return This builder for chaining.
        */
@@ -11357,7 +11357,7 @@ public final class CuttersApi {
         return this;
       }
       /**
-       * <code>string IdempotencyKey = 3;</code>
+       * <code>string idempotency_key = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearIdempotencyKey() {
@@ -11367,7 +11367,7 @@ public final class CuttersApi {
         return this;
       }
       /**
-       * <code>string IdempotencyKey = 3;</code>
+       * <code>string idempotency_key = 3;</code>
        * @param value The bytes for idempotencyKey to set.
        * @return This builder for chaining.
        */
@@ -61022,241 +61022,241 @@ public final class CuttersApi {
       "uest\022\023\n\013allow_async\030\021 \001(\010\"c\n\014BookRespons" +
       "e\022*\n\007payment\030\001 \001(\0132\031.payments.PaymentRes" +
       "ponse\022\'\n\007booking\030\002 \001(\0132\026.server.BookingD" +
-      "etails\"\376\001\n\017PurchaseRequest\022\"\n\004auth\030\001 \001(\013" +
+      "etails\"\377\001\n\017PurchaseRequest\022\"\n\004auth\030\001 \001(\013" +
       "2\024.auth.Authentication\022\020\n\010salon_id\030\002 \001(\t" +
       "\022*\n\010services\030\003 \003(\0132\030.products.ServiceReq" +
       "uest\022*\n\010products\030\004 \003(\0132\030.products.Produc" +
       "tRequest\022)\n\007payment\030\005 \001(\0132\030.payments.Pay" +
       "mentRequest\022\032\n\022aware_of_campaigns\030\006 \001(\010\022" +
-      "\026\n\016IdempotencyKey\030\007 \001(\t\"\200\001\n\020PurchaseResp" +
-      "onse\022*\n\007payment\030\001 \001(\0132\031.payments.Payment" +
-      "Response\022(\n\010bookings\030\002 \003(\0132\026.server.Book" +
-      "ingDetails\022\026\n\016IdempotencyKey\030\003 \001(\t\"I\n#Ge" +
-      "tAvailablePaymentProvidersRequest\022\"\n\004aut" +
-      "h\030\001 \001(\0132\024.auth.Authentication\"\\\n$GetAvai" +
-      "lablePaymentProvidersResponse\0224\n\tprovide" +
-      "rs\030\001 \001(\0132!.server.AvailablePaymentProvid" +
-      "ers\"\235\002\n\017GetPriceRequest\022\"\n\004auth\030\001 \001(\0132\024." +
-      "auth.Authentication\022\020\n\010salon_id\030\002 \001(\t\022*\n" +
-      "\010services\030\003 \003(\0132\030.products.ServiceReques" +
-      "t\022*\n\010products\030\004 \003(\0132\030.products.ProductRe" +
-      "quest\022)\n\007voucher\030\005 \001(\0132\030.payments.Vouche" +
-      "rRequest\022*\n\010vouchers\030\006 \003(\0132\030.payments.Vo" +
-      "ucherRequest\022%\n\007coupons\030\007 \003(\0132\024.payments" +
-      ".CouponCode\"\177\n\020GetPriceResponse\022\033\n\005price" +
-      "\030\001 \001(\0132\014.money.Price\022%\n\007coupons\030\002 \003(\0132\024." +
-      "payments.CouponCode\022\'\n\010vouchers\030\003 \003(\0132\025." +
-      "payments.VoucherCode\"K\n\023GetCampaignsRequ" +
-      "est\022\"\n\004auth\030\001 \001(\0132\024.auth.Authentication\022" +
-      "\020\n\010salon_id\030\002 \001(\t\"\206\001\n\024GetCampaignsRespon" +
-      "se\022\027\n\017active_campaign\030\001 \001(\010\022\025\n\rcampaign_" +
-      "text\030\002 \001(\t\022\035\n\025campaign_dialog_title\030\003 \001(" +
-      "\t\022\037\n\027campaign_dialog_message\030\004 \001(\t\"7\n\022Ge" +
-      "tServicesRequest\022\020\n\010salon_id\030\001 \001(\t\022\017\n\007lo" +
-      "cales\030\002 \003(\t\"R\n\023GetServicesResponse\022\"\n\007se" +
-      "rvice\030\001 \001(\0132\021.products.Service\022\027\n\017availa" +
-      "ble_count\030\002 \001(\r\"[\n\022GetProductsRequest\022\020\n" +
-      "\010salon_id\030\001 \001(\t\022\017\n\007locales\030\002 \003(\t\022\"\n\004auth" +
-      "\030\003 \001(\0132\024.auth.Authentication\"N\n\023GetProdu" +
-      "ctsResponse\022\"\n\007product\030\001 \001(\0132\021.products." +
-      "Product\022\023\n\013stock_count\030\002 \001(\r\"U\n\027GetWaiti" +
-      "ngStatusRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Aut" +
-      "hentication\022\026\n\016transaction_id\030\002 \001(\t\"C\n\030G" +
-      "etWaitingStatusResponse\022\'\n\007booking\030\001 \001(\013" +
-      "2\026.server.BookingDetails\"o\n\027ListTransact" +
-      "ionsRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authent" +
-      "ication\022\026\n\016include_active\030\002 \001(\010\022\030\n\020inclu" +
-      "de_historic\030\003 \001(\010\"\362\001\n\030ListTransactionsRe" +
-      "sponse\0223\n\017active_services\030\001 \003(\0132\032.server" +
-      ".ServiceTransaction\0223\n\017active_products\030\002" +
-      " \003(\0132\032.server.ProductTransaction\0225\n\021hist" +
-      "oric_services\030\003 \003(\0132\032.server.ServiceTran" +
-      "saction\0225\n\021historic_products\030\004 \003(\0132\032.ser" +
-      "ver.ProductTransaction\"z\n\027CanRedeemVouch" +
-      "erRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authentic" +
-      "ation\022)\n\007voucher\030\002 \001(\0132\030.payments.Vouche" +
-      "rRequest\022\020\n\010salon_id\030\003 \001(\t\">\n\030CanRedeemV" +
-      "oucherResponse\022\022\n\ncan_redeem\030\001 \001(\010\022\016\n\006re" +
-      "ason\030\002 \001(\t\":\n\024CreateVoucherRequest\022\"\n\004au" +
-      "th\030\001 \001(\0132\024.auth.Authentication\"C\n\025Create" +
-      "VoucherResponse\022*\n\007voucher\030\001 \001(\0132\031.payme" +
-      "nts.VoucherResponse\">\n\030GetReferralStatus" +
-      "Request\022\"\n\004auth\030\001 \001(\0132\024.auth.Authenticat" +
-      "ion\"\206\001\n\031GetReferralStatusResponse\022\036\n\026cur" +
-      "rent_referral_count\030\001 \001(\r\022\035\n\025target_refe" +
-      "rral_count\030\002 \001(\r\022*\n\007voucher\030\003 \003(\0132\031.paym" +
-      "ents.VoucherResponse\"R\n\024CancelServiceReq" +
-      "uest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authentication" +
-      "\022\026\n\016transaction_id\030\002 \001(\t\"\027\n\025CancelServic" +
-      "eResponse\"E\n\020RemoteLogRequest\022\"\n\004auth\030\002 " +
-      "\001(\0132\024.auth.Authentication\022\r\n\005event\030\001 \001(\t" +
-      "\"\023\n\021RemoteLogResponse\"!\n\016TimeoutRequest\022" +
-      "\017\n\007seconds\030\001 \001(\r\"\021\n\017TimeoutResponse\"C\n\035L" +
-      "istActiveTransactionsRequest\022\"\n\004auth\030\001 \001" +
-      "(\0132\024.auth.Authentication\"\240\001\n\036ListActiveT" +
-      "ransactionsResponse\022>\n\024service_transacti" +
-      "ons\030\001 \003(\0132 .server.ActiveServiceTransact" +
-      "ion\022>\n\024product_transactions\030\002 \003(\0132 .serv" +
-      "er.ActiveProductTransaction\"h\n!ListHisto" +
-      "ricalTransactionsRequest\022\"\n\004auth\030\001 \001(\0132\024" +
-      ".auth.Authentication\022\037\n\005since\030\002 \001(\0132\020.ut" +
-      "ils.Timestamp\"\240\002\n\"ListHistoricalTransact" +
-      "ionsResponse\022B\n\024service_transactions\030\001 \003" +
-      "(\0132$.server.HistoricalServiceTransaction" +
-      "\022B\n\024product_transactions\030\002 \003(\0132$.server." +
-      "HistoricalProductTransaction\022\037\n\027days_sin" +
-      "ce_last_haircut\030\003 \001(\005\022+\n#days_since_last" +
-      "_haircut_picture_url\030\004 \001(\t\022$\n\034days_since" +
-      "_last_haircut_text\030\005 \001(\t\"\214\002\n\016BookingDeta" +
-      "ils\022\017\n\003url\030\001 \001(\tB\002\030\001\022\024\n\014waiting_time\030\002 \001" +
-      "(\005\022\026\n\016transaction_id\030\003 \001(\t\022)\n\006status\030\004 \001" +
-      "(\0162\025.server.BookingStatusB\002\030\001\022\031\n\021positio" +
-      "n_in_queue\030\005 \001(\005\022\021\n\tqueue_url\030\006 \001(\t\022-\n\016s" +
-      "ervice_status\030\007 \001(\0162\025.server.ServiceStat" +
-      "us\0223\n\016estimated_wait\030\010 \001(\0132\033.server.Read" +
-      "ableWaitingTime\"5\n\013OpeningTime\022\014\n\004open\030\001" +
-      " \001(\010\022\014\n\004from\030\002 \001(\r\022\n\n\002to\030\003 \001(\r\"\371\001\n\tTimet" +
-      "able\022 \n\003mon\030\001 \001(\0132\023.server.OpeningTime\022 " +
-      "\n\003tue\030\002 \001(\0132\023.server.OpeningTime\022 \n\003wed\030" +
-      "\003 \001(\0132\023.server.OpeningTime\022 \n\003thu\030\004 \001(\0132" +
-      "\023.server.OpeningTime\022 \n\003fri\030\005 \001(\0132\023.serv" +
-      "er.OpeningTime\022 \n\003sat\030\006 \001(\0132\023.server.Ope" +
-      "ningTime\022 \n\003sun\030\007 \001(\0132\023.server.OpeningTi" +
-      "me\"\220\005\n\005Salon\022\n\n\002id\030\001 \001(\t\022\024\n\014waiting_time" +
-      "\030\002 \001(\005\022\020\n\010in_queue\030\003 \001(\r\022\014\n\004name\030\004 \001(\t\022\014" +
-      "\n\004city\030\005 \001(\t\022\017\n\007country\030\006 \001(\t\022\017\n\007address" +
-      "\030\007 \001(\t\022\023\n\013post_number\030\010 \001(\t\022\014\n\004post\030\t \001(" +
-      "\t\022\r\n\005phone\030\n \001(\t\022\r\n\005email\030\013 \001(\t\022 \n\005times" +
-      "\030\014 \001(\0132\021.server.Timetable\022\014\n\004open\030\r \001(\010\022" +
-      "\"\n\010location\030\016 \001(\0132\020.server.Location\022#\n\rh" +
-      "aircut_price\030\017 \001(\0132\014.money.Price\022\031\n\021rela" +
-      "tive_location\030\020 \001(\t\022!\n\010currency\030\021 \001(\0132\017." +
-      "money.Currency\022\034\n\024default_phone_prefix\030\022" +
-      " \001(\t\0223\n\016estimated_wait\030\023 \001(\0132\033.server.Re" +
-      "adableWaitingTime\022/\n\tprecision\030\024 \001(\0162\034.s" +
-      "erver.WaitingTimePrecision\0224\n\tproviders\030" +
-      "\025 \001(\0132!.server.AvailablePaymentProviders" +
-      "\022\034\n\024is_referring_enabled\030\026 \001(\010\022E\n\026availa" +
-      "ble_hairdressers\030\027 \001(\0132%.server.Availabl" +
-      "eHairdressersResponse\"$\n\010Location\022\013\n\003lat" +
-      "\030\001 \001(\001\022\013\n\003lng\030\002 \001(\001\"\245\002\n\022ServiceTransacti" +
-      "on\022\n\n\002id\030\001 \001(\t\022)\n\017registered_time\030\002 \001(\0132" +
-      "\020.utils.Timestamp\022&\n\014payment_time\030\003 \001(\0132" +
-      "\020.utils.Timestamp\022&\n\014started_time\030\004 \001(\0132" +
-      "\020.utils.Timestamp\022(\n\016completed_time\030\005 \001(" +
-      "\0132\020.utils.Timestamp\022\"\n\007service\030\006 \001(\0132\021.p" +
-      "roducts.Service\022\020\n\010salon_id\030\007 \001(\t\022\025\n\rcus" +
-      "tomer_name\030\010 \001(\t\022\021\n\tqueue_url\030\t \001(\t\"\215\002\n\022" +
-      "ProductTransaction\022\n\n\002id\030\001 \001(\t\022)\n\017regist" +
-      "ered_time\030\002 \001(\0132\020.utils.Timestamp\022&\n\014pay" +
-      "ment_time\030\003 \001(\0132\020.utils.Timestamp\022&\n\014sta" +
-      "rted_time\030\004 \001(\0132\020.utils.Timestamp\022(\n\016com" +
-      "pleted_time\030\005 \001(\0132\020.utils.Timestamp\022\"\n\007p" +
-      "roduct\030\006 \001(\0132\021.products.Product\022\020\n\010salon" +
-      "_id\030\007 \001(\t\022\020\n\010quantity\030\010 \001(\r\"\203\003\n\030ActiveSe" +
-      "rviceTransaction\022\n\n\002id\030\001 \001(\t\022\020\n\010batch_id" +
-      "\030\002 \001(\t\022)\n\017registered_time\030\003 \001(\0132\020.utils." +
-      "Timestamp\022&\n\014payment_time\030\004 \001(\0132\020.utils." +
-      "Timestamp\022&\n\014started_time\030\005 \001(\0132\020.utils." +
-      "Timestamp\022(\n\016completed_time\030\006 \001(\0132\020.util" +
-      "s.Timestamp\022\"\n\007service\030\007 \001(\0132\021.products." +
-      "Service\022%\n\nsalon_info\030\010 \001(\0132\021.server.Sal" +
-      "onInfo\022/\n\016payment_method\030\t \001(\0162\027.payment" +
-      "s.PaymentMethod\022\025\n\rcustomer_name\030\n \001(\t\022\021" +
-      "\n\tqueue_url\030\013 \001(\t\"\262\001\n\030ActiveProductTrans" +
-      "action\022\020\n\010batch_id\030\001 \001(\t\022%\n\nsalon_info\030\002" +
-      " \001(\0132\021.server.SalonInfo\022/\n\016payment_metho" +
-      "d\030\003 \001(\0162\027.payments.PaymentMethod\022,\n\nline" +
-      "_items\030\004 \003(\0132\030.products.ActiveLineItem\"\242" +
-      "\004\n\034HistoricalServiceTransaction\022\n\n\002id\030\001 " +
-      "\001(\t\022\020\n\010batch_id\030\002 \001(\t\022)\n\017registered_time" +
-      "\030\003 \001(\0132\020.utils.Timestamp\022&\n\014payment_time" +
-      "\030\004 \001(\0132\020.utils.Timestamp\022&\n\014started_time" +
-      "\030\005 \001(\0132\020.utils.Timestamp\022(\n\016completed_ti" +
-      "me\030\006 \001(\0132\020.utils.Timestamp\022\"\n\007service\030\007 " +
-      "\001(\0132\021.products.Service\022%\n\nsalon_info\030\010 \001" +
-      "(\0132\021.server.SalonInfo\022\025\n\rcustomer_name\030\t" +
-      " \001(\t\022\021\n\tqueue_url\030\n \001(\t\022/\n\016payment_metho" +
-      "d\030\013 \001(\0162\027.payments.PaymentMethod\022\022\n\nrati" +
-      "ng_url\030\014 \001(\t\022\016\n\006rating\030\r \001(\005\022\030\n\020rating_a" +
-      "vailable\030\016 \001(\010\0221\n\005state\030\017 \001(\0162\".server.H" +
-      "istoricalTransactionState\022\023\n\013is_refunded" +
-      "\030\020 \001(\010\022\023\n\013receipt_url\030\021 \001(\t\"\317\001\n\034Historic" +
-      "alProductTransaction\022\020\n\010batch_id\030\001 \001(\t\022%" +
-      "\n\nsalon_info\030\002 \001(\0132\021.server.SalonInfo\022/\n" +
-      "\016payment_method\030\003 \001(\0162\027.payments.Payment" +
-      "Method\022\023\n\013receipt_url\030\004 \001(\t\0220\n\nline_item" +
-      "s\030\005 \003(\0132\034.products.HistoricalLineItem\"I\n" +
-      "\tSalonInfo\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\"\n\010" +
-      "location\030\003 \001(\0132\020.server.Location\"@\n\023Read" +
-      "ableWaitingTime\022\024\n\014short_format\030\001 \001(\t\022\023\n" +
-      "\013long_format\030\002 \001(\t\"K\n\031AvailablePaymentPr" +
-      "oviders\022\017\n\007voucher\030\001 \001(\010\022\016\n\006stripe\030\002 \001(\010" +
-      "\022\r\n\005vipps\030\003 \001(\010*\357\001\n\032HistoricalTransactio" +
-      "nState\022(\n$HISTORICAL_TRANSACTION_STATE_I" +
-      "NVALID\020\000\022*\n&HISTORICAL_TRANSACTION_STATE" +
-      "_COMPLETED\020\001\022*\n&HISTORICAL_TRANSACTION_S" +
-      "TATE_CANCELLED\020\002\022\'\n#HISTORICAL_TRANSACTI" +
-      "ON_STATE_NOSHOW\020\003\022&\n\"HISTORICAL_TRANSACT" +
-      "ION_STATE_ERROR\020\004*\325\001\n\rBookingStatus\022\032\n\026B" +
-      "OOKING_STATUS_INVALID\020\000\022\032\n\026BOOKING_STATU" +
-      "S_UNKNOWN\020\001\022\035\n\031BOOKING_STATUS_REGISTERED" +
-      "\020\002\022\032\n\026BOOKING_STATUS_STARTED\020\003\022\032\n\026BOOKIN" +
-      "G_STATUS_STOPPED\020\004\022\032\n\026BOOKING_STATUS_SER" +
-      "VING\020\005\022\031\n\025BOOKING_STATUS_NOSHOW\020\006*\307\001\n\rSe" +
-      "rviceStatus\022\032\n\026SERVICE_STATUS_INVALID\020\000\022" +
-      "!\n\035SERVICE_STATUS_ORDER_COMPLETE\020\002\022\032\n\026SE" +
-      "RVICE_STATUS_WAITING\020\003\022\037\n\033SERVICE_STATUS" +
-      "_ALMOST_READY\020\004\022\034\n\030SERVICE_STATUS_YOUR_T" +
-      "URN\020\005\022\034\n\030SERVICE_STATUS_COMPLETED\020\006*\247\001\n\024" +
-      "WaitingTimePrecision\022\"\n\036WAITING_TIME_PRE" +
-      "CISION_INVALID\020\000\022\"\n\036WAITING_TIME_PRECISI" +
-      "ON_UNKNOWN\020\001\022&\n\"WAITING_TIME_PRECISION_A" +
-      "PPROXIMATE\020\002\022\037\n\033WAITING_TIME_PRECISION_N" +
-      "ONE\020\0032\366\014\n\nCuttersAPI\022T\n\017GetWaitingTimes\022" +
-      "\036.server.GetWaitingTimesRequest\032\037.server" +
-      ".GetWaitingTimesResponse0\001\022=\n\010GetSalon\022\027" +
-      ".server.GetSalonRequest\032\030.server.GetSalo" +
-      "nResponse\0226\n\004Book\022\023.server.BookRequest\032\024" +
-      ".server.BookResponse\"\003\210\002\001\022=\n\010Purchase\022\027." +
-      "server.PurchaseRequest\032\030.server.Purchase" +
-      "Response\022y\n\034GetAvailablePaymentProviders" +
-      "\022+.server.GetAvailablePaymentProvidersRe" +
-      "quest\032,.server.GetAvailablePaymentProvid" +
-      "ersResponse\022=\n\010GetPrice\022\027.server.GetPric" +
-      "eRequest\032\030.server.GetPriceResponse\022I\n\014Ge" +
-      "tCampaigns\022\033.server.GetCampaignsRequest\032" +
-      "\034.server.GetCampaignsResponse\022H\n\013GetServ" +
-      "ices\022\032.server.GetServicesRequest\032\033.serve" +
-      "r.GetServicesResponse0\001\022H\n\013GetProducts\022\032" +
-      ".server.GetProductsRequest\032\033.server.GetP" +
-      "roductsResponse0\001\022U\n\020GetWaitingStatus\022\037." +
-      "server.GetWaitingStatusRequest\032 .server." +
-      "GetWaitingStatusResponse\022Z\n\020ListTransact" +
-      "ions\022\037.server.ListTransactionsRequest\032 ." +
-      "server.ListTransactionsResponse\"\003\210\002\001\022U\n\020" +
-      "CanRedeemVoucher\022\037.server.CanRedeemVouch" +
-      "erRequest\032 .server.CanRedeemVoucherRespo" +
-      "nse\022L\n\rCreateVoucher\022\034.server.CreateVouc" +
-      "herRequest\032\035.server.CreateVoucherRespons" +
-      "e\022X\n\021GetReferralStatus\022 .server.GetRefer" +
-      "ralStatusRequest\032!.server.GetReferralSta" +
-      "tusResponse\022L\n\rCancelService\022\034.server.Ca" +
-      "ncelServiceRequest\032\035.server.CancelServic" +
-      "eResponse\022@\n\tRemoteLog\022\030.server.RemoteLo" +
-      "gRequest\032\031.server.RemoteLogResponse\022:\n\007T" +
-      "imeout\022\026.server.TimeoutRequest\032\027.server." +
-      "TimeoutResponse\022g\n\026ListActiveTransaction" +
-      "s\022%.server.ListActiveTransactionsRequest" +
-      "\032&.server.ListActiveTransactionsResponse" +
-      "\022s\n\032ListHistoricalTransactions\022).server." +
-      "ListHistoricalTransactionsRequest\032*.serv" +
-      "er.ListHistoricalTransactionsResponse\022g\n" +
-      "\030GetAvailableHairdressers\022$.server.Avail" +
-      "ableHairdressersRequest\032%.server.Availab" +
-      "leHairdressersResponseB=Z;github.com/cut" +
-      "ters-digital/gateway-protobuf/golang/ser" +
-      "verpbb\006proto3"
+      "\027\n\017idempotency_key\030\007 \001(\t\"\201\001\n\020PurchaseRes" +
+      "ponse\022*\n\007payment\030\001 \001(\0132\031.payments.Paymen" +
+      "tResponse\022(\n\010bookings\030\002 \003(\0132\026.server.Boo" +
+      "kingDetails\022\027\n\017idempotency_key\030\003 \001(\t\"I\n#" +
+      "GetAvailablePaymentProvidersRequest\022\"\n\004a" +
+      "uth\030\001 \001(\0132\024.auth.Authentication\"\\\n$GetAv" +
+      "ailablePaymentProvidersResponse\0224\n\tprovi" +
+      "ders\030\001 \001(\0132!.server.AvailablePaymentProv" +
+      "iders\"\235\002\n\017GetPriceRequest\022\"\n\004auth\030\001 \001(\0132" +
+      "\024.auth.Authentication\022\020\n\010salon_id\030\002 \001(\t\022" +
+      "*\n\010services\030\003 \003(\0132\030.products.ServiceRequ" +
+      "est\022*\n\010products\030\004 \003(\0132\030.products.Product" +
+      "Request\022)\n\007voucher\030\005 \001(\0132\030.payments.Vouc" +
+      "herRequest\022*\n\010vouchers\030\006 \003(\0132\030.payments." +
+      "VoucherRequest\022%\n\007coupons\030\007 \003(\0132\024.paymen" +
+      "ts.CouponCode\"\177\n\020GetPriceResponse\022\033\n\005pri" +
+      "ce\030\001 \001(\0132\014.money.Price\022%\n\007coupons\030\002 \003(\0132" +
+      "\024.payments.CouponCode\022\'\n\010vouchers\030\003 \003(\0132" +
+      "\025.payments.VoucherCode\"K\n\023GetCampaignsRe" +
+      "quest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authenticatio" +
+      "n\022\020\n\010salon_id\030\002 \001(\t\"\206\001\n\024GetCampaignsResp" +
+      "onse\022\027\n\017active_campaign\030\001 \001(\010\022\025\n\rcampaig" +
+      "n_text\030\002 \001(\t\022\035\n\025campaign_dialog_title\030\003 " +
+      "\001(\t\022\037\n\027campaign_dialog_message\030\004 \001(\t\"7\n\022" +
+      "GetServicesRequest\022\020\n\010salon_id\030\001 \001(\t\022\017\n\007" +
+      "locales\030\002 \003(\t\"R\n\023GetServicesResponse\022\"\n\007" +
+      "service\030\001 \001(\0132\021.products.Service\022\027\n\017avai" +
+      "lable_count\030\002 \001(\r\"[\n\022GetProductsRequest\022" +
+      "\020\n\010salon_id\030\001 \001(\t\022\017\n\007locales\030\002 \003(\t\022\"\n\004au" +
+      "th\030\003 \001(\0132\024.auth.Authentication\"N\n\023GetPro" +
+      "ductsResponse\022\"\n\007product\030\001 \001(\0132\021.product" +
+      "s.Product\022\023\n\013stock_count\030\002 \001(\r\"U\n\027GetWai" +
+      "tingStatusRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.A" +
+      "uthentication\022\026\n\016transaction_id\030\002 \001(\t\"C\n" +
+      "\030GetWaitingStatusResponse\022\'\n\007booking\030\001 \001" +
+      "(\0132\026.server.BookingDetails\"o\n\027ListTransa" +
+      "ctionsRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authe" +
+      "ntication\022\026\n\016include_active\030\002 \001(\010\022\030\n\020inc" +
+      "lude_historic\030\003 \001(\010\"\362\001\n\030ListTransactions" +
+      "Response\0223\n\017active_services\030\001 \003(\0132\032.serv" +
+      "er.ServiceTransaction\0223\n\017active_products" +
+      "\030\002 \003(\0132\032.server.ProductTransaction\0225\n\021hi" +
+      "storic_services\030\003 \003(\0132\032.server.ServiceTr" +
+      "ansaction\0225\n\021historic_products\030\004 \003(\0132\032.s" +
+      "erver.ProductTransaction\"z\n\027CanRedeemVou" +
+      "cherRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authent" +
+      "ication\022)\n\007voucher\030\002 \001(\0132\030.payments.Vouc" +
+      "herRequest\022\020\n\010salon_id\030\003 \001(\t\">\n\030CanRedee" +
+      "mVoucherResponse\022\022\n\ncan_redeem\030\001 \001(\010\022\016\n\006" +
+      "reason\030\002 \001(\t\":\n\024CreateVoucherRequest\022\"\n\004" +
+      "auth\030\001 \001(\0132\024.auth.Authentication\"C\n\025Crea" +
+      "teVoucherResponse\022*\n\007voucher\030\001 \001(\0132\031.pay" +
+      "ments.VoucherResponse\">\n\030GetReferralStat" +
+      "usRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authentic" +
+      "ation\"\206\001\n\031GetReferralStatusResponse\022\036\n\026c" +
+      "urrent_referral_count\030\001 \001(\r\022\035\n\025target_re" +
+      "ferral_count\030\002 \001(\r\022*\n\007voucher\030\003 \003(\0132\031.pa" +
+      "yments.VoucherResponse\"R\n\024CancelServiceR" +
+      "equest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authenticati" +
+      "on\022\026\n\016transaction_id\030\002 \001(\t\"\027\n\025CancelServ" +
+      "iceResponse\"E\n\020RemoteLogRequest\022\"\n\004auth\030" +
+      "\002 \001(\0132\024.auth.Authentication\022\r\n\005event\030\001 \001" +
+      "(\t\"\023\n\021RemoteLogResponse\"!\n\016TimeoutReques" +
+      "t\022\017\n\007seconds\030\001 \001(\r\"\021\n\017TimeoutResponse\"C\n" +
+      "\035ListActiveTransactionsRequest\022\"\n\004auth\030\001" +
+      " \001(\0132\024.auth.Authentication\"\240\001\n\036ListActiv" +
+      "eTransactionsResponse\022>\n\024service_transac" +
+      "tions\030\001 \003(\0132 .server.ActiveServiceTransa" +
+      "ction\022>\n\024product_transactions\030\002 \003(\0132 .se" +
+      "rver.ActiveProductTransaction\"h\n!ListHis" +
+      "toricalTransactionsRequest\022\"\n\004auth\030\001 \001(\013" +
+      "2\024.auth.Authentication\022\037\n\005since\030\002 \001(\0132\020." +
+      "utils.Timestamp\"\240\002\n\"ListHistoricalTransa" +
+      "ctionsResponse\022B\n\024service_transactions\030\001" +
+      " \003(\0132$.server.HistoricalServiceTransacti" +
+      "on\022B\n\024product_transactions\030\002 \003(\0132$.serve" +
+      "r.HistoricalProductTransaction\022\037\n\027days_s" +
+      "ince_last_haircut\030\003 \001(\005\022+\n#days_since_la" +
+      "st_haircut_picture_url\030\004 \001(\t\022$\n\034days_sin" +
+      "ce_last_haircut_text\030\005 \001(\t\"\214\002\n\016BookingDe" +
+      "tails\022\017\n\003url\030\001 \001(\tB\002\030\001\022\024\n\014waiting_time\030\002" +
+      " \001(\005\022\026\n\016transaction_id\030\003 \001(\t\022)\n\006status\030\004" +
+      " \001(\0162\025.server.BookingStatusB\002\030\001\022\031\n\021posit" +
+      "ion_in_queue\030\005 \001(\005\022\021\n\tqueue_url\030\006 \001(\t\022-\n" +
+      "\016service_status\030\007 \001(\0162\025.server.ServiceSt" +
+      "atus\0223\n\016estimated_wait\030\010 \001(\0132\033.server.Re" +
+      "adableWaitingTime\"5\n\013OpeningTime\022\014\n\004open" +
+      "\030\001 \001(\010\022\014\n\004from\030\002 \001(\r\022\n\n\002to\030\003 \001(\r\"\371\001\n\tTim" +
+      "etable\022 \n\003mon\030\001 \001(\0132\023.server.OpeningTime" +
+      "\022 \n\003tue\030\002 \001(\0132\023.server.OpeningTime\022 \n\003we" +
+      "d\030\003 \001(\0132\023.server.OpeningTime\022 \n\003thu\030\004 \001(" +
+      "\0132\023.server.OpeningTime\022 \n\003fri\030\005 \001(\0132\023.se" +
+      "rver.OpeningTime\022 \n\003sat\030\006 \001(\0132\023.server.O" +
+      "peningTime\022 \n\003sun\030\007 \001(\0132\023.server.Opening" +
+      "Time\"\220\005\n\005Salon\022\n\n\002id\030\001 \001(\t\022\024\n\014waiting_ti" +
+      "me\030\002 \001(\005\022\020\n\010in_queue\030\003 \001(\r\022\014\n\004name\030\004 \001(\t" +
+      "\022\014\n\004city\030\005 \001(\t\022\017\n\007country\030\006 \001(\t\022\017\n\007addre" +
+      "ss\030\007 \001(\t\022\023\n\013post_number\030\010 \001(\t\022\014\n\004post\030\t " +
+      "\001(\t\022\r\n\005phone\030\n \001(\t\022\r\n\005email\030\013 \001(\t\022 \n\005tim" +
+      "es\030\014 \001(\0132\021.server.Timetable\022\014\n\004open\030\r \001(" +
+      "\010\022\"\n\010location\030\016 \001(\0132\020.server.Location\022#\n" +
+      "\rhaircut_price\030\017 \001(\0132\014.money.Price\022\031\n\021re" +
+      "lative_location\030\020 \001(\t\022!\n\010currency\030\021 \001(\0132" +
+      "\017.money.Currency\022\034\n\024default_phone_prefix" +
+      "\030\022 \001(\t\0223\n\016estimated_wait\030\023 \001(\0132\033.server." +
+      "ReadableWaitingTime\022/\n\tprecision\030\024 \001(\0162\034" +
+      ".server.WaitingTimePrecision\0224\n\tprovider" +
+      "s\030\025 \001(\0132!.server.AvailablePaymentProvide" +
+      "rs\022\034\n\024is_referring_enabled\030\026 \001(\010\022E\n\026avai" +
+      "lable_hairdressers\030\027 \001(\0132%.server.Availa" +
+      "bleHairdressersResponse\"$\n\010Location\022\013\n\003l" +
+      "at\030\001 \001(\001\022\013\n\003lng\030\002 \001(\001\"\245\002\n\022ServiceTransac" +
+      "tion\022\n\n\002id\030\001 \001(\t\022)\n\017registered_time\030\002 \001(" +
+      "\0132\020.utils.Timestamp\022&\n\014payment_time\030\003 \001(" +
+      "\0132\020.utils.Timestamp\022&\n\014started_time\030\004 \001(" +
+      "\0132\020.utils.Timestamp\022(\n\016completed_time\030\005 " +
+      "\001(\0132\020.utils.Timestamp\022\"\n\007service\030\006 \001(\0132\021" +
+      ".products.Service\022\020\n\010salon_id\030\007 \001(\t\022\025\n\rc" +
+      "ustomer_name\030\010 \001(\t\022\021\n\tqueue_url\030\t \001(\t\"\215\002" +
+      "\n\022ProductTransaction\022\n\n\002id\030\001 \001(\t\022)\n\017regi" +
+      "stered_time\030\002 \001(\0132\020.utils.Timestamp\022&\n\014p" +
+      "ayment_time\030\003 \001(\0132\020.utils.Timestamp\022&\n\014s" +
+      "tarted_time\030\004 \001(\0132\020.utils.Timestamp\022(\n\016c" +
+      "ompleted_time\030\005 \001(\0132\020.utils.Timestamp\022\"\n" +
+      "\007product\030\006 \001(\0132\021.products.Product\022\020\n\010sal" +
+      "on_id\030\007 \001(\t\022\020\n\010quantity\030\010 \001(\r\"\203\003\n\030Active" +
+      "ServiceTransaction\022\n\n\002id\030\001 \001(\t\022\020\n\010batch_" +
+      "id\030\002 \001(\t\022)\n\017registered_time\030\003 \001(\0132\020.util" +
+      "s.Timestamp\022&\n\014payment_time\030\004 \001(\0132\020.util" +
+      "s.Timestamp\022&\n\014started_time\030\005 \001(\0132\020.util" +
+      "s.Timestamp\022(\n\016completed_time\030\006 \001(\0132\020.ut" +
+      "ils.Timestamp\022\"\n\007service\030\007 \001(\0132\021.product" +
+      "s.Service\022%\n\nsalon_info\030\010 \001(\0132\021.server.S" +
+      "alonInfo\022/\n\016payment_method\030\t \001(\0162\027.payme" +
+      "nts.PaymentMethod\022\025\n\rcustomer_name\030\n \001(\t" +
+      "\022\021\n\tqueue_url\030\013 \001(\t\"\262\001\n\030ActiveProductTra" +
+      "nsaction\022\020\n\010batch_id\030\001 \001(\t\022%\n\nsalon_info" +
+      "\030\002 \001(\0132\021.server.SalonInfo\022/\n\016payment_met" +
+      "hod\030\003 \001(\0162\027.payments.PaymentMethod\022,\n\nli" +
+      "ne_items\030\004 \003(\0132\030.products.ActiveLineItem" +
+      "\"\242\004\n\034HistoricalServiceTransaction\022\n\n\002id\030" +
+      "\001 \001(\t\022\020\n\010batch_id\030\002 \001(\t\022)\n\017registered_ti" +
+      "me\030\003 \001(\0132\020.utils.Timestamp\022&\n\014payment_ti" +
+      "me\030\004 \001(\0132\020.utils.Timestamp\022&\n\014started_ti" +
+      "me\030\005 \001(\0132\020.utils.Timestamp\022(\n\016completed_" +
+      "time\030\006 \001(\0132\020.utils.Timestamp\022\"\n\007service\030" +
+      "\007 \001(\0132\021.products.Service\022%\n\nsalon_info\030\010" +
+      " \001(\0132\021.server.SalonInfo\022\025\n\rcustomer_name" +
+      "\030\t \001(\t\022\021\n\tqueue_url\030\n \001(\t\022/\n\016payment_met" +
+      "hod\030\013 \001(\0162\027.payments.PaymentMethod\022\022\n\nra" +
+      "ting_url\030\014 \001(\t\022\016\n\006rating\030\r \001(\005\022\030\n\020rating" +
+      "_available\030\016 \001(\010\0221\n\005state\030\017 \001(\0162\".server" +
+      ".HistoricalTransactionState\022\023\n\013is_refund" +
+      "ed\030\020 \001(\010\022\023\n\013receipt_url\030\021 \001(\t\"\317\001\n\034Histor" +
+      "icalProductTransaction\022\020\n\010batch_id\030\001 \001(\t" +
+      "\022%\n\nsalon_info\030\002 \001(\0132\021.server.SalonInfo\022" +
+      "/\n\016payment_method\030\003 \001(\0162\027.payments.Payme" +
+      "ntMethod\022\023\n\013receipt_url\030\004 \001(\t\0220\n\nline_it" +
+      "ems\030\005 \003(\0132\034.products.HistoricalLineItem\"" +
+      "I\n\tSalonInfo\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\"" +
+      "\n\010location\030\003 \001(\0132\020.server.Location\"@\n\023Re" +
+      "adableWaitingTime\022\024\n\014short_format\030\001 \001(\t\022" +
+      "\023\n\013long_format\030\002 \001(\t\"K\n\031AvailablePayment" +
+      "Providers\022\017\n\007voucher\030\001 \001(\010\022\016\n\006stripe\030\002 \001" +
+      "(\010\022\r\n\005vipps\030\003 \001(\010*\357\001\n\032HistoricalTransact" +
+      "ionState\022(\n$HISTORICAL_TRANSACTION_STATE" +
+      "_INVALID\020\000\022*\n&HISTORICAL_TRANSACTION_STA" +
+      "TE_COMPLETED\020\001\022*\n&HISTORICAL_TRANSACTION" +
+      "_STATE_CANCELLED\020\002\022\'\n#HISTORICAL_TRANSAC" +
+      "TION_STATE_NOSHOW\020\003\022&\n\"HISTORICAL_TRANSA" +
+      "CTION_STATE_ERROR\020\004*\325\001\n\rBookingStatus\022\032\n" +
+      "\026BOOKING_STATUS_INVALID\020\000\022\032\n\026BOOKING_STA" +
+      "TUS_UNKNOWN\020\001\022\035\n\031BOOKING_STATUS_REGISTER" +
+      "ED\020\002\022\032\n\026BOOKING_STATUS_STARTED\020\003\022\032\n\026BOOK" +
+      "ING_STATUS_STOPPED\020\004\022\032\n\026BOOKING_STATUS_S" +
+      "ERVING\020\005\022\031\n\025BOOKING_STATUS_NOSHOW\020\006*\307\001\n\r" +
+      "ServiceStatus\022\032\n\026SERVICE_STATUS_INVALID\020" +
+      "\000\022!\n\035SERVICE_STATUS_ORDER_COMPLETE\020\002\022\032\n\026" +
+      "SERVICE_STATUS_WAITING\020\003\022\037\n\033SERVICE_STAT" +
+      "US_ALMOST_READY\020\004\022\034\n\030SERVICE_STATUS_YOUR" +
+      "_TURN\020\005\022\034\n\030SERVICE_STATUS_COMPLETED\020\006*\247\001" +
+      "\n\024WaitingTimePrecision\022\"\n\036WAITING_TIME_P" +
+      "RECISION_INVALID\020\000\022\"\n\036WAITING_TIME_PRECI" +
+      "SION_UNKNOWN\020\001\022&\n\"WAITING_TIME_PRECISION" +
+      "_APPROXIMATE\020\002\022\037\n\033WAITING_TIME_PRECISION" +
+      "_NONE\020\0032\366\014\n\nCuttersAPI\022T\n\017GetWaitingTime" +
+      "s\022\036.server.GetWaitingTimesRequest\032\037.serv" +
+      "er.GetWaitingTimesResponse0\001\022=\n\010GetSalon" +
+      "\022\027.server.GetSalonRequest\032\030.server.GetSa" +
+      "lonResponse\0226\n\004Book\022\023.server.BookRequest" +
+      "\032\024.server.BookResponse\"\003\210\002\001\022=\n\010Purchase\022" +
+      "\027.server.PurchaseRequest\032\030.server.Purcha" +
+      "seResponse\022y\n\034GetAvailablePaymentProvide" +
+      "rs\022+.server.GetAvailablePaymentProviders" +
+      "Request\032,.server.GetAvailablePaymentProv" +
+      "idersResponse\022=\n\010GetPrice\022\027.server.GetPr" +
+      "iceRequest\032\030.server.GetPriceResponse\022I\n\014" +
+      "GetCampaigns\022\033.server.GetCampaignsReques" +
+      "t\032\034.server.GetCampaignsResponse\022H\n\013GetSe" +
+      "rvices\022\032.server.GetServicesRequest\032\033.ser" +
+      "ver.GetServicesResponse0\001\022H\n\013GetProducts" +
+      "\022\032.server.GetProductsRequest\032\033.server.Ge" +
+      "tProductsResponse0\001\022U\n\020GetWaitingStatus\022" +
+      "\037.server.GetWaitingStatusRequest\032 .serve" +
+      "r.GetWaitingStatusResponse\022Z\n\020ListTransa" +
+      "ctions\022\037.server.ListTransactionsRequest\032" +
+      " .server.ListTransactionsResponse\"\003\210\002\001\022U" +
+      "\n\020CanRedeemVoucher\022\037.server.CanRedeemVou" +
+      "cherRequest\032 .server.CanRedeemVoucherRes" +
+      "ponse\022L\n\rCreateVoucher\022\034.server.CreateVo" +
+      "ucherRequest\032\035.server.CreateVoucherRespo" +
+      "nse\022X\n\021GetReferralStatus\022 .server.GetRef" +
+      "erralStatusRequest\032!.server.GetReferralS" +
+      "tatusResponse\022L\n\rCancelService\022\034.server." +
+      "CancelServiceRequest\032\035.server.CancelServ" +
+      "iceResponse\022@\n\tRemoteLog\022\030.server.Remote" +
+      "LogRequest\032\031.server.RemoteLogResponse\022:\n" +
+      "\007Timeout\022\026.server.TimeoutRequest\032\027.serve" +
+      "r.TimeoutResponse\022g\n\026ListActiveTransacti" +
+      "ons\022%.server.ListActiveTransactionsReque" +
+      "st\032&.server.ListActiveTransactionsRespon" +
+      "se\022s\n\032ListHistoricalTransactions\022).serve" +
+      "r.ListHistoricalTransactionsRequest\032*.se" +
+      "rver.ListHistoricalTransactionsResponse\022" +
+      "g\n\030GetAvailableHairdressers\022$.server.Ava" +
+      "ilableHairdressersRequest\032%.server.Avail" +
+      "ableHairdressersResponseB=Z;github.com/c" +
+      "utters-digital/gateway-protobuf/golang/s" +
+      "erverpbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

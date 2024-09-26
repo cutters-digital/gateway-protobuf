@@ -2421,7 +2421,7 @@ extension Server_PurchaseRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     4: .same(proto: "products"),
     5: .same(proto: "payment"),
     6: .standard(proto: "aware_of_campaigns"),
-    7: .same(proto: "IdempotencyKey"),
+    7: .standard(proto: "idempotency_key"),
   ]
 
   fileprivate class _StorageClass {
@@ -2541,7 +2541,7 @@ extension Server_PurchaseResponse: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "payment"),
     2: .same(proto: "bookings"),
-    3: .same(proto: "IdempotencyKey"),
+    3: .standard(proto: "idempotency_key"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
