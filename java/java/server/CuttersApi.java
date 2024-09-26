@@ -8453,6 +8453,18 @@ public final class CuttersApi {
      * @return The awareOfCampaigns.
      */
     boolean getAwareOfCampaigns();
+
+    /**
+     * <code>string idempotency_key = 7;</code>
+     * @return The idempotencyKey.
+     */
+    java.lang.String getIdempotencyKey();
+    /**
+     * <code>string idempotency_key = 7;</code>
+     * @return The bytes for idempotencyKey.
+     */
+    com.google.protobuf.ByteString
+        getIdempotencyKeyBytes();
   }
   /**
    * Protobuf type {@code server.PurchaseRequest}
@@ -8470,6 +8482,7 @@ public final class CuttersApi {
       salonId_ = "";
       services_ = java.util.Collections.emptyList();
       products_ = java.util.Collections.emptyList();
+      idempotencyKey_ = "";
     }
 
     @java.lang.Override
@@ -8681,6 +8694,45 @@ public final class CuttersApi {
       return awareOfCampaigns_;
     }
 
+    public static final int IDEMPOTENCY_KEY_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object idempotencyKey_ = "";
+    /**
+     * <code>string idempotency_key = 7;</code>
+     * @return The idempotencyKey.
+     */
+    @java.lang.Override
+    public java.lang.String getIdempotencyKey() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        idempotencyKey_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string idempotency_key = 7;</code>
+     * @return The bytes for idempotencyKey.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdempotencyKeyBytes() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        idempotencyKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -8713,6 +8765,9 @@ public final class CuttersApi {
       if (awareOfCampaigns_ != false) {
         output.writeBool(6, awareOfCampaigns_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idempotencyKey_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, idempotencyKey_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -8744,6 +8799,9 @@ public final class CuttersApi {
       if (awareOfCampaigns_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(6, awareOfCampaigns_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idempotencyKey_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, idempotencyKey_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -8778,6 +8836,8 @@ public final class CuttersApi {
       }
       if (getAwareOfCampaigns()
           != other.getAwareOfCampaigns()) return false;
+      if (!getIdempotencyKey()
+          .equals(other.getIdempotencyKey())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -8810,6 +8870,8 @@ public final class CuttersApi {
       hash = (37 * hash) + AWARE_OF_CAMPAIGNS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getAwareOfCampaigns());
+      hash = (37 * hash) + IDEMPOTENCY_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyKey().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8976,6 +9038,7 @@ public final class CuttersApi {
           paymentBuilder_ = null;
         }
         awareOfCampaigns_ = false;
+        idempotencyKey_ = "";
         return this;
       }
 
@@ -9049,6 +9112,9 @@ public final class CuttersApi {
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.awareOfCampaigns_ = awareOfCampaigns_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.idempotencyKey_ = idempotencyKey_;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -9163,6 +9229,11 @@ public final class CuttersApi {
         if (other.getAwareOfCampaigns() != false) {
           setAwareOfCampaigns(other.getAwareOfCampaigns());
         }
+        if (!other.getIdempotencyKey().isEmpty()) {
+          idempotencyKey_ = other.idempotencyKey_;
+          bitField0_ |= 0x00000040;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -9239,6 +9310,11 @@ public final class CuttersApi {
                 bitField0_ |= 0x00000020;
                 break;
               } // case 48
+              case 58: {
+                idempotencyKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -10093,6 +10169,78 @@ public final class CuttersApi {
         onChanged();
         return this;
       }
+
+      private java.lang.Object idempotencyKey_ = "";
+      /**
+       * <code>string idempotency_key = 7;</code>
+       * @return The idempotencyKey.
+       */
+      public java.lang.String getIdempotencyKey() {
+        java.lang.Object ref = idempotencyKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          idempotencyKey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string idempotency_key = 7;</code>
+       * @return The bytes for idempotencyKey.
+       */
+      public com.google.protobuf.ByteString
+          getIdempotencyKeyBytes() {
+        java.lang.Object ref = idempotencyKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          idempotencyKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string idempotency_key = 7;</code>
+       * @param value The idempotencyKey to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdempotencyKey(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        idempotencyKey_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string idempotency_key = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIdempotencyKey() {
+        idempotencyKey_ = getDefaultInstance().getIdempotencyKey();
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string idempotency_key = 7;</code>
+       * @param value The bytes for idempotencyKey to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdempotencyKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        idempotencyKey_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10199,6 +10347,18 @@ public final class CuttersApi {
      */
     server.CuttersApi.BookingDetailsOrBuilder getBookingsOrBuilder(
         int index);
+
+    /**
+     * <code>string idempotency_key = 3;</code>
+     * @return The idempotencyKey.
+     */
+    java.lang.String getIdempotencyKey();
+    /**
+     * <code>string idempotency_key = 3;</code>
+     * @return The bytes for idempotencyKey.
+     */
+    com.google.protobuf.ByteString
+        getIdempotencyKeyBytes();
   }
   /**
    * Protobuf type {@code server.PurchaseResponse}
@@ -10214,6 +10374,7 @@ public final class CuttersApi {
     }
     private PurchaseResponse() {
       bookings_ = java.util.Collections.emptyList();
+      idempotencyKey_ = "";
     }
 
     @java.lang.Override
@@ -10304,6 +10465,45 @@ public final class CuttersApi {
       return bookings_.get(index);
     }
 
+    public static final int IDEMPOTENCY_KEY_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object idempotencyKey_ = "";
+    /**
+     * <code>string idempotency_key = 3;</code>
+     * @return The idempotencyKey.
+     */
+    @java.lang.Override
+    public java.lang.String getIdempotencyKey() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        idempotencyKey_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string idempotency_key = 3;</code>
+     * @return The bytes for idempotencyKey.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdempotencyKeyBytes() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        idempotencyKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -10324,6 +10524,9 @@ public final class CuttersApi {
       for (int i = 0; i < bookings_.size(); i++) {
         output.writeMessage(2, bookings_.get(i));
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idempotencyKey_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, idempotencyKey_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -10340,6 +10543,9 @@ public final class CuttersApi {
       for (int i = 0; i < bookings_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, bookings_.get(i));
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idempotencyKey_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, idempotencyKey_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -10363,6 +10569,8 @@ public final class CuttersApi {
       }
       if (!getBookingsList()
           .equals(other.getBookingsList())) return false;
+      if (!getIdempotencyKey()
+          .equals(other.getIdempotencyKey())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -10382,6 +10590,8 @@ public final class CuttersApi {
         hash = (37 * hash) + BOOKINGS_FIELD_NUMBER;
         hash = (53 * hash) + getBookingsList().hashCode();
       }
+      hash = (37 * hash) + IDEMPOTENCY_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyKey().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10532,6 +10742,7 @@ public final class CuttersApi {
           bookingsBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        idempotencyKey_ = "";
         return this;
       }
 
@@ -10584,6 +10795,9 @@ public final class CuttersApi {
               ? payment_
               : paymentBuilder_.build();
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.idempotencyKey_ = idempotencyKey_;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -10661,6 +10875,11 @@ public final class CuttersApi {
             }
           }
         }
+        if (!other.getIdempotencyKey().isEmpty()) {
+          idempotencyKey_ = other.idempotencyKey_;
+          bitField0_ |= 0x00000004;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -10707,6 +10926,11 @@ public final class CuttersApi {
                 }
                 break;
               } // case 18
+              case 26: {
+                idempotencyKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -11083,6 +11307,78 @@ public final class CuttersApi {
           bookings_ = null;
         }
         return bookingsBuilder_;
+      }
+
+      private java.lang.Object idempotencyKey_ = "";
+      /**
+       * <code>string idempotency_key = 3;</code>
+       * @return The idempotencyKey.
+       */
+      public java.lang.String getIdempotencyKey() {
+        java.lang.Object ref = idempotencyKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          idempotencyKey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string idempotency_key = 3;</code>
+       * @return The bytes for idempotencyKey.
+       */
+      public com.google.protobuf.ByteString
+          getIdempotencyKeyBytes() {
+        java.lang.Object ref = idempotencyKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          idempotencyKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string idempotency_key = 3;</code>
+       * @param value The idempotencyKey to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdempotencyKey(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        idempotencyKey_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string idempotency_key = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIdempotencyKey() {
+        idempotencyKey_ = getDefaultInstance().getIdempotencyKey();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string idempotency_key = 3;</code>
+       * @param value The bytes for idempotencyKey to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdempotencyKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        idempotencyKey_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -36914,14 +37210,14 @@ public final class CuttersApi {
     /**
      * <code>string url = 1 [deprecated = true];</code>
      * @deprecated server.BookingDetails.url is deprecated.
-     *     See proto/server/cutters_api.proto;l=286
+     *     See proto/server/cutters_api.proto;l=288
      * @return The url.
      */
     @java.lang.Deprecated java.lang.String getUrl();
     /**
      * <code>string url = 1 [deprecated = true];</code>
      * @deprecated server.BookingDetails.url is deprecated.
-     *     See proto/server/cutters_api.proto;l=286
+     *     See proto/server/cutters_api.proto;l=288
      * @return The bytes for url.
      */
     @java.lang.Deprecated com.google.protobuf.ByteString
@@ -36952,14 +37248,14 @@ public final class CuttersApi {
     /**
      * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
      * @deprecated server.BookingDetails.status is deprecated.
-     *     See proto/server/cutters_api.proto;l=290
+     *     See proto/server/cutters_api.proto;l=292
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Deprecated int getStatusValue();
     /**
      * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
      * @deprecated server.BookingDetails.status is deprecated.
-     *     See proto/server/cutters_api.proto;l=290
+     *     See proto/server/cutters_api.proto;l=292
      * @return The status.
      */
     @java.lang.Deprecated server.CuttersApi.BookingStatus getStatus();
@@ -37059,7 +37355,7 @@ public final class CuttersApi {
     /**
      * <code>string url = 1 [deprecated = true];</code>
      * @deprecated server.BookingDetails.url is deprecated.
-     *     See proto/server/cutters_api.proto;l=286
+     *     See proto/server/cutters_api.proto;l=288
      * @return The url.
      */
     @java.lang.Override
@@ -37078,7 +37374,7 @@ public final class CuttersApi {
     /**
      * <code>string url = 1 [deprecated = true];</code>
      * @deprecated server.BookingDetails.url is deprecated.
-     *     See proto/server/cutters_api.proto;l=286
+     *     See proto/server/cutters_api.proto;l=288
      * @return The bytes for url.
      */
     @java.lang.Override
@@ -37155,7 +37451,7 @@ public final class CuttersApi {
     /**
      * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
      * @deprecated server.BookingDetails.status is deprecated.
-     *     See proto/server/cutters_api.proto;l=290
+     *     See proto/server/cutters_api.proto;l=292
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override @java.lang.Deprecated public int getStatusValue() {
@@ -37164,7 +37460,7 @@ public final class CuttersApi {
     /**
      * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
      * @deprecated server.BookingDetails.status is deprecated.
-     *     See proto/server/cutters_api.proto;l=290
+     *     See proto/server/cutters_api.proto;l=292
      * @return The status.
      */
     @java.lang.Override @java.lang.Deprecated public server.CuttersApi.BookingStatus getStatus() {
@@ -37783,7 +38079,7 @@ public final class CuttersApi {
       /**
        * <code>string url = 1 [deprecated = true];</code>
        * @deprecated server.BookingDetails.url is deprecated.
-       *     See proto/server/cutters_api.proto;l=286
+       *     See proto/server/cutters_api.proto;l=288
        * @return The url.
        */
       @java.lang.Deprecated public java.lang.String getUrl() {
@@ -37801,7 +38097,7 @@ public final class CuttersApi {
       /**
        * <code>string url = 1 [deprecated = true];</code>
        * @deprecated server.BookingDetails.url is deprecated.
-       *     See proto/server/cutters_api.proto;l=286
+       *     See proto/server/cutters_api.proto;l=288
        * @return The bytes for url.
        */
       @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -37820,7 +38116,7 @@ public final class CuttersApi {
       /**
        * <code>string url = 1 [deprecated = true];</code>
        * @deprecated server.BookingDetails.url is deprecated.
-       *     See proto/server/cutters_api.proto;l=286
+       *     See proto/server/cutters_api.proto;l=288
        * @param value The url to set.
        * @return This builder for chaining.
        */
@@ -37835,7 +38131,7 @@ public final class CuttersApi {
       /**
        * <code>string url = 1 [deprecated = true];</code>
        * @deprecated server.BookingDetails.url is deprecated.
-       *     See proto/server/cutters_api.proto;l=286
+       *     See proto/server/cutters_api.proto;l=288
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearUrl() {
@@ -37847,7 +38143,7 @@ public final class CuttersApi {
       /**
        * <code>string url = 1 [deprecated = true];</code>
        * @deprecated server.BookingDetails.url is deprecated.
-       *     See proto/server/cutters_api.proto;l=286
+       *     See proto/server/cutters_api.proto;l=288
        * @param value The bytes for url to set.
        * @return This builder for chaining.
        */
@@ -37981,7 +38277,7 @@ public final class CuttersApi {
       /**
        * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
        * @deprecated server.BookingDetails.status is deprecated.
-       *     See proto/server/cutters_api.proto;l=290
+       *     See proto/server/cutters_api.proto;l=292
        * @return The enum numeric value on the wire for status.
        */
       @java.lang.Override @java.lang.Deprecated public int getStatusValue() {
@@ -37990,7 +38286,7 @@ public final class CuttersApi {
       /**
        * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
        * @deprecated server.BookingDetails.status is deprecated.
-       *     See proto/server/cutters_api.proto;l=290
+       *     See proto/server/cutters_api.proto;l=292
        * @param value The enum numeric value on the wire for status to set.
        * @return This builder for chaining.
        */
@@ -38003,7 +38299,7 @@ public final class CuttersApi {
       /**
        * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
        * @deprecated server.BookingDetails.status is deprecated.
-       *     See proto/server/cutters_api.proto;l=290
+       *     See proto/server/cutters_api.proto;l=292
        * @return The status.
        */
       @java.lang.Override
@@ -38014,7 +38310,7 @@ public final class CuttersApi {
       /**
        * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
        * @deprecated server.BookingDetails.status is deprecated.
-       *     See proto/server/cutters_api.proto;l=290
+       *     See proto/server/cutters_api.proto;l=292
        * @param value The status to set.
        * @return This builder for chaining.
        */
@@ -38030,7 +38326,7 @@ public final class CuttersApi {
       /**
        * <code>.server.BookingStatus status = 4 [deprecated = true];</code>
        * @deprecated server.BookingDetails.status is deprecated.
-       *     See proto/server/cutters_api.proto;l=290
+       *     See proto/server/cutters_api.proto;l=292
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearStatus() {
@@ -60726,240 +61022,241 @@ public final class CuttersApi {
       "uest\022\023\n\013allow_async\030\021 \001(\010\"c\n\014BookRespons" +
       "e\022*\n\007payment\030\001 \001(\0132\031.payments.PaymentRes" +
       "ponse\022\'\n\007booking\030\002 \001(\0132\026.server.BookingD" +
-      "etails\"\346\001\n\017PurchaseRequest\022\"\n\004auth\030\001 \001(\013" +
+      "etails\"\377\001\n\017PurchaseRequest\022\"\n\004auth\030\001 \001(\013" +
       "2\024.auth.Authentication\022\020\n\010salon_id\030\002 \001(\t" +
       "\022*\n\010services\030\003 \003(\0132\030.products.ServiceReq" +
       "uest\022*\n\010products\030\004 \003(\0132\030.products.Produc" +
       "tRequest\022)\n\007payment\030\005 \001(\0132\030.payments.Pay" +
-      "mentRequest\022\032\n\022aware_of_campaigns\030\006 \001(\010\"" +
-      "h\n\020PurchaseResponse\022*\n\007payment\030\001 \001(\0132\031.p" +
-      "ayments.PaymentResponse\022(\n\010bookings\030\002 \003(" +
-      "\0132\026.server.BookingDetails\"I\n#GetAvailabl" +
-      "ePaymentProvidersRequest\022\"\n\004auth\030\001 \001(\0132\024" +
-      ".auth.Authentication\"\\\n$GetAvailablePaym" +
-      "entProvidersResponse\0224\n\tproviders\030\001 \001(\0132" +
-      "!.server.AvailablePaymentProviders\"\235\002\n\017G" +
-      "etPriceRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Auth" +
-      "entication\022\020\n\010salon_id\030\002 \001(\t\022*\n\010services" +
-      "\030\003 \003(\0132\030.products.ServiceRequest\022*\n\010prod" +
-      "ucts\030\004 \003(\0132\030.products.ProductRequest\022)\n\007" +
-      "voucher\030\005 \001(\0132\030.payments.VoucherRequest\022" +
-      "*\n\010vouchers\030\006 \003(\0132\030.payments.VoucherRequ" +
-      "est\022%\n\007coupons\030\007 \003(\0132\024.payments.CouponCo" +
-      "de\"\177\n\020GetPriceResponse\022\033\n\005price\030\001 \001(\0132\014." +
-      "money.Price\022%\n\007coupons\030\002 \003(\0132\024.payments." +
-      "CouponCode\022\'\n\010vouchers\030\003 \003(\0132\025.payments." +
-      "VoucherCode\"K\n\023GetCampaignsRequest\022\"\n\004au" +
-      "th\030\001 \001(\0132\024.auth.Authentication\022\020\n\010salon_" +
-      "id\030\002 \001(\t\"\206\001\n\024GetCampaignsResponse\022\027\n\017act" +
-      "ive_campaign\030\001 \001(\010\022\025\n\rcampaign_text\030\002 \001(" +
-      "\t\022\035\n\025campaign_dialog_title\030\003 \001(\t\022\037\n\027camp" +
-      "aign_dialog_message\030\004 \001(\t\"7\n\022GetServices" +
-      "Request\022\020\n\010salon_id\030\001 \001(\t\022\017\n\007locales\030\002 \003" +
-      "(\t\"R\n\023GetServicesResponse\022\"\n\007service\030\001 \001" +
-      "(\0132\021.products.Service\022\027\n\017available_count" +
-      "\030\002 \001(\r\"[\n\022GetProductsRequest\022\020\n\010salon_id" +
-      "\030\001 \001(\t\022\017\n\007locales\030\002 \003(\t\022\"\n\004auth\030\003 \001(\0132\024." +
-      "auth.Authentication\"N\n\023GetProductsRespon" +
-      "se\022\"\n\007product\030\001 \001(\0132\021.products.Product\022\023" +
-      "\n\013stock_count\030\002 \001(\r\"U\n\027GetWaitingStatusR" +
+      "mentRequest\022\032\n\022aware_of_campaigns\030\006 \001(\010\022" +
+      "\027\n\017idempotency_key\030\007 \001(\t\"\201\001\n\020PurchaseRes" +
+      "ponse\022*\n\007payment\030\001 \001(\0132\031.payments.Paymen" +
+      "tResponse\022(\n\010bookings\030\002 \003(\0132\026.server.Boo" +
+      "kingDetails\022\027\n\017idempotency_key\030\003 \001(\t\"I\n#" +
+      "GetAvailablePaymentProvidersRequest\022\"\n\004a" +
+      "uth\030\001 \001(\0132\024.auth.Authentication\"\\\n$GetAv" +
+      "ailablePaymentProvidersResponse\0224\n\tprovi" +
+      "ders\030\001 \001(\0132!.server.AvailablePaymentProv" +
+      "iders\"\235\002\n\017GetPriceRequest\022\"\n\004auth\030\001 \001(\0132" +
+      "\024.auth.Authentication\022\020\n\010salon_id\030\002 \001(\t\022" +
+      "*\n\010services\030\003 \003(\0132\030.products.ServiceRequ" +
+      "est\022*\n\010products\030\004 \003(\0132\030.products.Product" +
+      "Request\022)\n\007voucher\030\005 \001(\0132\030.payments.Vouc" +
+      "herRequest\022*\n\010vouchers\030\006 \003(\0132\030.payments." +
+      "VoucherRequest\022%\n\007coupons\030\007 \003(\0132\024.paymen" +
+      "ts.CouponCode\"\177\n\020GetPriceResponse\022\033\n\005pri" +
+      "ce\030\001 \001(\0132\014.money.Price\022%\n\007coupons\030\002 \003(\0132" +
+      "\024.payments.CouponCode\022\'\n\010vouchers\030\003 \003(\0132" +
+      "\025.payments.VoucherCode\"K\n\023GetCampaignsRe" +
+      "quest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authenticatio" +
+      "n\022\020\n\010salon_id\030\002 \001(\t\"\206\001\n\024GetCampaignsResp" +
+      "onse\022\027\n\017active_campaign\030\001 \001(\010\022\025\n\rcampaig" +
+      "n_text\030\002 \001(\t\022\035\n\025campaign_dialog_title\030\003 " +
+      "\001(\t\022\037\n\027campaign_dialog_message\030\004 \001(\t\"7\n\022" +
+      "GetServicesRequest\022\020\n\010salon_id\030\001 \001(\t\022\017\n\007" +
+      "locales\030\002 \003(\t\"R\n\023GetServicesResponse\022\"\n\007" +
+      "service\030\001 \001(\0132\021.products.Service\022\027\n\017avai" +
+      "lable_count\030\002 \001(\r\"[\n\022GetProductsRequest\022" +
+      "\020\n\010salon_id\030\001 \001(\t\022\017\n\007locales\030\002 \003(\t\022\"\n\004au" +
+      "th\030\003 \001(\0132\024.auth.Authentication\"N\n\023GetPro" +
+      "ductsResponse\022\"\n\007product\030\001 \001(\0132\021.product" +
+      "s.Product\022\023\n\013stock_count\030\002 \001(\r\"U\n\027GetWai" +
+      "tingStatusRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.A" +
+      "uthentication\022\026\n\016transaction_id\030\002 \001(\t\"C\n" +
+      "\030GetWaitingStatusResponse\022\'\n\007booking\030\001 \001" +
+      "(\0132\026.server.BookingDetails\"o\n\027ListTransa" +
+      "ctionsRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authe" +
+      "ntication\022\026\n\016include_active\030\002 \001(\010\022\030\n\020inc" +
+      "lude_historic\030\003 \001(\010\"\362\001\n\030ListTransactions" +
+      "Response\0223\n\017active_services\030\001 \003(\0132\032.serv" +
+      "er.ServiceTransaction\0223\n\017active_products" +
+      "\030\002 \003(\0132\032.server.ProductTransaction\0225\n\021hi" +
+      "storic_services\030\003 \003(\0132\032.server.ServiceTr" +
+      "ansaction\0225\n\021historic_products\030\004 \003(\0132\032.s" +
+      "erver.ProductTransaction\"z\n\027CanRedeemVou" +
+      "cherRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authent" +
+      "ication\022)\n\007voucher\030\002 \001(\0132\030.payments.Vouc" +
+      "herRequest\022\020\n\010salon_id\030\003 \001(\t\">\n\030CanRedee" +
+      "mVoucherResponse\022\022\n\ncan_redeem\030\001 \001(\010\022\016\n\006" +
+      "reason\030\002 \001(\t\":\n\024CreateVoucherRequest\022\"\n\004" +
+      "auth\030\001 \001(\0132\024.auth.Authentication\"C\n\025Crea" +
+      "teVoucherResponse\022*\n\007voucher\030\001 \001(\0132\031.pay" +
+      "ments.VoucherResponse\">\n\030GetReferralStat" +
+      "usRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authentic" +
+      "ation\"\206\001\n\031GetReferralStatusResponse\022\036\n\026c" +
+      "urrent_referral_count\030\001 \001(\r\022\035\n\025target_re" +
+      "ferral_count\030\002 \001(\r\022*\n\007voucher\030\003 \003(\0132\031.pa" +
+      "yments.VoucherResponse\"R\n\024CancelServiceR" +
       "equest\022\"\n\004auth\030\001 \001(\0132\024.auth.Authenticati" +
-      "on\022\026\n\016transaction_id\030\002 \001(\t\"C\n\030GetWaiting" +
-      "StatusResponse\022\'\n\007booking\030\001 \001(\0132\026.server" +
-      ".BookingDetails\"o\n\027ListTransactionsReque" +
-      "st\022\"\n\004auth\030\001 \001(\0132\024.auth.Authentication\022\026" +
-      "\n\016include_active\030\002 \001(\010\022\030\n\020include_histor" +
-      "ic\030\003 \001(\010\"\362\001\n\030ListTransactionsResponse\0223\n" +
-      "\017active_services\030\001 \003(\0132\032.server.ServiceT" +
-      "ransaction\0223\n\017active_products\030\002 \003(\0132\032.se" +
-      "rver.ProductTransaction\0225\n\021historic_serv" +
-      "ices\030\003 \003(\0132\032.server.ServiceTransaction\0225" +
-      "\n\021historic_products\030\004 \003(\0132\032.server.Produ" +
-      "ctTransaction\"z\n\027CanRedeemVoucherRequest" +
-      "\022\"\n\004auth\030\001 \001(\0132\024.auth.Authentication\022)\n\007" +
-      "voucher\030\002 \001(\0132\030.payments.VoucherRequest\022" +
-      "\020\n\010salon_id\030\003 \001(\t\">\n\030CanRedeemVoucherRes" +
-      "ponse\022\022\n\ncan_redeem\030\001 \001(\010\022\016\n\006reason\030\002 \001(" +
-      "\t\":\n\024CreateVoucherRequest\022\"\n\004auth\030\001 \001(\0132" +
-      "\024.auth.Authentication\"C\n\025CreateVoucherRe" +
-      "sponse\022*\n\007voucher\030\001 \001(\0132\031.payments.Vouch" +
-      "erResponse\">\n\030GetReferralStatusRequest\022\"" +
-      "\n\004auth\030\001 \001(\0132\024.auth.Authentication\"\206\001\n\031G" +
-      "etReferralStatusResponse\022\036\n\026current_refe" +
-      "rral_count\030\001 \001(\r\022\035\n\025target_referral_coun" +
-      "t\030\002 \001(\r\022*\n\007voucher\030\003 \003(\0132\031.payments.Vouc" +
-      "herResponse\"R\n\024CancelServiceRequest\022\"\n\004a" +
-      "uth\030\001 \001(\0132\024.auth.Authentication\022\026\n\016trans" +
-      "action_id\030\002 \001(\t\"\027\n\025CancelServiceResponse" +
-      "\"E\n\020RemoteLogRequest\022\"\n\004auth\030\002 \001(\0132\024.aut" +
-      "h.Authentication\022\r\n\005event\030\001 \001(\t\"\023\n\021Remot" +
-      "eLogResponse\"!\n\016TimeoutRequest\022\017\n\007second" +
-      "s\030\001 \001(\r\"\021\n\017TimeoutResponse\"C\n\035ListActive" +
-      "TransactionsRequest\022\"\n\004auth\030\001 \001(\0132\024.auth" +
-      ".Authentication\"\240\001\n\036ListActiveTransactio" +
-      "nsResponse\022>\n\024service_transactions\030\001 \003(\013" +
-      "2 .server.ActiveServiceTransaction\022>\n\024pr" +
-      "oduct_transactions\030\002 \003(\0132 .server.Active" +
-      "ProductTransaction\"h\n!ListHistoricalTran" +
-      "sactionsRequest\022\"\n\004auth\030\001 \001(\0132\024.auth.Aut" +
-      "hentication\022\037\n\005since\030\002 \001(\0132\020.utils.Times" +
-      "tamp\"\240\002\n\"ListHistoricalTransactionsRespo" +
-      "nse\022B\n\024service_transactions\030\001 \003(\0132$.serv" +
-      "er.HistoricalServiceTransaction\022B\n\024produ" +
-      "ct_transactions\030\002 \003(\0132$.server.Historica" +
-      "lProductTransaction\022\037\n\027days_since_last_h" +
-      "aircut\030\003 \001(\005\022+\n#days_since_last_haircut_" +
-      "picture_url\030\004 \001(\t\022$\n\034days_since_last_hai" +
-      "rcut_text\030\005 \001(\t\"\214\002\n\016BookingDetails\022\017\n\003ur" +
-      "l\030\001 \001(\tB\002\030\001\022\024\n\014waiting_time\030\002 \001(\005\022\026\n\016tra" +
-      "nsaction_id\030\003 \001(\t\022)\n\006status\030\004 \001(\0162\025.serv" +
-      "er.BookingStatusB\002\030\001\022\031\n\021position_in_queu" +
-      "e\030\005 \001(\005\022\021\n\tqueue_url\030\006 \001(\t\022-\n\016service_st" +
-      "atus\030\007 \001(\0162\025.server.ServiceStatus\0223\n\016est" +
-      "imated_wait\030\010 \001(\0132\033.server.ReadableWaiti" +
-      "ngTime\"5\n\013OpeningTime\022\014\n\004open\030\001 \001(\010\022\014\n\004f" +
-      "rom\030\002 \001(\r\022\n\n\002to\030\003 \001(\r\"\371\001\n\tTimetable\022 \n\003m" +
-      "on\030\001 \001(\0132\023.server.OpeningTime\022 \n\003tue\030\002 \001" +
-      "(\0132\023.server.OpeningTime\022 \n\003wed\030\003 \001(\0132\023.s" +
-      "erver.OpeningTime\022 \n\003thu\030\004 \001(\0132\023.server." +
-      "OpeningTime\022 \n\003fri\030\005 \001(\0132\023.server.Openin" +
-      "gTime\022 \n\003sat\030\006 \001(\0132\023.server.OpeningTime\022" +
-      " \n\003sun\030\007 \001(\0132\023.server.OpeningTime\"\220\005\n\005Sa" +
-      "lon\022\n\n\002id\030\001 \001(\t\022\024\n\014waiting_time\030\002 \001(\005\022\020\n" +
-      "\010in_queue\030\003 \001(\r\022\014\n\004name\030\004 \001(\t\022\014\n\004city\030\005 " +
-      "\001(\t\022\017\n\007country\030\006 \001(\t\022\017\n\007address\030\007 \001(\t\022\023\n" +
-      "\013post_number\030\010 \001(\t\022\014\n\004post\030\t \001(\t\022\r\n\005phon" +
-      "e\030\n \001(\t\022\r\n\005email\030\013 \001(\t\022 \n\005times\030\014 \001(\0132\021." +
-      "server.Timetable\022\014\n\004open\030\r \001(\010\022\"\n\010locati" +
-      "on\030\016 \001(\0132\020.server.Location\022#\n\rhaircut_pr" +
-      "ice\030\017 \001(\0132\014.money.Price\022\031\n\021relative_loca" +
-      "tion\030\020 \001(\t\022!\n\010currency\030\021 \001(\0132\017.money.Cur" +
-      "rency\022\034\n\024default_phone_prefix\030\022 \001(\t\0223\n\016e" +
-      "stimated_wait\030\023 \001(\0132\033.server.ReadableWai" +
-      "tingTime\022/\n\tprecision\030\024 \001(\0162\034.server.Wai" +
-      "tingTimePrecision\0224\n\tproviders\030\025 \001(\0132!.s" +
-      "erver.AvailablePaymentProviders\022\034\n\024is_re" +
-      "ferring_enabled\030\026 \001(\010\022E\n\026available_haird" +
-      "ressers\030\027 \001(\0132%.server.AvailableHairdres" +
-      "sersResponse\"$\n\010Location\022\013\n\003lat\030\001 \001(\001\022\013\n" +
-      "\003lng\030\002 \001(\001\"\245\002\n\022ServiceTransaction\022\n\n\002id\030" +
-      "\001 \001(\t\022)\n\017registered_time\030\002 \001(\0132\020.utils.T" +
-      "imestamp\022&\n\014payment_time\030\003 \001(\0132\020.utils.T" +
-      "imestamp\022&\n\014started_time\030\004 \001(\0132\020.utils.T" +
-      "imestamp\022(\n\016completed_time\030\005 \001(\0132\020.utils" +
-      ".Timestamp\022\"\n\007service\030\006 \001(\0132\021.products.S" +
-      "ervice\022\020\n\010salon_id\030\007 \001(\t\022\025\n\rcustomer_nam" +
-      "e\030\010 \001(\t\022\021\n\tqueue_url\030\t \001(\t\"\215\002\n\022ProductTr" +
-      "ansaction\022\n\n\002id\030\001 \001(\t\022)\n\017registered_time" +
-      "\030\002 \001(\0132\020.utils.Timestamp\022&\n\014payment_time" +
-      "\030\003 \001(\0132\020.utils.Timestamp\022&\n\014started_time" +
-      "\030\004 \001(\0132\020.utils.Timestamp\022(\n\016completed_ti" +
-      "me\030\005 \001(\0132\020.utils.Timestamp\022\"\n\007product\030\006 " +
-      "\001(\0132\021.products.Product\022\020\n\010salon_id\030\007 \001(\t" +
-      "\022\020\n\010quantity\030\010 \001(\r\"\203\003\n\030ActiveServiceTran" +
-      "saction\022\n\n\002id\030\001 \001(\t\022\020\n\010batch_id\030\002 \001(\t\022)\n" +
-      "\017registered_time\030\003 \001(\0132\020.utils.Timestamp" +
-      "\022&\n\014payment_time\030\004 \001(\0132\020.utils.Timestamp" +
-      "\022&\n\014started_time\030\005 \001(\0132\020.utils.Timestamp" +
-      "\022(\n\016completed_time\030\006 \001(\0132\020.utils.Timesta" +
-      "mp\022\"\n\007service\030\007 \001(\0132\021.products.Service\022%" +
-      "\n\nsalon_info\030\010 \001(\0132\021.server.SalonInfo\022/\n" +
-      "\016payment_method\030\t \001(\0162\027.payments.Payment" +
-      "Method\022\025\n\rcustomer_name\030\n \001(\t\022\021\n\tqueue_u" +
-      "rl\030\013 \001(\t\"\262\001\n\030ActiveProductTransaction\022\020\n" +
-      "\010batch_id\030\001 \001(\t\022%\n\nsalon_info\030\002 \001(\0132\021.se" +
-      "rver.SalonInfo\022/\n\016payment_method\030\003 \001(\0162\027" +
-      ".payments.PaymentMethod\022,\n\nline_items\030\004 " +
-      "\003(\0132\030.products.ActiveLineItem\"\242\004\n\034Histor" +
-      "icalServiceTransaction\022\n\n\002id\030\001 \001(\t\022\020\n\010ba" +
-      "tch_id\030\002 \001(\t\022)\n\017registered_time\030\003 \001(\0132\020." +
-      "utils.Timestamp\022&\n\014payment_time\030\004 \001(\0132\020." +
-      "utils.Timestamp\022&\n\014started_time\030\005 \001(\0132\020." +
-      "utils.Timestamp\022(\n\016completed_time\030\006 \001(\0132" +
-      "\020.utils.Timestamp\022\"\n\007service\030\007 \001(\0132\021.pro" +
-      "ducts.Service\022%\n\nsalon_info\030\010 \001(\0132\021.serv" +
-      "er.SalonInfo\022\025\n\rcustomer_name\030\t \001(\t\022\021\n\tq" +
-      "ueue_url\030\n \001(\t\022/\n\016payment_method\030\013 \001(\0162\027" +
-      ".payments.PaymentMethod\022\022\n\nrating_url\030\014 " +
-      "\001(\t\022\016\n\006rating\030\r \001(\005\022\030\n\020rating_available\030" +
-      "\016 \001(\010\0221\n\005state\030\017 \001(\0162\".server.Historical" +
-      "TransactionState\022\023\n\013is_refunded\030\020 \001(\010\022\023\n" +
-      "\013receipt_url\030\021 \001(\t\"\317\001\n\034HistoricalProduct" +
-      "Transaction\022\020\n\010batch_id\030\001 \001(\t\022%\n\nsalon_i" +
-      "nfo\030\002 \001(\0132\021.server.SalonInfo\022/\n\016payment_" +
-      "method\030\003 \001(\0162\027.payments.PaymentMethod\022\023\n" +
-      "\013receipt_url\030\004 \001(\t\0220\n\nline_items\030\005 \003(\0132\034" +
-      ".products.HistoricalLineItem\"I\n\tSalonInf" +
-      "o\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\"\n\010location\030" +
-      "\003 \001(\0132\020.server.Location\"@\n\023ReadableWaiti" +
-      "ngTime\022\024\n\014short_format\030\001 \001(\t\022\023\n\013long_for" +
-      "mat\030\002 \001(\t\"K\n\031AvailablePaymentProviders\022\017" +
-      "\n\007voucher\030\001 \001(\010\022\016\n\006stripe\030\002 \001(\010\022\r\n\005vipps" +
-      "\030\003 \001(\010*\357\001\n\032HistoricalTransactionState\022(\n" +
-      "$HISTORICAL_TRANSACTION_STATE_INVALID\020\000\022" +
-      "*\n&HISTORICAL_TRANSACTION_STATE_COMPLETE" +
-      "D\020\001\022*\n&HISTORICAL_TRANSACTION_STATE_CANC" +
-      "ELLED\020\002\022\'\n#HISTORICAL_TRANSACTION_STATE_" +
-      "NOSHOW\020\003\022&\n\"HISTORICAL_TRANSACTION_STATE" +
-      "_ERROR\020\004*\325\001\n\rBookingStatus\022\032\n\026BOOKING_ST" +
-      "ATUS_INVALID\020\000\022\032\n\026BOOKING_STATUS_UNKNOWN" +
-      "\020\001\022\035\n\031BOOKING_STATUS_REGISTERED\020\002\022\032\n\026BOO" +
-      "KING_STATUS_STARTED\020\003\022\032\n\026BOOKING_STATUS_" +
-      "STOPPED\020\004\022\032\n\026BOOKING_STATUS_SERVING\020\005\022\031\n" +
-      "\025BOOKING_STATUS_NOSHOW\020\006*\307\001\n\rServiceStat" +
-      "us\022\032\n\026SERVICE_STATUS_INVALID\020\000\022!\n\035SERVIC" +
-      "E_STATUS_ORDER_COMPLETE\020\002\022\032\n\026SERVICE_STA" +
-      "TUS_WAITING\020\003\022\037\n\033SERVICE_STATUS_ALMOST_R" +
-      "EADY\020\004\022\034\n\030SERVICE_STATUS_YOUR_TURN\020\005\022\034\n\030" +
-      "SERVICE_STATUS_COMPLETED\020\006*\247\001\n\024WaitingTi" +
-      "mePrecision\022\"\n\036WAITING_TIME_PRECISION_IN" +
-      "VALID\020\000\022\"\n\036WAITING_TIME_PRECISION_UNKNOW" +
-      "N\020\001\022&\n\"WAITING_TIME_PRECISION_APPROXIMAT" +
-      "E\020\002\022\037\n\033WAITING_TIME_PRECISION_NONE\020\0032\366\014\n" +
-      "\nCuttersAPI\022T\n\017GetWaitingTimes\022\036.server." +
-      "GetWaitingTimesRequest\032\037.server.GetWaiti" +
-      "ngTimesResponse0\001\022=\n\010GetSalon\022\027.server.G" +
-      "etSalonRequest\032\030.server.GetSalonResponse" +
-      "\0226\n\004Book\022\023.server.BookRequest\032\024.server.B" +
-      "ookResponse\"\003\210\002\001\022=\n\010Purchase\022\027.server.Pu" +
-      "rchaseRequest\032\030.server.PurchaseResponse\022" +
-      "y\n\034GetAvailablePaymentProviders\022+.server" +
-      ".GetAvailablePaymentProvidersRequest\032,.s" +
-      "erver.GetAvailablePaymentProvidersRespon" +
-      "se\022=\n\010GetPrice\022\027.server.GetPriceRequest\032" +
-      "\030.server.GetPriceResponse\022I\n\014GetCampaign" +
-      "s\022\033.server.GetCampaignsRequest\032\034.server." +
-      "GetCampaignsResponse\022H\n\013GetServices\022\032.se" +
-      "rver.GetServicesRequest\032\033.server.GetServ" +
-      "icesResponse0\001\022H\n\013GetProducts\022\032.server.G" +
-      "etProductsRequest\032\033.server.GetProductsRe" +
-      "sponse0\001\022U\n\020GetWaitingStatus\022\037.server.Ge" +
-      "tWaitingStatusRequest\032 .server.GetWaitin" +
-      "gStatusResponse\022Z\n\020ListTransactions\022\037.se" +
-      "rver.ListTransactionsRequest\032 .server.Li" +
-      "stTransactionsResponse\"\003\210\002\001\022U\n\020CanRedeem" +
-      "Voucher\022\037.server.CanRedeemVoucherRequest" +
-      "\032 .server.CanRedeemVoucherResponse\022L\n\rCr" +
-      "eateVoucher\022\034.server.CreateVoucherReques" +
-      "t\032\035.server.CreateVoucherResponse\022X\n\021GetR" +
-      "eferralStatus\022 .server.GetReferralStatus" +
-      "Request\032!.server.GetReferralStatusRespon" +
-      "se\022L\n\rCancelService\022\034.server.CancelServi" +
-      "ceRequest\032\035.server.CancelServiceResponse" +
-      "\022@\n\tRemoteLog\022\030.server.RemoteLogRequest\032" +
-      "\031.server.RemoteLogResponse\022:\n\007Timeout\022\026." +
-      "server.TimeoutRequest\032\027.server.TimeoutRe" +
-      "sponse\022g\n\026ListActiveTransactions\022%.serve" +
-      "r.ListActiveTransactionsRequest\032&.server" +
-      ".ListActiveTransactionsResponse\022s\n\032ListH" +
-      "istoricalTransactions\022).server.ListHisto" +
-      "ricalTransactionsRequest\032*.server.ListHi" +
-      "storicalTransactionsResponse\022g\n\030GetAvail" +
-      "ableHairdressers\022$.server.AvailableHaird" +
-      "ressersRequest\032%.server.AvailableHairdre" +
-      "ssersResponseB=Z;github.com/cutters-digi" +
-      "tal/gateway-protobuf/golang/serverpbb\006pr" +
-      "oto3"
+      "on\022\026\n\016transaction_id\030\002 \001(\t\"\027\n\025CancelServ" +
+      "iceResponse\"E\n\020RemoteLogRequest\022\"\n\004auth\030" +
+      "\002 \001(\0132\024.auth.Authentication\022\r\n\005event\030\001 \001" +
+      "(\t\"\023\n\021RemoteLogResponse\"!\n\016TimeoutReques" +
+      "t\022\017\n\007seconds\030\001 \001(\r\"\021\n\017TimeoutResponse\"C\n" +
+      "\035ListActiveTransactionsRequest\022\"\n\004auth\030\001" +
+      " \001(\0132\024.auth.Authentication\"\240\001\n\036ListActiv" +
+      "eTransactionsResponse\022>\n\024service_transac" +
+      "tions\030\001 \003(\0132 .server.ActiveServiceTransa" +
+      "ction\022>\n\024product_transactions\030\002 \003(\0132 .se" +
+      "rver.ActiveProductTransaction\"h\n!ListHis" +
+      "toricalTransactionsRequest\022\"\n\004auth\030\001 \001(\013" +
+      "2\024.auth.Authentication\022\037\n\005since\030\002 \001(\0132\020." +
+      "utils.Timestamp\"\240\002\n\"ListHistoricalTransa" +
+      "ctionsResponse\022B\n\024service_transactions\030\001" +
+      " \003(\0132$.server.HistoricalServiceTransacti" +
+      "on\022B\n\024product_transactions\030\002 \003(\0132$.serve" +
+      "r.HistoricalProductTransaction\022\037\n\027days_s" +
+      "ince_last_haircut\030\003 \001(\005\022+\n#days_since_la" +
+      "st_haircut_picture_url\030\004 \001(\t\022$\n\034days_sin" +
+      "ce_last_haircut_text\030\005 \001(\t\"\214\002\n\016BookingDe" +
+      "tails\022\017\n\003url\030\001 \001(\tB\002\030\001\022\024\n\014waiting_time\030\002" +
+      " \001(\005\022\026\n\016transaction_id\030\003 \001(\t\022)\n\006status\030\004" +
+      " \001(\0162\025.server.BookingStatusB\002\030\001\022\031\n\021posit" +
+      "ion_in_queue\030\005 \001(\005\022\021\n\tqueue_url\030\006 \001(\t\022-\n" +
+      "\016service_status\030\007 \001(\0162\025.server.ServiceSt" +
+      "atus\0223\n\016estimated_wait\030\010 \001(\0132\033.server.Re" +
+      "adableWaitingTime\"5\n\013OpeningTime\022\014\n\004open" +
+      "\030\001 \001(\010\022\014\n\004from\030\002 \001(\r\022\n\n\002to\030\003 \001(\r\"\371\001\n\tTim" +
+      "etable\022 \n\003mon\030\001 \001(\0132\023.server.OpeningTime" +
+      "\022 \n\003tue\030\002 \001(\0132\023.server.OpeningTime\022 \n\003we" +
+      "d\030\003 \001(\0132\023.server.OpeningTime\022 \n\003thu\030\004 \001(" +
+      "\0132\023.server.OpeningTime\022 \n\003fri\030\005 \001(\0132\023.se" +
+      "rver.OpeningTime\022 \n\003sat\030\006 \001(\0132\023.server.O" +
+      "peningTime\022 \n\003sun\030\007 \001(\0132\023.server.Opening" +
+      "Time\"\220\005\n\005Salon\022\n\n\002id\030\001 \001(\t\022\024\n\014waiting_ti" +
+      "me\030\002 \001(\005\022\020\n\010in_queue\030\003 \001(\r\022\014\n\004name\030\004 \001(\t" +
+      "\022\014\n\004city\030\005 \001(\t\022\017\n\007country\030\006 \001(\t\022\017\n\007addre" +
+      "ss\030\007 \001(\t\022\023\n\013post_number\030\010 \001(\t\022\014\n\004post\030\t " +
+      "\001(\t\022\r\n\005phone\030\n \001(\t\022\r\n\005email\030\013 \001(\t\022 \n\005tim" +
+      "es\030\014 \001(\0132\021.server.Timetable\022\014\n\004open\030\r \001(" +
+      "\010\022\"\n\010location\030\016 \001(\0132\020.server.Location\022#\n" +
+      "\rhaircut_price\030\017 \001(\0132\014.money.Price\022\031\n\021re" +
+      "lative_location\030\020 \001(\t\022!\n\010currency\030\021 \001(\0132" +
+      "\017.money.Currency\022\034\n\024default_phone_prefix" +
+      "\030\022 \001(\t\0223\n\016estimated_wait\030\023 \001(\0132\033.server." +
+      "ReadableWaitingTime\022/\n\tprecision\030\024 \001(\0162\034" +
+      ".server.WaitingTimePrecision\0224\n\tprovider" +
+      "s\030\025 \001(\0132!.server.AvailablePaymentProvide" +
+      "rs\022\034\n\024is_referring_enabled\030\026 \001(\010\022E\n\026avai" +
+      "lable_hairdressers\030\027 \001(\0132%.server.Availa" +
+      "bleHairdressersResponse\"$\n\010Location\022\013\n\003l" +
+      "at\030\001 \001(\001\022\013\n\003lng\030\002 \001(\001\"\245\002\n\022ServiceTransac" +
+      "tion\022\n\n\002id\030\001 \001(\t\022)\n\017registered_time\030\002 \001(" +
+      "\0132\020.utils.Timestamp\022&\n\014payment_time\030\003 \001(" +
+      "\0132\020.utils.Timestamp\022&\n\014started_time\030\004 \001(" +
+      "\0132\020.utils.Timestamp\022(\n\016completed_time\030\005 " +
+      "\001(\0132\020.utils.Timestamp\022\"\n\007service\030\006 \001(\0132\021" +
+      ".products.Service\022\020\n\010salon_id\030\007 \001(\t\022\025\n\rc" +
+      "ustomer_name\030\010 \001(\t\022\021\n\tqueue_url\030\t \001(\t\"\215\002" +
+      "\n\022ProductTransaction\022\n\n\002id\030\001 \001(\t\022)\n\017regi" +
+      "stered_time\030\002 \001(\0132\020.utils.Timestamp\022&\n\014p" +
+      "ayment_time\030\003 \001(\0132\020.utils.Timestamp\022&\n\014s" +
+      "tarted_time\030\004 \001(\0132\020.utils.Timestamp\022(\n\016c" +
+      "ompleted_time\030\005 \001(\0132\020.utils.Timestamp\022\"\n" +
+      "\007product\030\006 \001(\0132\021.products.Product\022\020\n\010sal" +
+      "on_id\030\007 \001(\t\022\020\n\010quantity\030\010 \001(\r\"\203\003\n\030Active" +
+      "ServiceTransaction\022\n\n\002id\030\001 \001(\t\022\020\n\010batch_" +
+      "id\030\002 \001(\t\022)\n\017registered_time\030\003 \001(\0132\020.util" +
+      "s.Timestamp\022&\n\014payment_time\030\004 \001(\0132\020.util" +
+      "s.Timestamp\022&\n\014started_time\030\005 \001(\0132\020.util" +
+      "s.Timestamp\022(\n\016completed_time\030\006 \001(\0132\020.ut" +
+      "ils.Timestamp\022\"\n\007service\030\007 \001(\0132\021.product" +
+      "s.Service\022%\n\nsalon_info\030\010 \001(\0132\021.server.S" +
+      "alonInfo\022/\n\016payment_method\030\t \001(\0162\027.payme" +
+      "nts.PaymentMethod\022\025\n\rcustomer_name\030\n \001(\t" +
+      "\022\021\n\tqueue_url\030\013 \001(\t\"\262\001\n\030ActiveProductTra" +
+      "nsaction\022\020\n\010batch_id\030\001 \001(\t\022%\n\nsalon_info" +
+      "\030\002 \001(\0132\021.server.SalonInfo\022/\n\016payment_met" +
+      "hod\030\003 \001(\0162\027.payments.PaymentMethod\022,\n\nli" +
+      "ne_items\030\004 \003(\0132\030.products.ActiveLineItem" +
+      "\"\242\004\n\034HistoricalServiceTransaction\022\n\n\002id\030" +
+      "\001 \001(\t\022\020\n\010batch_id\030\002 \001(\t\022)\n\017registered_ti" +
+      "me\030\003 \001(\0132\020.utils.Timestamp\022&\n\014payment_ti" +
+      "me\030\004 \001(\0132\020.utils.Timestamp\022&\n\014started_ti" +
+      "me\030\005 \001(\0132\020.utils.Timestamp\022(\n\016completed_" +
+      "time\030\006 \001(\0132\020.utils.Timestamp\022\"\n\007service\030" +
+      "\007 \001(\0132\021.products.Service\022%\n\nsalon_info\030\010" +
+      " \001(\0132\021.server.SalonInfo\022\025\n\rcustomer_name" +
+      "\030\t \001(\t\022\021\n\tqueue_url\030\n \001(\t\022/\n\016payment_met" +
+      "hod\030\013 \001(\0162\027.payments.PaymentMethod\022\022\n\nra" +
+      "ting_url\030\014 \001(\t\022\016\n\006rating\030\r \001(\005\022\030\n\020rating" +
+      "_available\030\016 \001(\010\0221\n\005state\030\017 \001(\0162\".server" +
+      ".HistoricalTransactionState\022\023\n\013is_refund" +
+      "ed\030\020 \001(\010\022\023\n\013receipt_url\030\021 \001(\t\"\317\001\n\034Histor" +
+      "icalProductTransaction\022\020\n\010batch_id\030\001 \001(\t" +
+      "\022%\n\nsalon_info\030\002 \001(\0132\021.server.SalonInfo\022" +
+      "/\n\016payment_method\030\003 \001(\0162\027.payments.Payme" +
+      "ntMethod\022\023\n\013receipt_url\030\004 \001(\t\0220\n\nline_it" +
+      "ems\030\005 \003(\0132\034.products.HistoricalLineItem\"" +
+      "I\n\tSalonInfo\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\"" +
+      "\n\010location\030\003 \001(\0132\020.server.Location\"@\n\023Re" +
+      "adableWaitingTime\022\024\n\014short_format\030\001 \001(\t\022" +
+      "\023\n\013long_format\030\002 \001(\t\"K\n\031AvailablePayment" +
+      "Providers\022\017\n\007voucher\030\001 \001(\010\022\016\n\006stripe\030\002 \001" +
+      "(\010\022\r\n\005vipps\030\003 \001(\010*\357\001\n\032HistoricalTransact" +
+      "ionState\022(\n$HISTORICAL_TRANSACTION_STATE" +
+      "_INVALID\020\000\022*\n&HISTORICAL_TRANSACTION_STA" +
+      "TE_COMPLETED\020\001\022*\n&HISTORICAL_TRANSACTION" +
+      "_STATE_CANCELLED\020\002\022\'\n#HISTORICAL_TRANSAC" +
+      "TION_STATE_NOSHOW\020\003\022&\n\"HISTORICAL_TRANSA" +
+      "CTION_STATE_ERROR\020\004*\325\001\n\rBookingStatus\022\032\n" +
+      "\026BOOKING_STATUS_INVALID\020\000\022\032\n\026BOOKING_STA" +
+      "TUS_UNKNOWN\020\001\022\035\n\031BOOKING_STATUS_REGISTER" +
+      "ED\020\002\022\032\n\026BOOKING_STATUS_STARTED\020\003\022\032\n\026BOOK" +
+      "ING_STATUS_STOPPED\020\004\022\032\n\026BOOKING_STATUS_S" +
+      "ERVING\020\005\022\031\n\025BOOKING_STATUS_NOSHOW\020\006*\307\001\n\r" +
+      "ServiceStatus\022\032\n\026SERVICE_STATUS_INVALID\020" +
+      "\000\022!\n\035SERVICE_STATUS_ORDER_COMPLETE\020\002\022\032\n\026" +
+      "SERVICE_STATUS_WAITING\020\003\022\037\n\033SERVICE_STAT" +
+      "US_ALMOST_READY\020\004\022\034\n\030SERVICE_STATUS_YOUR" +
+      "_TURN\020\005\022\034\n\030SERVICE_STATUS_COMPLETED\020\006*\247\001" +
+      "\n\024WaitingTimePrecision\022\"\n\036WAITING_TIME_P" +
+      "RECISION_INVALID\020\000\022\"\n\036WAITING_TIME_PRECI" +
+      "SION_UNKNOWN\020\001\022&\n\"WAITING_TIME_PRECISION" +
+      "_APPROXIMATE\020\002\022\037\n\033WAITING_TIME_PRECISION" +
+      "_NONE\020\0032\366\014\n\nCuttersAPI\022T\n\017GetWaitingTime" +
+      "s\022\036.server.GetWaitingTimesRequest\032\037.serv" +
+      "er.GetWaitingTimesResponse0\001\022=\n\010GetSalon" +
+      "\022\027.server.GetSalonRequest\032\030.server.GetSa" +
+      "lonResponse\0226\n\004Book\022\023.server.BookRequest" +
+      "\032\024.server.BookResponse\"\003\210\002\001\022=\n\010Purchase\022" +
+      "\027.server.PurchaseRequest\032\030.server.Purcha" +
+      "seResponse\022y\n\034GetAvailablePaymentProvide" +
+      "rs\022+.server.GetAvailablePaymentProviders" +
+      "Request\032,.server.GetAvailablePaymentProv" +
+      "idersResponse\022=\n\010GetPrice\022\027.server.GetPr" +
+      "iceRequest\032\030.server.GetPriceResponse\022I\n\014" +
+      "GetCampaigns\022\033.server.GetCampaignsReques" +
+      "t\032\034.server.GetCampaignsResponse\022H\n\013GetSe" +
+      "rvices\022\032.server.GetServicesRequest\032\033.ser" +
+      "ver.GetServicesResponse0\001\022H\n\013GetProducts" +
+      "\022\032.server.GetProductsRequest\032\033.server.Ge" +
+      "tProductsResponse0\001\022U\n\020GetWaitingStatus\022" +
+      "\037.server.GetWaitingStatusRequest\032 .serve" +
+      "r.GetWaitingStatusResponse\022Z\n\020ListTransa" +
+      "ctions\022\037.server.ListTransactionsRequest\032" +
+      " .server.ListTransactionsResponse\"\003\210\002\001\022U" +
+      "\n\020CanRedeemVoucher\022\037.server.CanRedeemVou" +
+      "cherRequest\032 .server.CanRedeemVoucherRes" +
+      "ponse\022L\n\rCreateVoucher\022\034.server.CreateVo" +
+      "ucherRequest\032\035.server.CreateVoucherRespo" +
+      "nse\022X\n\021GetReferralStatus\022 .server.GetRef" +
+      "erralStatusRequest\032!.server.GetReferralS" +
+      "tatusResponse\022L\n\rCancelService\022\034.server." +
+      "CancelServiceRequest\032\035.server.CancelServ" +
+      "iceResponse\022@\n\tRemoteLog\022\030.server.Remote" +
+      "LogRequest\032\031.server.RemoteLogResponse\022:\n" +
+      "\007Timeout\022\026.server.TimeoutRequest\032\027.serve" +
+      "r.TimeoutResponse\022g\n\026ListActiveTransacti" +
+      "ons\022%.server.ListActiveTransactionsReque" +
+      "st\032&.server.ListActiveTransactionsRespon" +
+      "se\022s\n\032ListHistoricalTransactions\022).serve" +
+      "r.ListHistoricalTransactionsRequest\032*.se" +
+      "rver.ListHistoricalTransactionsResponse\022" +
+      "g\n\030GetAvailableHairdressers\022$.server.Ava" +
+      "ilableHairdressersRequest\032%.server.Avail" +
+      "ableHairdressersResponseB=Z;github.com/c" +
+      "utters-digital/gateway-protobuf/golang/s" +
+      "erverpbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -61030,13 +61327,13 @@ public final class CuttersApi {
     internal_static_server_PurchaseRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_server_PurchaseRequest_descriptor,
-        new java.lang.String[] { "Auth", "SalonId", "Services", "Products", "Payment", "AwareOfCampaigns", });
+        new java.lang.String[] { "Auth", "SalonId", "Services", "Products", "Payment", "AwareOfCampaigns", "IdempotencyKey", });
     internal_static_server_PurchaseResponse_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_server_PurchaseResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_server_PurchaseResponse_descriptor,
-        new java.lang.String[] { "Payment", "Bookings", });
+        new java.lang.String[] { "Payment", "Bookings", "IdempotencyKey", });
     internal_static_server_GetAvailablePaymentProvidersRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_server_GetAvailablePaymentProvidersRequest_fieldAccessorTable = new
