@@ -26,6 +26,11 @@ public protocol Cutters_SalonAPIClientProtocol: GRPCClient {
     callOptions: CallOptions?,
     handler: @escaping (Cutters_ListSalonsResponse) -> Void
   ) -> ServerStreamingCall<Cutters_ListSalonsRequest, Cutters_ListSalonsResponse>
+
+  func echo(
+    _ request: Cutters_EchoRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cutters_EchoRequest, Cutters_EchoResponse>
 }
 
 extension Cutters_SalonAPIClientProtocol {
@@ -69,6 +74,24 @@ extension Cutters_SalonAPIClientProtocol {
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSalonsInterceptors() ?? [],
       handler: handler
+    )
+  }
+
+  /// Unary call to Echo
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to Echo.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  public func echo(
+    _ request: Cutters_EchoRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cutters_EchoRequest, Cutters_EchoResponse> {
+    return self.makeUnaryCall(
+      path: Cutters_SalonAPIClientMetadata.Methods.echo.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeEchoInterceptors() ?? []
     )
   }
 }
@@ -144,6 +167,11 @@ public protocol Cutters_SalonAPIAsyncClientProtocol: GRPCClient {
     _ request: Cutters_ListSalonsRequest,
     callOptions: CallOptions?
   ) -> GRPCAsyncServerStreamingCall<Cutters_ListSalonsRequest, Cutters_ListSalonsResponse>
+
+  func makeEchoCall(
+    _ request: Cutters_EchoRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Cutters_EchoRequest, Cutters_EchoResponse>
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
@@ -179,6 +207,18 @@ extension Cutters_SalonAPIAsyncClientProtocol {
       interceptors: self.interceptors?.makeListSalonsInterceptors() ?? []
     )
   }
+
+  public func makeEchoCall(
+    _ request: Cutters_EchoRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Cutters_EchoRequest, Cutters_EchoResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Cutters_SalonAPIClientMetadata.Methods.echo.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeEchoInterceptors() ?? []
+    )
+  }
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
@@ -204,6 +244,18 @@ extension Cutters_SalonAPIAsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSalonsInterceptors() ?? []
+    )
+  }
+
+  public func echo(
+    _ request: Cutters_EchoRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Cutters_EchoResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Cutters_SalonAPIClientMetadata.Methods.echo.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeEchoInterceptors() ?? []
     )
   }
 }
@@ -232,6 +284,9 @@ public protocol Cutters_SalonAPIClientInterceptorFactoryProtocol: Sendable {
 
   /// - Returns: Interceptors to use when invoking 'listSalons'.
   func makeListSalonsInterceptors() -> [ClientInterceptor<Cutters_ListSalonsRequest, Cutters_ListSalonsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'echo'.
+  func makeEchoInterceptors() -> [ClientInterceptor<Cutters_EchoRequest, Cutters_EchoResponse>]
 }
 
 public enum Cutters_SalonAPIClientMetadata {
@@ -241,6 +296,7 @@ public enum Cutters_SalonAPIClientMetadata {
     methods: [
       Cutters_SalonAPIClientMetadata.Methods.getSalon,
       Cutters_SalonAPIClientMetadata.Methods.listSalons,
+      Cutters_SalonAPIClientMetadata.Methods.echo,
     ]
   )
 
@@ -255,6 +311,12 @@ public enum Cutters_SalonAPIClientMetadata {
       name: "ListSalons",
       path: "/cutters.SalonAPI/ListSalons",
       type: GRPCCallType.serverStreaming
+    )
+
+    public static let echo = GRPCMethodDescriptor(
+      name: "Echo",
+      path: "/cutters.SalonAPI/Echo",
+      type: GRPCCallType.unary
     )
   }
 }

@@ -162,64 +162,130 @@ public struct User_UpdateUserNotificationResponse: Sendable {
 }
 
 /// User contains all the personal details we know about the user.
-public struct User_User: Sendable {
+public struct User_User: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Name = First-name. Required. Will be displayed on the monitors in the salon when purchasing a cut.
-  public var name: String = String()
+  public var name: String {
+    get {return _storage._name}
+    set {_uniqueStorage()._name = newValue}
+  }
 
   /// Email. Required. Receipts will be sent to this email.
-  public var email: String = String()
+  public var email: String {
+    get {return _storage._email}
+    set {_uniqueStorage()._email = newValue}
+  }
 
-  public var localePreference: String = String()
+  public var localePreference: String {
+    get {return _storage._localePreference}
+    set {_uniqueStorage()._localePreference = newValue}
+  }
 
   /// Phone number contains the country-code and phone-number, prefixed with "+", e.g.: "+4712345678". Will be ignored if supplied in a UserRequest.
-  public var phoneNumber: String = String()
+  public var phoneNumber: String {
+    get {return _storage._phoneNumber}
+    set {_uniqueStorage()._phoneNumber = newValue}
+  }
 
   /// Notification contains information about the Firebase Cloud Messaging token to send notifications to a user.
   public var notification: Notifications_Notification {
-    get {return _notification ?? Notifications_Notification()}
-    set {_notification = newValue}
+    get {return _storage._notification ?? Notifications_Notification()}
+    set {_uniqueStorage()._notification = newValue}
   }
   /// Returns true if `notification` has been explicitly set.
-  public var hasNotification: Bool {return self._notification != nil}
+  public var hasNotification: Bool {return _storage._notification != nil}
   /// Clears the value of `notification`. Subsequent reads from it will return its default value.
-  public mutating func clearNotification() {self._notification = nil}
+  public mutating func clearNotification() {_uniqueStorage()._notification = nil}
 
   /// The birthday is given in seconds after Unix Epoch: https://en.wikipedia.org/wiki/Unix_time
   public var birthday: Utils_Timestamp {
-    get {return _birthday ?? Utils_Timestamp()}
-    set {_birthday = newValue}
+    get {return _storage._birthday ?? Utils_Timestamp()}
+    set {_uniqueStorage()._birthday = newValue}
   }
   /// Returns true if `birthday` has been explicitly set.
-  public var hasBirthday: Bool {return self._birthday != nil}
+  public var hasBirthday: Bool {return _storage._birthday != nil}
   /// Clears the value of `birthday`. Subsequent reads from it will return its default value.
-  public mutating func clearBirthday() {self._birthday = nil}
+  public mutating func clearBirthday() {_uniqueStorage()._birthday = nil}
 
-  public var gender: User_Gender = .invalid
+  public var gender: User_Gender {
+    get {return _storage._gender}
+    set {_uniqueStorage()._gender = newValue}
+  }
 
-  public var address: String = String()
+  public var address: String {
+    get {return _storage._address}
+    set {_uniqueStorage()._address = newValue}
+  }
 
-  public var postalCode: String = String()
+  public var postalCode: String {
+    get {return _storage._postalCode}
+    set {_uniqueStorage()._postalCode = newValue}
+  }
 
-  public var postalPlace: String = String()
+  public var postalPlace: String {
+    get {return _storage._postalPlace}
+    set {_uniqueStorage()._postalPlace = newValue}
+  }
 
-  public var allowMarketing: Bool = false
+  /// DEPRECATED: Use consents instead.
+  public var allowMarketing: Bool {
+    get {return _storage._allowMarketing}
+    set {_uniqueStorage()._allowMarketing = newValue}
+  }
 
   /// Last name is optional.
-  public var lastName: String = String()
+  public var lastName: String {
+    get {return _storage._lastName}
+    set {_uniqueStorage()._lastName = newValue}
+  }
 
   /// Should be exclusive with birthday, with the full date taking priority: if birthdate set, birth_year should be ignored.
-  public var birthYear: Int32 = 0
+  public var birthYear: Int32 {
+    get {return _storage._birthYear}
+    set {_uniqueStorage()._birthYear = newValue}
+  }
+
+  public var consents: User_Consents {
+    get {return _storage._consents ?? User_Consents()}
+    set {_uniqueStorage()._consents = newValue}
+  }
+  /// Returns true if `consents` has been explicitly set.
+  public var hasConsents: Bool {return _storage._consents != nil}
+  /// Clears the value of `consents`. Subsequent reads from it will return its default value.
+  public mutating func clearConsents() {_uniqueStorage()._consents = nil}
+
+  /// The version of the app installed by the user
+  public var appVersion: String {
+    get {return _storage._appVersion}
+    set {_uniqueStorage()._appVersion = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _notification: Notifications_Notification? = nil
-  fileprivate var _birthday: Utils_Timestamp? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct User_Consents: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var termsAndConditions: Bool = false
+
+  public var marketingSms: Bool = false
+
+  public var marketingEmail: Bool = false
+
+  public var marketingPush: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -396,6 +462,185 @@ extension User_User: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
     11: .standard(proto: "allow_marketing"),
     12: .standard(proto: "last_name"),
     13: .standard(proto: "birth_year"),
+    14: .same(proto: "consents"),
+    15: .standard(proto: "app_version"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _email: String = String()
+    var _localePreference: String = String()
+    var _phoneNumber: String = String()
+    var _notification: Notifications_Notification? = nil
+    var _birthday: Utils_Timestamp? = nil
+    var _gender: User_Gender = .invalid
+    var _address: String = String()
+    var _postalCode: String = String()
+    var _postalPlace: String = String()
+    var _allowMarketing: Bool = false
+    var _lastName: String = String()
+    var _birthYear: Int32 = 0
+    var _consents: User_Consents? = nil
+    var _appVersion: String = String()
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _email = source._email
+      _localePreference = source._localePreference
+      _phoneNumber = source._phoneNumber
+      _notification = source._notification
+      _birthday = source._birthday
+      _gender = source._gender
+      _address = source._address
+      _postalCode = source._postalCode
+      _postalPlace = source._postalPlace
+      _allowMarketing = source._allowMarketing
+      _lastName = source._lastName
+      _birthYear = source._birthYear
+      _consents = source._consents
+      _appVersion = source._appVersion
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._email) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._localePreference) }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._phoneNumber) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._notification) }()
+        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._birthday) }()
+        case 7: try { try decoder.decodeSingularEnumField(value: &_storage._gender) }()
+        case 8: try { try decoder.decodeSingularStringField(value: &_storage._address) }()
+        case 9: try { try decoder.decodeSingularStringField(value: &_storage._postalCode) }()
+        case 10: try { try decoder.decodeSingularStringField(value: &_storage._postalPlace) }()
+        case 11: try { try decoder.decodeSingularBoolField(value: &_storage._allowMarketing) }()
+        case 12: try { try decoder.decodeSingularStringField(value: &_storage._lastName) }()
+        case 13: try { try decoder.decodeSingularInt32Field(value: &_storage._birthYear) }()
+        case 14: try { try decoder.decodeSingularMessageField(value: &_storage._consents) }()
+        case 15: try { try decoder.decodeSingularStringField(value: &_storage._appVersion) }()
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
+      }
+      if !_storage._email.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._email, fieldNumber: 2)
+      }
+      if !_storage._localePreference.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._localePreference, fieldNumber: 3)
+      }
+      if !_storage._phoneNumber.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._phoneNumber, fieldNumber: 4)
+      }
+      try { if let v = _storage._notification {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+      try { if let v = _storage._birthday {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
+      if _storage._gender != .invalid {
+        try visitor.visitSingularEnumField(value: _storage._gender, fieldNumber: 7)
+      }
+      if !_storage._address.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._address, fieldNumber: 8)
+      }
+      if !_storage._postalCode.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._postalCode, fieldNumber: 9)
+      }
+      if !_storage._postalPlace.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._postalPlace, fieldNumber: 10)
+      }
+      if _storage._allowMarketing != false {
+        try visitor.visitSingularBoolField(value: _storage._allowMarketing, fieldNumber: 11)
+      }
+      if !_storage._lastName.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._lastName, fieldNumber: 12)
+      }
+      if _storage._birthYear != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._birthYear, fieldNumber: 13)
+      }
+      try { if let v = _storage._consents {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
+      } }()
+      if !_storage._appVersion.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._appVersion, fieldNumber: 15)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: User_User, rhs: User_User) -> Bool {
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._email != rhs_storage._email {return false}
+        if _storage._localePreference != rhs_storage._localePreference {return false}
+        if _storage._phoneNumber != rhs_storage._phoneNumber {return false}
+        if _storage._notification != rhs_storage._notification {return false}
+        if _storage._birthday != rhs_storage._birthday {return false}
+        if _storage._gender != rhs_storage._gender {return false}
+        if _storage._address != rhs_storage._address {return false}
+        if _storage._postalCode != rhs_storage._postalCode {return false}
+        if _storage._postalPlace != rhs_storage._postalPlace {return false}
+        if _storage._allowMarketing != rhs_storage._allowMarketing {return false}
+        if _storage._lastName != rhs_storage._lastName {return false}
+        if _storage._birthYear != rhs_storage._birthYear {return false}
+        if _storage._consents != rhs_storage._consents {return false}
+        if _storage._appVersion != rhs_storage._appVersion {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension User_Consents: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Consents"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "terms_and_conditions"),
+    2: .standard(proto: "marketing_sms"),
+    3: .standard(proto: "marketing_email"),
+    4: .standard(proto: "marketing_push"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -404,85 +649,36 @@ extension User_User: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.email) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.localePreference) }()
-      case 4: try { try decoder.decodeSingularStringField(value: &self.phoneNumber) }()
-      case 5: try { try decoder.decodeSingularMessageField(value: &self._notification) }()
-      case 6: try { try decoder.decodeSingularMessageField(value: &self._birthday) }()
-      case 7: try { try decoder.decodeSingularEnumField(value: &self.gender) }()
-      case 8: try { try decoder.decodeSingularStringField(value: &self.address) }()
-      case 9: try { try decoder.decodeSingularStringField(value: &self.postalCode) }()
-      case 10: try { try decoder.decodeSingularStringField(value: &self.postalPlace) }()
-      case 11: try { try decoder.decodeSingularBoolField(value: &self.allowMarketing) }()
-      case 12: try { try decoder.decodeSingularStringField(value: &self.lastName) }()
-      case 13: try { try decoder.decodeSingularInt32Field(value: &self.birthYear) }()
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.termsAndConditions) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.marketingSms) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.marketingEmail) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.marketingPush) }()
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    if self.termsAndConditions != false {
+      try visitor.visitSingularBoolField(value: self.termsAndConditions, fieldNumber: 1)
     }
-    if !self.email.isEmpty {
-      try visitor.visitSingularStringField(value: self.email, fieldNumber: 2)
+    if self.marketingSms != false {
+      try visitor.visitSingularBoolField(value: self.marketingSms, fieldNumber: 2)
     }
-    if !self.localePreference.isEmpty {
-      try visitor.visitSingularStringField(value: self.localePreference, fieldNumber: 3)
+    if self.marketingEmail != false {
+      try visitor.visitSingularBoolField(value: self.marketingEmail, fieldNumber: 3)
     }
-    if !self.phoneNumber.isEmpty {
-      try visitor.visitSingularStringField(value: self.phoneNumber, fieldNumber: 4)
-    }
-    try { if let v = self._notification {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    } }()
-    try { if let v = self._birthday {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    } }()
-    if self.gender != .invalid {
-      try visitor.visitSingularEnumField(value: self.gender, fieldNumber: 7)
-    }
-    if !self.address.isEmpty {
-      try visitor.visitSingularStringField(value: self.address, fieldNumber: 8)
-    }
-    if !self.postalCode.isEmpty {
-      try visitor.visitSingularStringField(value: self.postalCode, fieldNumber: 9)
-    }
-    if !self.postalPlace.isEmpty {
-      try visitor.visitSingularStringField(value: self.postalPlace, fieldNumber: 10)
-    }
-    if self.allowMarketing != false {
-      try visitor.visitSingularBoolField(value: self.allowMarketing, fieldNumber: 11)
-    }
-    if !self.lastName.isEmpty {
-      try visitor.visitSingularStringField(value: self.lastName, fieldNumber: 12)
-    }
-    if self.birthYear != 0 {
-      try visitor.visitSingularInt32Field(value: self.birthYear, fieldNumber: 13)
+    if self.marketingPush != false {
+      try visitor.visitSingularBoolField(value: self.marketingPush, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: User_User, rhs: User_User) -> Bool {
-    if lhs.name != rhs.name {return false}
-    if lhs.email != rhs.email {return false}
-    if lhs.localePreference != rhs.localePreference {return false}
-    if lhs.phoneNumber != rhs.phoneNumber {return false}
-    if lhs._notification != rhs._notification {return false}
-    if lhs._birthday != rhs._birthday {return false}
-    if lhs.gender != rhs.gender {return false}
-    if lhs.address != rhs.address {return false}
-    if lhs.postalCode != rhs.postalCode {return false}
-    if lhs.postalPlace != rhs.postalPlace {return false}
-    if lhs.allowMarketing != rhs.allowMarketing {return false}
-    if lhs.lastName != rhs.lastName {return false}
-    if lhs.birthYear != rhs.birthYear {return false}
+  public static func ==(lhs: User_Consents, rhs: User_Consents) -> Bool {
+    if lhs.termsAndConditions != rhs.termsAndConditions {return false}
+    if lhs.marketingSms != rhs.marketingSms {return false}
+    if lhs.marketingEmail != rhs.marketingEmail {return false}
+    if lhs.marketingPush != rhs.marketingPush {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

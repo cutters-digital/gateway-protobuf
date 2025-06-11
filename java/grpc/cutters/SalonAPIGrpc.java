@@ -77,6 +77,37 @@ public final class SalonAPIGrpc {
     return getListSalonsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<cutters.SalonApi.EchoRequest,
+      cutters.SalonApi.EchoResponse> getEchoMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Echo",
+      requestType = cutters.SalonApi.EchoRequest.class,
+      responseType = cutters.SalonApi.EchoResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cutters.SalonApi.EchoRequest,
+      cutters.SalonApi.EchoResponse> getEchoMethod() {
+    io.grpc.MethodDescriptor<cutters.SalonApi.EchoRequest, cutters.SalonApi.EchoResponse> getEchoMethod;
+    if ((getEchoMethod = SalonAPIGrpc.getEchoMethod) == null) {
+      synchronized (SalonAPIGrpc.class) {
+        if ((getEchoMethod = SalonAPIGrpc.getEchoMethod) == null) {
+          SalonAPIGrpc.getEchoMethod = getEchoMethod =
+              io.grpc.MethodDescriptor.<cutters.SalonApi.EchoRequest, cutters.SalonApi.EchoResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Echo"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cutters.SalonApi.EchoRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cutters.SalonApi.EchoResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new SalonAPIMethodDescriptorSupplier("Echo"))
+              .build();
+        }
+      }
+    }
+    return getEchoMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class SalonAPIGrpc {
         io.grpc.stub.StreamObserver<cutters.SalonApi.ListSalonsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSalonsMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void echo(cutters.SalonApi.EchoRequest request,
+        io.grpc.stub.StreamObserver<cutters.SalonApi.EchoResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEchoMethod(), responseObserver);
+    }
   }
 
   /**
@@ -182,6 +220,14 @@ public final class SalonAPIGrpc {
       io.grpc.stub.ClientCalls.asyncServerStreamingCall(
           getChannel().newCall(getListSalonsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void echo(cutters.SalonApi.EchoRequest request,
+        io.grpc.stub.StreamObserver<cutters.SalonApi.EchoResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getEchoMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -214,6 +260,13 @@ public final class SalonAPIGrpc {
       return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
           getChannel(), getListSalonsMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public cutters.SalonApi.EchoResponse echo(cutters.SalonApi.EchoRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getEchoMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -239,10 +292,19 @@ public final class SalonAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetSalonMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<cutters.SalonApi.EchoResponse> echo(
+        cutters.SalonApi.EchoRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getEchoMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_SALON = 0;
   private static final int METHODID_LIST_SALONS = 1;
+  private static final int METHODID_ECHO = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -268,6 +330,10 @@ public final class SalonAPIGrpc {
         case METHODID_LIST_SALONS:
           serviceImpl.listSalons((cutters.SalonApi.ListSalonsRequest) request,
               (io.grpc.stub.StreamObserver<cutters.SalonApi.ListSalonsResponse>) responseObserver);
+          break;
+        case METHODID_ECHO:
+          serviceImpl.echo((cutters.SalonApi.EchoRequest) request,
+              (io.grpc.stub.StreamObserver<cutters.SalonApi.EchoResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -301,6 +367,13 @@ public final class SalonAPIGrpc {
               cutters.SalonApi.ListSalonsRequest,
               cutters.SalonApi.ListSalonsResponse>(
                 service, METHODID_LIST_SALONS)))
+        .addMethod(
+          getEchoMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              cutters.SalonApi.EchoRequest,
+              cutters.SalonApi.EchoResponse>(
+                service, METHODID_ECHO)))
         .build();
   }
 
@@ -351,6 +424,7 @@ public final class SalonAPIGrpc {
               .setSchemaDescriptor(new SalonAPIFileDescriptorSupplier())
               .addMethod(getGetSalonMethod())
               .addMethod(getListSalonsMethod())
+              .addMethod(getEchoMethod())
               .build();
         }
       }

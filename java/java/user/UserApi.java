@@ -3059,6 +3059,10 @@ public final class UserApi {
         getPostalPlaceBytes();
 
     /**
+     * <pre>
+     * DEPRECATED: Use consents instead.
+     * </pre>
+     *
      * <code>bool allow_marketing = 11;</code>
      * @return The allowMarketing.
      */
@@ -3093,6 +3097,41 @@ public final class UserApi {
      * @return The birthYear.
      */
     int getBirthYear();
+
+    /**
+     * <code>.user.Consents consents = 14;</code>
+     * @return Whether the consents field is set.
+     */
+    boolean hasConsents();
+    /**
+     * <code>.user.Consents consents = 14;</code>
+     * @return The consents.
+     */
+    user.UserApi.Consents getConsents();
+    /**
+     * <code>.user.Consents consents = 14;</code>
+     */
+    user.UserApi.ConsentsOrBuilder getConsentsOrBuilder();
+
+    /**
+     * <pre>
+     * The version of the app installed by the user
+     * </pre>
+     *
+     * <code>string app_version = 15;</code>
+     * @return The appVersion.
+     */
+    java.lang.String getAppVersion();
+    /**
+     * <pre>
+     * The version of the app installed by the user
+     * </pre>
+     *
+     * <code>string app_version = 15;</code>
+     * @return The bytes for appVersion.
+     */
+    com.google.protobuf.ByteString
+        getAppVersionBytes();
   }
   /**
    * <pre>
@@ -3120,6 +3159,7 @@ public final class UserApi {
       postalCode_ = "";
       postalPlace_ = "";
       lastName_ = "";
+      appVersion_ = "";
     }
 
     @java.lang.Override
@@ -3537,6 +3577,10 @@ public final class UserApi {
     public static final int ALLOW_MARKETING_FIELD_NUMBER = 11;
     private boolean allowMarketing_ = false;
     /**
+     * <pre>
+     * DEPRECATED: Use consents instead.
+     * </pre>
+     *
      * <code>bool allow_marketing = 11;</code>
      * @return The allowMarketing.
      */
@@ -3607,6 +3651,79 @@ public final class UserApi {
       return birthYear_;
     }
 
+    public static final int CONSENTS_FIELD_NUMBER = 14;
+    private user.UserApi.Consents consents_;
+    /**
+     * <code>.user.Consents consents = 14;</code>
+     * @return Whether the consents field is set.
+     */
+    @java.lang.Override
+    public boolean hasConsents() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>.user.Consents consents = 14;</code>
+     * @return The consents.
+     */
+    @java.lang.Override
+    public user.UserApi.Consents getConsents() {
+      return consents_ == null ? user.UserApi.Consents.getDefaultInstance() : consents_;
+    }
+    /**
+     * <code>.user.Consents consents = 14;</code>
+     */
+    @java.lang.Override
+    public user.UserApi.ConsentsOrBuilder getConsentsOrBuilder() {
+      return consents_ == null ? user.UserApi.Consents.getDefaultInstance() : consents_;
+    }
+
+    public static final int APP_VERSION_FIELD_NUMBER = 15;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object appVersion_ = "";
+    /**
+     * <pre>
+     * The version of the app installed by the user
+     * </pre>
+     *
+     * <code>string app_version = 15;</code>
+     * @return The appVersion.
+     */
+    @java.lang.Override
+    public java.lang.String getAppVersion() {
+      java.lang.Object ref = appVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        appVersion_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The version of the app installed by the user
+     * </pre>
+     *
+     * <code>string app_version = 15;</code>
+     * @return The bytes for appVersion.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAppVersionBytes() {
+      java.lang.Object ref = appVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        appVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3659,6 +3776,12 @@ public final class UserApi {
       }
       if (birthYear_ != 0) {
         output.writeInt32(13, birthYear_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeMessage(14, getConsents());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, appVersion_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3713,6 +3836,13 @@ public final class UserApi {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(13, birthYear_);
       }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, getConsents());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, appVersion_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3759,6 +3889,13 @@ public final class UserApi {
           .equals(other.getLastName())) return false;
       if (getBirthYear()
           != other.getBirthYear()) return false;
+      if (hasConsents() != other.hasConsents()) return false;
+      if (hasConsents()) {
+        if (!getConsents()
+            .equals(other.getConsents())) return false;
+      }
+      if (!getAppVersion()
+          .equals(other.getAppVersion())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -3801,6 +3938,12 @@ public final class UserApi {
       hash = (53 * hash) + getLastName().hashCode();
       hash = (37 * hash) + BIRTH_YEAR_FIELD_NUMBER;
       hash = (53 * hash) + getBirthYear();
+      if (hasConsents()) {
+        hash = (37 * hash) + CONSENTS_FIELD_NUMBER;
+        hash = (53 * hash) + getConsents().hashCode();
+      }
+      hash = (37 * hash) + APP_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getAppVersion().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3937,6 +4080,7 @@ public final class UserApi {
                 .alwaysUseFieldBuilders) {
           getNotificationFieldBuilder();
           getBirthdayFieldBuilder();
+          getConsentsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -3964,6 +4108,12 @@ public final class UserApi {
         allowMarketing_ = false;
         lastName_ = "";
         birthYear_ = 0;
+        consents_ = null;
+        if (consentsBuilder_ != null) {
+          consentsBuilder_.dispose();
+          consentsBuilder_ = null;
+        }
+        appVersion_ = "";
         return this;
       }
 
@@ -4042,6 +4192,15 @@ public final class UserApi {
         }
         if (((from_bitField0_ & 0x00001000) != 0)) {
           result.birthYear_ = birthYear_;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.consents_ = consentsBuilder_ == null
+              ? consents_
+              : consentsBuilder_.build();
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.appVersion_ = appVersion_;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -4145,6 +4304,14 @@ public final class UserApi {
         if (other.getBirthYear() != 0) {
           setBirthYear(other.getBirthYear());
         }
+        if (other.hasConsents()) {
+          mergeConsents(other.getConsents());
+        }
+        if (!other.getAppVersion().isEmpty()) {
+          appVersion_ = other.appVersion_;
+          bitField0_ |= 0x00004000;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -4240,6 +4407,18 @@ public final class UserApi {
                 bitField0_ |= 0x00001000;
                 break;
               } // case 104
+              case 114: {
+                input.readMessage(
+                    getConsentsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 114
+              case 122: {
+                appVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 122
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5190,6 +5369,10 @@ public final class UserApi {
 
       private boolean allowMarketing_ ;
       /**
+       * <pre>
+       * DEPRECATED: Use consents instead.
+       * </pre>
+       *
        * <code>bool allow_marketing = 11;</code>
        * @return The allowMarketing.
        */
@@ -5198,6 +5381,10 @@ public final class UserApi {
         return allowMarketing_;
       }
       /**
+       * <pre>
+       * DEPRECATED: Use consents instead.
+       * </pre>
+       *
        * <code>bool allow_marketing = 11;</code>
        * @param value The allowMarketing to set.
        * @return This builder for chaining.
@@ -5210,6 +5397,10 @@ public final class UserApi {
         return this;
       }
       /**
+       * <pre>
+       * DEPRECATED: Use consents instead.
+       * </pre>
+       *
        * <code>bool allow_marketing = 11;</code>
        * @return This builder for chaining.
        */
@@ -5355,6 +5546,219 @@ public final class UserApi {
         onChanged();
         return this;
       }
+
+      private user.UserApi.Consents consents_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          user.UserApi.Consents, user.UserApi.Consents.Builder, user.UserApi.ConsentsOrBuilder> consentsBuilder_;
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       * @return Whether the consents field is set.
+       */
+      public boolean hasConsents() {
+        return ((bitField0_ & 0x00002000) != 0);
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       * @return The consents.
+       */
+      public user.UserApi.Consents getConsents() {
+        if (consentsBuilder_ == null) {
+          return consents_ == null ? user.UserApi.Consents.getDefaultInstance() : consents_;
+        } else {
+          return consentsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       */
+      public Builder setConsents(user.UserApi.Consents value) {
+        if (consentsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          consents_ = value;
+        } else {
+          consentsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       */
+      public Builder setConsents(
+          user.UserApi.Consents.Builder builderForValue) {
+        if (consentsBuilder_ == null) {
+          consents_ = builderForValue.build();
+        } else {
+          consentsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       */
+      public Builder mergeConsents(user.UserApi.Consents value) {
+        if (consentsBuilder_ == null) {
+          if (((bitField0_ & 0x00002000) != 0) &&
+            consents_ != null &&
+            consents_ != user.UserApi.Consents.getDefaultInstance()) {
+            getConsentsBuilder().mergeFrom(value);
+          } else {
+            consents_ = value;
+          }
+        } else {
+          consentsBuilder_.mergeFrom(value);
+        }
+        if (consents_ != null) {
+          bitField0_ |= 0x00002000;
+          onChanged();
+        }
+        return this;
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       */
+      public Builder clearConsents() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        consents_ = null;
+        if (consentsBuilder_ != null) {
+          consentsBuilder_.dispose();
+          consentsBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       */
+      public user.UserApi.Consents.Builder getConsentsBuilder() {
+        bitField0_ |= 0x00002000;
+        onChanged();
+        return getConsentsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       */
+      public user.UserApi.ConsentsOrBuilder getConsentsOrBuilder() {
+        if (consentsBuilder_ != null) {
+          return consentsBuilder_.getMessageOrBuilder();
+        } else {
+          return consents_ == null ?
+              user.UserApi.Consents.getDefaultInstance() : consents_;
+        }
+      }
+      /**
+       * <code>.user.Consents consents = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          user.UserApi.Consents, user.UserApi.Consents.Builder, user.UserApi.ConsentsOrBuilder> 
+          getConsentsFieldBuilder() {
+        if (consentsBuilder_ == null) {
+          consentsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              user.UserApi.Consents, user.UserApi.Consents.Builder, user.UserApi.ConsentsOrBuilder>(
+                  getConsents(),
+                  getParentForChildren(),
+                  isClean());
+          consents_ = null;
+        }
+        return consentsBuilder_;
+      }
+
+      private java.lang.Object appVersion_ = "";
+      /**
+       * <pre>
+       * The version of the app installed by the user
+       * </pre>
+       *
+       * <code>string app_version = 15;</code>
+       * @return The appVersion.
+       */
+      public java.lang.String getAppVersion() {
+        java.lang.Object ref = appVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          appVersion_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The version of the app installed by the user
+       * </pre>
+       *
+       * <code>string app_version = 15;</code>
+       * @return The bytes for appVersion.
+       */
+      public com.google.protobuf.ByteString
+          getAppVersionBytes() {
+        java.lang.Object ref = appVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          appVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The version of the app installed by the user
+       * </pre>
+       *
+       * <code>string app_version = 15;</code>
+       * @param value The appVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAppVersion(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        appVersion_ = value;
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The version of the app installed by the user
+       * </pre>
+       *
+       * <code>string app_version = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAppVersion() {
+        appVersion_ = getDefaultInstance().getAppVersion();
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The version of the app installed by the user
+       * </pre>
+       *
+       * <code>string app_version = 15;</code>
+       * @param value The bytes for appVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAppVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        appVersion_ = value;
+        bitField0_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5419,6 +5823,702 @@ public final class UserApi {
 
   }
 
+  public interface ConsentsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:user.Consents)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool terms_and_conditions = 1;</code>
+     * @return The termsAndConditions.
+     */
+    boolean getTermsAndConditions();
+
+    /**
+     * <code>bool marketing_sms = 2;</code>
+     * @return The marketingSms.
+     */
+    boolean getMarketingSms();
+
+    /**
+     * <code>bool marketing_email = 3;</code>
+     * @return The marketingEmail.
+     */
+    boolean getMarketingEmail();
+
+    /**
+     * <code>bool marketing_push = 4;</code>
+     * @return The marketingPush.
+     */
+    boolean getMarketingPush();
+  }
+  /**
+   * Protobuf type {@code user.Consents}
+   */
+  public static final class Consents extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:user.Consents)
+      ConsentsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Consents.newBuilder() to construct.
+    private Consents(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Consents() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Consents();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return user.UserApi.internal_static_user_Consents_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return user.UserApi.internal_static_user_Consents_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              user.UserApi.Consents.class, user.UserApi.Consents.Builder.class);
+    }
+
+    public static final int TERMS_AND_CONDITIONS_FIELD_NUMBER = 1;
+    private boolean termsAndConditions_ = false;
+    /**
+     * <code>bool terms_and_conditions = 1;</code>
+     * @return The termsAndConditions.
+     */
+    @java.lang.Override
+    public boolean getTermsAndConditions() {
+      return termsAndConditions_;
+    }
+
+    public static final int MARKETING_SMS_FIELD_NUMBER = 2;
+    private boolean marketingSms_ = false;
+    /**
+     * <code>bool marketing_sms = 2;</code>
+     * @return The marketingSms.
+     */
+    @java.lang.Override
+    public boolean getMarketingSms() {
+      return marketingSms_;
+    }
+
+    public static final int MARKETING_EMAIL_FIELD_NUMBER = 3;
+    private boolean marketingEmail_ = false;
+    /**
+     * <code>bool marketing_email = 3;</code>
+     * @return The marketingEmail.
+     */
+    @java.lang.Override
+    public boolean getMarketingEmail() {
+      return marketingEmail_;
+    }
+
+    public static final int MARKETING_PUSH_FIELD_NUMBER = 4;
+    private boolean marketingPush_ = false;
+    /**
+     * <code>bool marketing_push = 4;</code>
+     * @return The marketingPush.
+     */
+    @java.lang.Override
+    public boolean getMarketingPush() {
+      return marketingPush_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (termsAndConditions_ != false) {
+        output.writeBool(1, termsAndConditions_);
+      }
+      if (marketingSms_ != false) {
+        output.writeBool(2, marketingSms_);
+      }
+      if (marketingEmail_ != false) {
+        output.writeBool(3, marketingEmail_);
+      }
+      if (marketingPush_ != false) {
+        output.writeBool(4, marketingPush_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (termsAndConditions_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, termsAndConditions_);
+      }
+      if (marketingSms_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, marketingSms_);
+      }
+      if (marketingEmail_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, marketingEmail_);
+      }
+      if (marketingPush_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, marketingPush_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof user.UserApi.Consents)) {
+        return super.equals(obj);
+      }
+      user.UserApi.Consents other = (user.UserApi.Consents) obj;
+
+      if (getTermsAndConditions()
+          != other.getTermsAndConditions()) return false;
+      if (getMarketingSms()
+          != other.getMarketingSms()) return false;
+      if (getMarketingEmail()
+          != other.getMarketingEmail()) return false;
+      if (getMarketingPush()
+          != other.getMarketingPush()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TERMS_AND_CONDITIONS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getTermsAndConditions());
+      hash = (37 * hash) + MARKETING_SMS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getMarketingSms());
+      hash = (37 * hash) + MARKETING_EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getMarketingEmail());
+      hash = (37 * hash) + MARKETING_PUSH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getMarketingPush());
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static user.UserApi.Consents parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static user.UserApi.Consents parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static user.UserApi.Consents parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static user.UserApi.Consents parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static user.UserApi.Consents parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static user.UserApi.Consents parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static user.UserApi.Consents parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static user.UserApi.Consents parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static user.UserApi.Consents parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static user.UserApi.Consents parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static user.UserApi.Consents parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static user.UserApi.Consents parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(user.UserApi.Consents prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code user.Consents}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:user.Consents)
+        user.UserApi.ConsentsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return user.UserApi.internal_static_user_Consents_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return user.UserApi.internal_static_user_Consents_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                user.UserApi.Consents.class, user.UserApi.Consents.Builder.class);
+      }
+
+      // Construct using user.UserApi.Consents.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        termsAndConditions_ = false;
+        marketingSms_ = false;
+        marketingEmail_ = false;
+        marketingPush_ = false;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return user.UserApi.internal_static_user_Consents_descriptor;
+      }
+
+      @java.lang.Override
+      public user.UserApi.Consents getDefaultInstanceForType() {
+        return user.UserApi.Consents.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public user.UserApi.Consents build() {
+        user.UserApi.Consents result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public user.UserApi.Consents buildPartial() {
+        user.UserApi.Consents result = new user.UserApi.Consents(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(user.UserApi.Consents result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.termsAndConditions_ = termsAndConditions_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.marketingSms_ = marketingSms_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.marketingEmail_ = marketingEmail_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.marketingPush_ = marketingPush_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof user.UserApi.Consents) {
+          return mergeFrom((user.UserApi.Consents)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(user.UserApi.Consents other) {
+        if (other == user.UserApi.Consents.getDefaultInstance()) return this;
+        if (other.getTermsAndConditions() != false) {
+          setTermsAndConditions(other.getTermsAndConditions());
+        }
+        if (other.getMarketingSms() != false) {
+          setMarketingSms(other.getMarketingSms());
+        }
+        if (other.getMarketingEmail() != false) {
+          setMarketingEmail(other.getMarketingEmail());
+        }
+        if (other.getMarketingPush() != false) {
+          setMarketingPush(other.getMarketingPush());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                termsAndConditions_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                marketingSms_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                marketingEmail_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                marketingPush_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean termsAndConditions_ ;
+      /**
+       * <code>bool terms_and_conditions = 1;</code>
+       * @return The termsAndConditions.
+       */
+      @java.lang.Override
+      public boolean getTermsAndConditions() {
+        return termsAndConditions_;
+      }
+      /**
+       * <code>bool terms_and_conditions = 1;</code>
+       * @param value The termsAndConditions to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTermsAndConditions(boolean value) {
+
+        termsAndConditions_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool terms_and_conditions = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTermsAndConditions() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        termsAndConditions_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean marketingSms_ ;
+      /**
+       * <code>bool marketing_sms = 2;</code>
+       * @return The marketingSms.
+       */
+      @java.lang.Override
+      public boolean getMarketingSms() {
+        return marketingSms_;
+      }
+      /**
+       * <code>bool marketing_sms = 2;</code>
+       * @param value The marketingSms to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMarketingSms(boolean value) {
+
+        marketingSms_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool marketing_sms = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMarketingSms() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        marketingSms_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean marketingEmail_ ;
+      /**
+       * <code>bool marketing_email = 3;</code>
+       * @return The marketingEmail.
+       */
+      @java.lang.Override
+      public boolean getMarketingEmail() {
+        return marketingEmail_;
+      }
+      /**
+       * <code>bool marketing_email = 3;</code>
+       * @param value The marketingEmail to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMarketingEmail(boolean value) {
+
+        marketingEmail_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool marketing_email = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMarketingEmail() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        marketingEmail_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean marketingPush_ ;
+      /**
+       * <code>bool marketing_push = 4;</code>
+       * @return The marketingPush.
+       */
+      @java.lang.Override
+      public boolean getMarketingPush() {
+        return marketingPush_;
+      }
+      /**
+       * <code>bool marketing_push = 4;</code>
+       * @param value The marketingPush to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMarketingPush(boolean value) {
+
+        marketingPush_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool marketing_push = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMarketingPush() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        marketingPush_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:user.Consents)
+    }
+
+    // @@protoc_insertion_point(class_scope:user.Consents)
+    private static final user.UserApi.Consents DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new user.UserApi.Consents();
+    }
+
+    public static user.UserApi.Consents getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Consents>
+        PARSER = new com.google.protobuf.AbstractParser<Consents>() {
+      @java.lang.Override
+      public Consents parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Consents> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Consents> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public user.UserApi.Consents getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_user_UserRequest_descriptor;
   private static final 
@@ -5444,6 +6544,11 @@ public final class UserApi {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_user_User_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_user_Consents_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_user_Consents_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5463,7 +6568,7 @@ public final class UserApi {
       "\035UpdateUserNotificationRequest\022\"\n\004auth\030\001" +
       " \001(\0132\024.auth.Authentication\0221\n\014notificati" +
       "on\030\002 \001(\0132\033.notifications.Notification\" \n" +
-      "\036UpdateUserNotificationResponse\"\305\002\n\004User" +
+      "\036UpdateUserNotificationResponse\"\374\002\n\004User" +
       "\022\014\n\004name\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\022\031\n\021locale_" +
       "preference\030\003 \001(\t\022\024\n\014phone_number\030\004 \001(\t\0221" +
       "\n\014notification\030\005 \001(\0132\033.notifications.Not" +
@@ -5471,19 +6576,24 @@ public final class UserApi {
       "stamp\022\034\n\006gender\030\007 \001(\0162\014.user.Gender\022\017\n\007a" +
       "ddress\030\010 \001(\t\022\023\n\013postal_code\030\t \001(\t\022\024\n\014pos" +
       "tal_place\030\n \001(\t\022\027\n\017allow_marketing\030\013 \001(\010" +
-      "\022\021\n\tlast_name\030\014 \001(\t\022\022\n\nbirth_year\030\r \001(\005*" +
-      "R\n\006Gender\022\022\n\016GENDER_INVALID\020\000\022\020\n\014GENDER_" +
-      "OTHER\020\001\022\017\n\013GENDER_MALE\020\002\022\021\n\rGENDER_FEMAL" +
-      "E\020\0032\277\002\n\007UserAPI\0223\n\nCreateUser\022\021.user.Use" +
-      "rRequest\032\022.user.UserResponse\0220\n\007GetUser\022" +
-      "\021.user.UserRequest\032\022.user.UserResponse\0223" +
-      "\n\nUpdateUser\022\021.user.UserRequest\032\022.user.U" +
-      "serResponse\0223\n\nDeleteUser\022\021.user.UserReq" +
-      "uest\032\022.user.UserResponse\022c\n\026UpdateUserNo" +
-      "tification\022#.user.UpdateUserNotification" +
-      "Request\032$.user.UpdateUserNotificationRes" +
-      "ponseB;Z9github.com/cutters-digital/gate" +
-      "way-protobuf/golang/userpbb\006proto3"
+      "\022\021\n\tlast_name\030\014 \001(\t\022\022\n\nbirth_year\030\r \001(\005\022" +
+      " \n\010consents\030\016 \001(\0132\016.user.Consents\022\023\n\013app" +
+      "_version\030\017 \001(\t\"p\n\010Consents\022\034\n\024terms_and_" +
+      "conditions\030\001 \001(\010\022\025\n\rmarketing_sms\030\002 \001(\010\022" +
+      "\027\n\017marketing_email\030\003 \001(\010\022\026\n\016marketing_pu" +
+      "sh\030\004 \001(\010*R\n\006Gender\022\022\n\016GENDER_INVALID\020\000\022\020" +
+      "\n\014GENDER_OTHER\020\001\022\017\n\013GENDER_MALE\020\002\022\021\n\rGEN" +
+      "DER_FEMALE\020\0032\277\002\n\007UserAPI\0223\n\nCreateUser\022\021" +
+      ".user.UserRequest\032\022.user.UserResponse\0220\n" +
+      "\007GetUser\022\021.user.UserRequest\032\022.user.UserR" +
+      "esponse\0223\n\nUpdateUser\022\021.user.UserRequest" +
+      "\032\022.user.UserResponse\0223\n\nDeleteUser\022\021.use" +
+      "r.UserRequest\032\022.user.UserResponse\022c\n\026Upd" +
+      "ateUserNotification\022#.user.UpdateUserNot" +
+      "ificationRequest\032$.user.UpdateUserNotifi" +
+      "cationResponseB;Z9github.com/cutters-dig" +
+      "ital/gateway-protobuf/golang/userpbb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5521,7 +6631,13 @@ public final class UserApi {
     internal_static_user_User_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_user_User_descriptor,
-        new java.lang.String[] { "Name", "Email", "LocalePreference", "PhoneNumber", "Notification", "Birthday", "Gender", "Address", "PostalCode", "PostalPlace", "AllowMarketing", "LastName", "BirthYear", });
+        new java.lang.String[] { "Name", "Email", "LocalePreference", "PhoneNumber", "Notification", "Birthday", "Gender", "Address", "PostalCode", "PostalPlace", "AllowMarketing", "LastName", "BirthYear", "Consents", "AppVersion", });
+    internal_static_user_Consents_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_user_Consents_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_user_Consents_descriptor,
+        new java.lang.String[] { "TermsAndConditions", "MarketingSms", "MarketingEmail", "MarketingPush", });
     auth.Auth.getDescriptor();
     notifications.Notifications.getDescriptor();
     utils.TimestampOuterClass.getDescriptor();

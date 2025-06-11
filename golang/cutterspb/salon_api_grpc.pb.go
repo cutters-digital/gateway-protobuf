@@ -24,6 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 type SalonAPIClient interface {
 	GetSalon(ctx context.Context, in *GetSalonRequest, opts ...grpc.CallOption) (*GetSalonResponse, error)
 	ListSalons(ctx context.Context, in *ListSalonsRequest, opts ...grpc.CallOption) (SalonAPI_ListSalonsClient, error)
+	Echo(ctx context.Context, in *EchoRequest, opts ...grpc.CallOption) (*EchoResponse, error)
 }
 
 type salonAPIClient struct {
@@ -75,12 +76,22 @@ func (x *salonAPIListSalonsClient) Recv() (*ListSalonsResponse, error) {
 	return m, nil
 }
 
+func (c *salonAPIClient) Echo(ctx context.Context, in *EchoRequest, opts ...grpc.CallOption) (*EchoResponse, error) {
+	out := new(EchoResponse)
+	err := c.cc.Invoke(ctx, "/cutters.SalonAPI/Echo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SalonAPIServer is the server API for SalonAPI service.
 // All implementations must embed UnimplementedSalonAPIServer
 // for forward compatibility
 type SalonAPIServer interface {
 	GetSalon(context.Context, *GetSalonRequest) (*GetSalonResponse, error)
 	ListSalons(*ListSalonsRequest, SalonAPI_ListSalonsServer) error
+	Echo(context.Context, *EchoRequest) (*EchoResponse, error)
 	mustEmbedUnimplementedSalonAPIServer()
 }
 
@@ -93,6 +104,9 @@ func (UnimplementedSalonAPIServer) GetSalon(context.Context, *GetSalonRequest) (
 }
 func (UnimplementedSalonAPIServer) ListSalons(*ListSalonsRequest, SalonAPI_ListSalonsServer) error {
 	return status.Errorf(codes.Unimplemented, "method ListSalons not implemented")
+}
+func (UnimplementedSalonAPIServer) Echo(context.Context, *EchoRequest) (*EchoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Echo not implemented")
 }
 func (UnimplementedSalonAPIServer) mustEmbedUnimplementedSalonAPIServer() {}
 
@@ -146,6 +160,24 @@ func (x *salonAPIListSalonsServer) Send(m *ListSalonsResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
+func _SalonAPI_Echo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EchoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SalonAPIServer).Echo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cutters.SalonAPI/Echo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SalonAPIServer).Echo(ctx, req.(*EchoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // SalonAPI_ServiceDesc is the grpc.ServiceDesc for SalonAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -156,6 +188,10 @@ var SalonAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetSalon",
 			Handler:    _SalonAPI_GetSalon_Handler,
+		},
+		{
+			MethodName: "Echo",
+			Handler:    _SalonAPI_Echo_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

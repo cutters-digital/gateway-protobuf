@@ -57,11 +57,13 @@ message User {
   string address = 8;
   string postal_code = 9;
   string postal_place = 10;
-  bool allow_marketing = 11;
+  bool allow_marketing = 11; // DEPRECATED: Use consents instead.
   // Last name is optional.
   string last_name = 12;
   // Should be exclusive with birthday, with the full date taking priority: if birthdate set, birth_year should be ignored.
   int32 birth_year = 13;
+  Consents consents = 14;
+  string app_version = 15; // The version of the app installed by the user
 }
 
 // Gender contains all genders, while allowing "OTHER" as a catch-all for those that don't fit into a non-binary gender-world.
@@ -70,4 +72,11 @@ enum Gender {
   GENDER_OTHER = 1;
   GENDER_MALE = 2;
   GENDER_FEMALE = 3;
+}
+
+message Consents {
+  bool terms_and_conditions = 1;
+  bool marketing_sms = 2;
+  bool marketing_email = 3;
+  bool marketing_push = 4;
 }

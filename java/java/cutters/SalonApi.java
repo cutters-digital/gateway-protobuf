@@ -141,6 +141,1183 @@ public final class SalonApi {
     // @@protoc_insertion_point(enum_scope:cutters.Currency)
   }
 
+  public interface EchoRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cutters.EchoRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string message = 1;</code>
+     * @return The message.
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * Protobuf type {@code cutters.EchoRequest}
+   */
+  public static final class EchoRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cutters.EchoRequest)
+      EchoRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EchoRequest.newBuilder() to construct.
+    private EchoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EchoRequest() {
+      message_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EchoRequest();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cutters.SalonApi.internal_static_cutters_EchoRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cutters.SalonApi.internal_static_cutters_EchoRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cutters.SalonApi.EchoRequest.class, cutters.SalonApi.EchoRequest.Builder.class);
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object message_ = "";
+    /**
+     * <code>string message = 1;</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cutters.SalonApi.EchoRequest)) {
+        return super.equals(obj);
+      }
+      cutters.SalonApi.EchoRequest other = (cutters.SalonApi.EchoRequest) obj;
+
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cutters.SalonApi.EchoRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static cutters.SalonApi.EchoRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cutters.SalonApi.EchoRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cutters.SalonApi.EchoRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cutters.EchoRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cutters.EchoRequest)
+        cutters.SalonApi.EchoRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cutters.SalonApi.internal_static_cutters_EchoRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cutters.SalonApi.internal_static_cutters_EchoRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cutters.SalonApi.EchoRequest.class, cutters.SalonApi.EchoRequest.Builder.class);
+      }
+
+      // Construct using cutters.SalonApi.EchoRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        message_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cutters.SalonApi.internal_static_cutters_EchoRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public cutters.SalonApi.EchoRequest getDefaultInstanceForType() {
+        return cutters.SalonApi.EchoRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cutters.SalonApi.EchoRequest build() {
+        cutters.SalonApi.EchoRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cutters.SalonApi.EchoRequest buildPartial() {
+        cutters.SalonApi.EchoRequest result = new cutters.SalonApi.EchoRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(cutters.SalonApi.EchoRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.message_ = message_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cutters.SalonApi.EchoRequest) {
+          return mergeFrom((cutters.SalonApi.EchoRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cutters.SalonApi.EchoRequest other) {
+        if (other == cutters.SalonApi.EchoRequest.getDefaultInstance()) return this;
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                message_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 1;</code>
+       * @return The message.
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        message_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        message_ = getDefaultInstance().getMessage();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        message_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cutters.EchoRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:cutters.EchoRequest)
+    private static final cutters.SalonApi.EchoRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cutters.SalonApi.EchoRequest();
+    }
+
+    public static cutters.SalonApi.EchoRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EchoRequest>
+        PARSER = new com.google.protobuf.AbstractParser<EchoRequest>() {
+      @java.lang.Override
+      public EchoRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<EchoRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EchoRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cutters.SalonApi.EchoRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface EchoResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cutters.EchoResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string message = 1;</code>
+     * @return The message.
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+
+    /**
+     * <code>int64 timestamp = 2;</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+  }
+  /**
+   * Protobuf type {@code cutters.EchoResponse}
+   */
+  public static final class EchoResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cutters.EchoResponse)
+      EchoResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EchoResponse.newBuilder() to construct.
+    private EchoResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EchoResponse() {
+      message_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EchoResponse();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cutters.SalonApi.internal_static_cutters_EchoResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cutters.SalonApi.internal_static_cutters_EchoResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cutters.SalonApi.EchoResponse.class, cutters.SalonApi.EchoResponse.Builder.class);
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object message_ = "";
+    /**
+     * <code>string message = 1;</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 1;</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_ = 0L;
+    /**
+     * <code>int64 timestamp = 2;</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
+      }
+      if (timestamp_ != 0L) {
+        output.writeInt64(2, timestamp_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
+      }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, timestamp_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cutters.SalonApi.EchoResponse)) {
+        return super.equals(obj);
+      }
+      cutters.SalonApi.EchoResponse other = (cutters.SalonApi.EchoResponse) obj;
+
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+      if (getTimestamp()
+          != other.getTimestamp()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static cutters.SalonApi.EchoResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static cutters.SalonApi.EchoResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cutters.SalonApi.EchoResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cutters.SalonApi.EchoResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cutters.EchoResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cutters.EchoResponse)
+        cutters.SalonApi.EchoResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cutters.SalonApi.internal_static_cutters_EchoResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cutters.SalonApi.internal_static_cutters_EchoResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cutters.SalonApi.EchoResponse.class, cutters.SalonApi.EchoResponse.Builder.class);
+      }
+
+      // Construct using cutters.SalonApi.EchoResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        message_ = "";
+        timestamp_ = 0L;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cutters.SalonApi.internal_static_cutters_EchoResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public cutters.SalonApi.EchoResponse getDefaultInstanceForType() {
+        return cutters.SalonApi.EchoResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cutters.SalonApi.EchoResponse build() {
+        cutters.SalonApi.EchoResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cutters.SalonApi.EchoResponse buildPartial() {
+        cutters.SalonApi.EchoResponse result = new cutters.SalonApi.EchoResponse(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(cutters.SalonApi.EchoResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.message_ = message_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.timestamp_ = timestamp_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cutters.SalonApi.EchoResponse) {
+          return mergeFrom((cutters.SalonApi.EchoResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cutters.SalonApi.EchoResponse other) {
+        if (other == cutters.SalonApi.EchoResponse.getDefaultInstance()) return this;
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                message_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                timestamp_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 1;</code>
+       * @return The message.
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        message_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        message_ = getDefaultInstance().getMessage();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 1;</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        message_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>int64 timestamp = 2;</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>int64 timestamp = 2;</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+
+        timestamp_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 timestamp = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cutters.EchoResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:cutters.EchoResponse)
+    private static final cutters.SalonApi.EchoResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cutters.SalonApi.EchoResponse();
+    }
+
+    public static cutters.SalonApi.EchoResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EchoResponse>
+        PARSER = new com.google.protobuf.AbstractParser<EchoResponse>() {
+      @java.lang.Override
+      public EchoResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<EchoResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EchoResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cutters.SalonApi.EchoResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface GetSalonRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:cutters.GetSalonRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -15778,6 +16955,16 @@ public final class SalonApi {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cutters_EchoRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cutters_EchoRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cutters_EchoResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cutters_EchoResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_cutters_GetSalonRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -15879,54 +17066,58 @@ public final class SalonApi {
       "\n\035proto/cutters/salon_api.proto\022\007cutters" +
       "\032!proto/cutters/cutters_error.proto\032\033goo" +
       "gle/protobuf/empty.proto\032\037google/protobu" +
-      "f/timestamp.proto\"\035\n\017GetSalonRequest\022\n\n\002" +
-      "id\030\001 \001(\005\"P\n\020GetSalonResponse\022\035\n\005error\030\001 " +
-      "\001(\0132\016.cutters.Error\022\035\n\005salon\030\002 \001(\0132\016.cut" +
-      "ters.Salon\":\n\021ListSalonsRequest\022%\n\005empty" +
-      "\030\001 \001(\0132\026.google.protobuf.Empty\"R\n\022ListSa" +
-      "lonsResponse\022\035\n\005error\030\001 \001(\0132\016.cutters.Er" +
-      "ror\022\035\n\005salon\030\002 \001(\0132\016.cutters.Salon\"\337\001\n\005S" +
-      "alon\022#\n\010identity\030\001 \001(\0132\021.cutters.Identit" +
-      "y\022#\n\010locality\030\002 \001(\0132\021.cutters.Locality\022\033" +
-      "\n\004shop\030\003 \001(\0132\r.cutters.Shop\022#\n\010schedule\030" +
-      "\004 \001(\0132\021.cutters.Schedule\022+\n\014hairdressers" +
-      "\030\005 \001(\0132\025.cutters.Hairdressers\022\035\n\005queue\030\006" +
-      " \001(\0132\016.cutters.Queue\"$\n\010Identity\022\n\n\002id\030\001" +
-      " \001(\005\022\014\n\004name\030\002 \001(\t\"\220\001\n\010Locality\022\017\n\007count" +
-      "ry\030\001 \001(\t\022\016\n\006region\030\002 \001(\t\022\014\n\004city\030\003 \001(\t\022\017" +
-      "\n\007address\030\004 \001(\t\022\031\n\021relative_location\030\005 \001" +
-      "(\t\022)\n\013coordinates\030\006 \001(\0132\024.cutters.Coordi" +
-      "nates\"2\n\013Coordinates\022\020\n\010latitude\030\001 \001(\t\022\021" +
-      "\n\tlongitude\030\002 \001(\t\"\201\001\n\004Shop\022\014\n\004open\030\001 \001(\010" +
-      "\022\020\n\010bookable\030\002 \001(\010\0224\n\021payment_providers\030" +
-      "\003 \001(\0132\031.cutters.PaymentProviders\022#\n\010curr" +
-      "ency\030\004 \001(\0162\021.cutters.Currency\"B\n\020Payment" +
-      "Providers\022\017\n\007voucher\030\001 \001(\010\022\016\n\006stripe\030\002 \001" +
-      "(\010\022\r\n\005vipps\030\003 \001(\010\"U\n\010Schedule\022!\n\007regular" +
-      "\030\001 \001(\0132\020.cutters.Regular\022&\n\nexceptions\030\002" +
-      " \003(\0132\022.cutters.Exception\"\306\001\n\007Regular\022\031\n\003" +
-      "mon\030\001 \001(\0132\014.cutters.Day\022\031\n\003tue\030\002 \001(\0132\014.c" +
-      "utters.Day\022\031\n\003wed\030\003 \001(\0132\014.cutters.Day\022\031\n" +
-      "\003thu\030\004 \001(\0132\014.cutters.Day\022\031\n\003fri\030\005 \001(\0132\014." +
-      "cutters.Day\022\031\n\003sat\030\006 \001(\0132\014.cutters.Day\022\031" +
-      "\n\003sun\030\007 \001(\0132\014.cutters.Day\"Q\n\003Day\022\014\n\004open" +
-      "\030\001 \001(\010\022\036\n\004from\030\002 \001(\0132\020.cutters.Instant\022\034" +
-      "\n\002to\030\003 \001(\0132\020.cutters.Instant\")\n\007Instant\022" +
-      "\r\n\005hours\030\001 \001(\005\022\017\n\007minutes\030\002 \001(\005\"U\n\tExcep" +
-      "tion\022-\n\tdate_time\030\001 \001(\0132\032.google.protobu" +
-      "f.Timestamp\022\031\n\003day\030\002 \001(\0132\014.cutters.Day\"J" +
-      "\n\014Hairdressers\022\'\n\tavailable\030\001 \003(\0132\024.cutt" +
-      "ers.Hairdresser\022\021\n\tanonymous\030\002 \001(\005\"-\n\013Ha" +
-      "irdresser\022\014\n\004name\030\001 \001(\t\022\020\n\010initials\030\002 \001(" +
-      "\t\".\n\005Queue\022\024\n\014waiting_time\030\001 \001(\005\022\017\n\007wait" +
-      "ing\030\002 \001(\005*V\n\010Currency\022\024\n\020CURRENCY_INVALI" +
-      "D\020\000\022\020\n\014CURRENCY_NOK\020\001\022\020\n\014CURRENCY_SEK\020\002\022" +
-      "\020\n\014CURRENCY_EUR\020\0032\224\001\n\010SalonAPI\022?\n\010GetSal" +
-      "on\022\030.cutters.GetSalonRequest\032\031.cutters.G" +
-      "etSalonResponse\022G\n\nListSalons\022\032.cutters." +
-      "ListSalonsRequest\032\033.cutters.ListSalonsRe" +
-      "sponse0\001B>Z<github.com/cutters-digital/g" +
-      "ateway-protobuf/golang/cutterspbb\006proto3"
+      "f/timestamp.proto\"\036\n\013EchoRequest\022\017\n\007mess" +
+      "age\030\001 \001(\t\"2\n\014EchoResponse\022\017\n\007message\030\001 \001" +
+      "(\t\022\021\n\ttimestamp\030\002 \001(\003\"\035\n\017GetSalonRequest" +
+      "\022\n\n\002id\030\001 \001(\005\"P\n\020GetSalonResponse\022\035\n\005erro" +
+      "r\030\001 \001(\0132\016.cutters.Error\022\035\n\005salon\030\002 \001(\0132\016" +
+      ".cutters.Salon\":\n\021ListSalonsRequest\022%\n\005e" +
+      "mpty\030\001 \001(\0132\026.google.protobuf.Empty\"R\n\022Li" +
+      "stSalonsResponse\022\035\n\005error\030\001 \001(\0132\016.cutter" +
+      "s.Error\022\035\n\005salon\030\002 \001(\0132\016.cutters.Salon\"\337" +
+      "\001\n\005Salon\022#\n\010identity\030\001 \001(\0132\021.cutters.Ide" +
+      "ntity\022#\n\010locality\030\002 \001(\0132\021.cutters.Locali" +
+      "ty\022\033\n\004shop\030\003 \001(\0132\r.cutters.Shop\022#\n\010sched" +
+      "ule\030\004 \001(\0132\021.cutters.Schedule\022+\n\014hairdres" +
+      "sers\030\005 \001(\0132\025.cutters.Hairdressers\022\035\n\005que" +
+      "ue\030\006 \001(\0132\016.cutters.Queue\"$\n\010Identity\022\n\n\002" +
+      "id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"\220\001\n\010Locality\022\017\n\007c" +
+      "ountry\030\001 \001(\t\022\016\n\006region\030\002 \001(\t\022\014\n\004city\030\003 \001" +
+      "(\t\022\017\n\007address\030\004 \001(\t\022\031\n\021relative_location" +
+      "\030\005 \001(\t\022)\n\013coordinates\030\006 \001(\0132\024.cutters.Co" +
+      "ordinates\"2\n\013Coordinates\022\020\n\010latitude\030\001 \001" +
+      "(\t\022\021\n\tlongitude\030\002 \001(\t\"\201\001\n\004Shop\022\014\n\004open\030\001" +
+      " \001(\010\022\020\n\010bookable\030\002 \001(\010\0224\n\021payment_provid" +
+      "ers\030\003 \001(\0132\031.cutters.PaymentProviders\022#\n\010" +
+      "currency\030\004 \001(\0162\021.cutters.Currency\"B\n\020Pay" +
+      "mentProviders\022\017\n\007voucher\030\001 \001(\010\022\016\n\006stripe" +
+      "\030\002 \001(\010\022\r\n\005vipps\030\003 \001(\010\"U\n\010Schedule\022!\n\007reg" +
+      "ular\030\001 \001(\0132\020.cutters.Regular\022&\n\nexceptio" +
+      "ns\030\002 \003(\0132\022.cutters.Exception\"\306\001\n\007Regular" +
+      "\022\031\n\003mon\030\001 \001(\0132\014.cutters.Day\022\031\n\003tue\030\002 \001(\013" +
+      "2\014.cutters.Day\022\031\n\003wed\030\003 \001(\0132\014.cutters.Da" +
+      "y\022\031\n\003thu\030\004 \001(\0132\014.cutters.Day\022\031\n\003fri\030\005 \001(" +
+      "\0132\014.cutters.Day\022\031\n\003sat\030\006 \001(\0132\014.cutters.D" +
+      "ay\022\031\n\003sun\030\007 \001(\0132\014.cutters.Day\"Q\n\003Day\022\014\n\004" +
+      "open\030\001 \001(\010\022\036\n\004from\030\002 \001(\0132\020.cutters.Insta" +
+      "nt\022\034\n\002to\030\003 \001(\0132\020.cutters.Instant\")\n\007Inst" +
+      "ant\022\r\n\005hours\030\001 \001(\005\022\017\n\007minutes\030\002 \001(\005\"U\n\tE" +
+      "xception\022-\n\tdate_time\030\001 \001(\0132\032.google.pro" +
+      "tobuf.Timestamp\022\031\n\003day\030\002 \001(\0132\014.cutters.D" +
+      "ay\"J\n\014Hairdressers\022\'\n\tavailable\030\001 \003(\0132\024." +
+      "cutters.Hairdresser\022\021\n\tanonymous\030\002 \001(\005\"-" +
+      "\n\013Hairdresser\022\014\n\004name\030\001 \001(\t\022\020\n\010initials\030" +
+      "\002 \001(\t\".\n\005Queue\022\024\n\014waiting_time\030\001 \001(\005\022\017\n\007" +
+      "waiting\030\002 \001(\005*V\n\010Currency\022\024\n\020CURRENCY_IN" +
+      "VALID\020\000\022\020\n\014CURRENCY_NOK\020\001\022\020\n\014CURRENCY_SE" +
+      "K\020\002\022\020\n\014CURRENCY_EUR\020\0032\313\001\n\010SalonAPI\022?\n\010Ge" +
+      "tSalon\022\030.cutters.GetSalonRequest\032\031.cutte" +
+      "rs.GetSalonResponse\022G\n\nListSalons\022\032.cutt" +
+      "ers.ListSalonsRequest\032\033.cutters.ListSalo" +
+      "nsResponse0\001\0225\n\004Echo\022\024.cutters.EchoReque" +
+      "st\032\025.cutters.EchoResponse\"\000B>Z<github.co" +
+      "m/cutters-digital/gateway-protobuf/golan" +
+      "g/cutterspbb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -15935,110 +17126,122 @@ public final class SalonApi {
           com.google.protobuf.EmptyProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
         });
-    internal_static_cutters_GetSalonRequest_descriptor =
+    internal_static_cutters_EchoRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_cutters_EchoRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cutters_EchoRequest_descriptor,
+        new java.lang.String[] { "Message", });
+    internal_static_cutters_EchoResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_cutters_EchoResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cutters_EchoResponse_descriptor,
+        new java.lang.String[] { "Message", "Timestamp", });
+    internal_static_cutters_GetSalonRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_cutters_GetSalonRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_GetSalonRequest_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_cutters_GetSalonResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_cutters_GetSalonResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_GetSalonResponse_descriptor,
         new java.lang.String[] { "Error", "Salon", });
     internal_static_cutters_ListSalonsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_cutters_ListSalonsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_ListSalonsRequest_descriptor,
         new java.lang.String[] { "Empty", });
     internal_static_cutters_ListSalonsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_cutters_ListSalonsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_ListSalonsResponse_descriptor,
         new java.lang.String[] { "Error", "Salon", });
     internal_static_cutters_Salon_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_cutters_Salon_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Salon_descriptor,
         new java.lang.String[] { "Identity", "Locality", "Shop", "Schedule", "Hairdressers", "Queue", });
     internal_static_cutters_Identity_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_cutters_Identity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Identity_descriptor,
         new java.lang.String[] { "Id", "Name", });
     internal_static_cutters_Locality_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_cutters_Locality_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Locality_descriptor,
         new java.lang.String[] { "Country", "Region", "City", "Address", "RelativeLocation", "Coordinates", });
     internal_static_cutters_Coordinates_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_cutters_Coordinates_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Coordinates_descriptor,
         new java.lang.String[] { "Latitude", "Longitude", });
     internal_static_cutters_Shop_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_cutters_Shop_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Shop_descriptor,
         new java.lang.String[] { "Open", "Bookable", "PaymentProviders", "Currency", });
     internal_static_cutters_PaymentProviders_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_cutters_PaymentProviders_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_PaymentProviders_descriptor,
         new java.lang.String[] { "Voucher", "Stripe", "Vipps", });
     internal_static_cutters_Schedule_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_cutters_Schedule_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Schedule_descriptor,
         new java.lang.String[] { "Regular", "Exceptions", });
     internal_static_cutters_Regular_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_cutters_Regular_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Regular_descriptor,
         new java.lang.String[] { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", });
     internal_static_cutters_Day_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_cutters_Day_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Day_descriptor,
         new java.lang.String[] { "Open", "From", "To", });
     internal_static_cutters_Instant_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_cutters_Instant_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Instant_descriptor,
         new java.lang.String[] { "Hours", "Minutes", });
     internal_static_cutters_Exception_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_cutters_Exception_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Exception_descriptor,
         new java.lang.String[] { "DateTime", "Day", });
     internal_static_cutters_Hairdressers_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_cutters_Hairdressers_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Hairdressers_descriptor,
         new java.lang.String[] { "Available", "Anonymous", });
     internal_static_cutters_Hairdresser_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_cutters_Hairdresser_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Hairdresser_descriptor,
         new java.lang.String[] { "Name", "Initials", });
     internal_static_cutters_Queue_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_cutters_Queue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cutters_Queue_descriptor,
